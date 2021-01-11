@@ -31,8 +31,23 @@ export default class Line extends TfLAPI {
         return this.sendRequest(`/Line/${line}/StopPoints`, {}, 'GET');
     }
 
-    /** Gets lines that serve the given modes. */
+    /** Gets all lines that serve the given modes. */
     getAllLinesFromMode(modes: Array<string | number>) {
         return this.sendRequest(`/Line/Mode/${this.arrayToCSV(modes)}`, {}, 'GET');
+    }
+
+    /** Gets the timetable for a specified station on the give line with specified destination */
+    getTimetableFromTo(line: string, from: string, to: string) {
+        return this.sendRequest(`/Line/${line}/Timetable/${from}/to/${to}`, {}, 'GET');
+    }
+
+    /** Gets the inbound timetable for a specified station on the give line */
+    getTimetableFromStationIn(line: string, NaPTANID: string) {
+        return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, { direction: 'inbound' }, 'GET');
+    }
+
+    /** Gets the outbound timetable for a specified station on the give line */
+    getTimetableFromStationOut(line: string, NaPTANID: string) {
+        return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, {}, 'GET');
     }
 }
