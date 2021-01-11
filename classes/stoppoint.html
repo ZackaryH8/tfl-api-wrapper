@@ -98,8 +98,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#getdisruptionsbymode" class="tsd-kind-icon">get<wbr>Disruptions<wbr>ByMode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#getdisruptionsbynaptan" class="tsd-kind-icon">get<wbr>Disruptions<wbr>ByNaPTAN</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#getreachablestationsbynaptan" class="tsd-kind-icon">get<wbr>Reachable<wbr>Stations<wbr>ByNaPTAN</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#liststationarrivals" class="tsd-kind-icon">list<wbr>Station<wbr>Arrivals</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#searchstoppoint" class="tsd-kind-icon">search<wbr>Stop<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#search" class="tsd-kind-icon">search</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,7 +120,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/bbe43ec/lib/stopPoint.ts#L4">stopPoint.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/stopPoint.ts#L4">stopPoint.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -139,13 +142,124 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/bbe43ec/lib/tfl.ts#L6">tfl.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/tfl.ts#L6">tfl.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getdisruptionsbymode" class="tsd-anchor"></a>
+					<h3>get<wbr>Disruptions<wbr>ByMode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Disruptions<wbr>ByMode<span class="tsd-signature-symbol">(</span>modes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/stopPoint.ts#L47">stopPoint.ts:47</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a distinct list of disrupted stop points for the given modes</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>modes: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of modes e.g. [&#39;tube&#39;, &#39;dlr&#39;]</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getdisruptionsbynaptan" class="tsd-anchor"></a>
+					<h3>get<wbr>Disruptions<wbr>ByNaPTAN</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Disruptions<wbr>ByNaPTAN<span class="tsd-signature-symbol">(</span>NaPTAN<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, getFamily<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, flattenResponse<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/stopPoint.ts#L32">stopPoint.ts:32</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>NaPTAN: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>getFamily: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specify true to return disruptions for entire family, or false to return disruptions for just this stop point. Defaults to false.</p>
+									</div>
+								</li>
+								<li>
+									<h5>flattenResponse: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getreachablestationsbynaptan" class="tsd-anchor"></a>
+					<h3>get<wbr>Reachable<wbr>Stations<wbr>ByNaPTAN</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Reachable<wbr>Stations<wbr>ByNaPTAN<span class="tsd-signature-symbol">(</span>NaPTAN<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, lineID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, serviceType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/stopPoint.ts#L57">stopPoint.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets Stop points that are reachable from a station/line combination</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>NaPTAN: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>lineID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Line id of the line to filter by (e.g. victoria)</p>
+									</div>
+								</li>
+								<li>
+									<h5>serviceType: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Supported values: Regular, Night. Defaulted to &#39;Regular&#39; if not specified</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="liststationarrivals" class="tsd-anchor"></a>
 					<h3>list<wbr>Station<wbr>Arrivals</h3>
@@ -156,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/bbe43ec/lib/stopPoint.ts#L14">stopPoint.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/stopPoint.ts#L22">stopPoint.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -168,6 +282,8 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -175,25 +291,36 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="searchstoppoint" class="tsd-anchor"></a>
-					<h3>search<wbr>Stop<wbr>Point</h3>
+					<a name="search" class="tsd-anchor"></a>
+					<h3>search</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">search<wbr>Stop<wbr>Point<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, modes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, modes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/bbe43ec/lib/stopPoint.ts#L9">stopPoint.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/1329da8/lib/stopPoint.ts#L14">stopPoint.ts:14</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Search StopPoints by their common name. Will not return a valid NaPTAN for HUB</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of station</p>
+									</div>
 								</li>
 								<li>
 									<h5>modes: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Eg. tfl, dlr</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -230,10 +357,19 @@
 								<a href="stoppoint.html#config" class="tsd-kind-icon">config</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="stoppoint.html#getdisruptionsbymode" class="tsd-kind-icon">get<wbr>Disruptions<wbr>ByMode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="stoppoint.html#getdisruptionsbynaptan" class="tsd-kind-icon">get<wbr>Disruptions<wbr>ByNaPTAN</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="stoppoint.html#getreachablestationsbynaptan" class="tsd-kind-icon">get<wbr>Reachable<wbr>Stations<wbr>ByNaPTAN</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="stoppoint.html#liststationarrivals" class="tsd-kind-icon">list<wbr>Station<wbr>Arrivals</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stoppoint.html#searchstoppoint" class="tsd-kind-icon">search<wbr>Stop<wbr>Point</a>
+								<a href="stoppoint.html#search" class="tsd-kind-icon">search</a>
 							</li>
 						</ul>
 					</li>
