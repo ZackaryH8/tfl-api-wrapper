@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StopPoint | TfL API Wrapper</title>
+	<title>AirQuality | TfL API Wrapper</title>
 	<meta name="description" content="Documentation for TfL API Wrapper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="stoppoint.html">StopPoint</a>
+					<a href="airquality.html">AirQuality</a>
 				</li>
 			</ul>
-			<h1>Class StopPoint</h1>
+			<h1>Class AirQuality</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<span class="tsd-signature-type">TfLAPI</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">StopPoint</span>
+								<span class="target">AirQuality</span>
 							</li>
 						</ul>
 					</li>
@@ -86,23 +86,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="stoppoint.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="airquality.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="stoppoint.html#config" class="tsd-kind-icon">config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="airquality.html#config" class="tsd-kind-icon">config</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#arraytocsv" class="tsd-kind-icon">array<wbr>ToCSV</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#liststationarrivals" class="tsd-kind-icon">list<wbr>Station<wbr>Arrivals</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#objecttoquery" class="tsd-kind-icon">object<wbr>ToQuery</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#searchstoppoint" class="tsd-kind-icon">search<wbr>Stop<wbr>Point</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="stoppoint.html#sendrequest" class="tsd-kind-icon">send<wbr>Request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="airquality.html#arraytocsv" class="tsd-kind-icon">array<wbr>ToCSV</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="airquality.html#getairquality" class="tsd-kind-icon">get<wbr>Air<wbr>Quality</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="airquality.html#objecttoquery" class="tsd-kind-icon">object<wbr>ToQuery</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="airquality.html#sendrequest" class="tsd-kind-icon">send<wbr>Request</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,13 +113,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Stop<wbr>Point<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">config</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="stoppoint.html" class="tsd-signature-type">StopPoint</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Air<wbr>Quality<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">config</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="airquality.html" class="tsd-signature-type">AirQuality</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/2d39dd1/lib/stopPoint.ts#L4">stopPoint.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/2d39dd1/lib/airQuality.ts#L4">airQuality.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,7 +128,7 @@
 									<h5>config: <span class="tsd-signature-type">config</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="stoppoint.html" class="tsd-signature-type">StopPoint</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="airquality.html" class="tsd-signature-type">AirQuality</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -173,29 +172,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="liststationarrivals" class="tsd-anchor"></a>
-					<h3>list<wbr>Station<wbr>Arrivals</h3>
+					<a name="getairquality" class="tsd-anchor"></a>
+					<h3>get<wbr>Air<wbr>Quality</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<wbr>Station<wbr>Arrivals<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Air<wbr>Quality<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/2d39dd1/lib/stopPoint.ts#L14">stopPoint.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/2d39dd1/lib/airQuality.ts#L10">airQuality.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get all service arrivals and departures</p>
+									<p>Get all current and future air quality forecast</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -220,32 +213,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="searchstoppoint" class="tsd-anchor"></a>
-					<h3>search<wbr>Stop<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">search<wbr>Stop<wbr>Point<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, modes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/2d39dd1/lib/stopPoint.ts#L9">stopPoint.ts:9</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>modes: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -290,42 +257,39 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="airquality.html" class="tsd-kind-icon">Air<wbr>Quality</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="line.html" class="tsd-kind-icon">Line</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="stoppoint.html" class="tsd-kind-icon">Stop<wbr>Point</a>
+						<a href="airquality.html" class="tsd-kind-icon">Air<wbr>Quality</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="stoppoint.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="airquality.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="stoppoint.html#config" class="tsd-kind-icon">config</a>
+								<a href="airquality.html#config" class="tsd-kind-icon">config</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stoppoint.html#arraytocsv" class="tsd-kind-icon">array<wbr>ToCSV</a>
+								<a href="airquality.html#arraytocsv" class="tsd-kind-icon">array<wbr>ToCSV</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stoppoint.html#liststationarrivals" class="tsd-kind-icon">list<wbr>Station<wbr>Arrivals</a>
+								<a href="airquality.html#getairquality" class="tsd-kind-icon">get<wbr>Air<wbr>Quality</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stoppoint.html#objecttoquery" class="tsd-kind-icon">object<wbr>ToQuery</a>
+								<a href="airquality.html#objecttoquery" class="tsd-kind-icon">object<wbr>ToQuery</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stoppoint.html#searchstoppoint" class="tsd-kind-icon">search<wbr>Stop<wbr>Point</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="stoppoint.html#sendrequest" class="tsd-kind-icon">send<wbr>Request</a>
+								<a href="airquality.html#sendrequest" class="tsd-kind-icon">send<wbr>Request</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="line.html" class="tsd-kind-icon">Line</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="stoppoint.html" class="tsd-kind-icon">Stop<wbr>Point</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
