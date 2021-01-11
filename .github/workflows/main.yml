@@ -1,0 +1,36 @@
+name: CI
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+    workflow_dispatch:
+
+jobs:
+    build-docs:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Install
+              run: npm i
+            - name: Build Documentation
+              run: npm run build-docs
+            - name: Commit files
+              run: |
+                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+                  git commit -m "Updated Documentation" -a
+            - name: GitHub Push
+              uses: ad-m/github-push-action@v0.6.0
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: ${{ github.ref }}
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs
+                  cname: tfldoc.dparture.cc
