@@ -1,8 +1,9 @@
 import * as interfaces from './interfaces';
 import fetch from 'node-fetch';
+import * as qs from 'querystring';
 
 export default class TfLAPI {
-    public config: interfaces.config;
+    public config: interfaces.config | any;
     private readonly host: string = 'api.tfl.gov.uk';
     private readonly port: number = 443;
 
@@ -10,7 +11,8 @@ export default class TfLAPI {
         this.config = config;
     }
 
-    async sendRequest(uri: string, params: object = {}, method: string) {
+    async sendRequest(uri: string, params: any, method: string) {
+        let FullURL = `https://${this.host}:${this.port}${uri}?${qs.stringify(this.config)}`;
         const options = {
             method,
             headers: {
@@ -18,8 +20,11 @@ export default class TfLAPI {
                 'cache-control': 'no-cache',
             },
         };
+        if (params) {
+            FullURL = `${FullURL}&${qs.stringify(params)}`;
+        }
 
-        const fetchReq = await fetch(`https://${this.host}:${this.port}/${uri}`, options);
+        const fetchReq = await fetch(FullURL, options);
         return await fetchReq.json();
     }
 
