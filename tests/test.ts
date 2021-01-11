@@ -2,13 +2,13 @@ import Line from '../lib/line';
 import StopPoint from '../lib/stopPoint';
 
 const line = new Line({
-    apiKey: '',
-    appID: 'd',
+    app_key: '',
+    app_id: 'd',
 });
 
 const stopPoint = new StopPoint({
-    apiKey: '',
-    appID: 'd',
+    app_key: '',
+    app_id: 'd',
 });
 
 stopPoint.listStationArrivals('940GZZLUHSC').then((res: any) => {
