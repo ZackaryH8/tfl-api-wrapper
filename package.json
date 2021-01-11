@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "build-docs": "typedoc --options",
-    "watch": "nodemon dist/lib/index.js"
+    "watch": "nodemon dist/index.js"
   },
   "keywords": [
     "tfl, api, wrapper, typescript"
