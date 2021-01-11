@@ -14,8 +14,8 @@ A Node JS wrapper for the Transport for London API and made with TypeScript
 import { Line } from 'tfl-api-wrapper';
 
 const config = {
-    apiKey: 'API_KEY_HERE',
-    appID: '',
+    app_id: '',
+    app_key: 'API KEY HERE',
 };
 const line = new Line(config)
 ```
@@ -26,8 +26,8 @@ const line = new Line(config)
 import { StopPoint } from 'tfl-api-wrapper';
 
 const config = {
-    apiKey: 'API_KEY_HERE',
-    appID: '',
+    app_id: '',
+    app_key: 'API KEY HERE',
 };
 const line = new StopPoint(config)
 ```

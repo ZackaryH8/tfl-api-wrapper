@@ -1,4 +1,4 @@
 export interface config {
-    apiKey: string;
-    appID: string;
+    app_id: string;
+    app_key: string;
 }
