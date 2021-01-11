@@ -4,6 +4,8 @@
 </p>
 A Node JS wrapper for the Transport for London API and made with TypeScript
 
+`npm install tfl-api-wrapper`
+
 ## Documentation
 [Click here](https://tfldoc.dparture.cc/)
 
