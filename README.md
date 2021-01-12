@@ -6,7 +6,7 @@
 </p>
 
 
-# Installation
+## Installation
 ```
 npm install tfl-api-wrapper
 yarn add tfl-api-wrapper
