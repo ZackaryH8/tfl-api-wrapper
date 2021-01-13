@@ -33,8 +33,8 @@ export default class StopPoint extends TfLAPI {
         return this.sendRequest(
             `/StopPoint/${NaPTAN}/Disruption`,
             {
-                getFamily: getFamily,
-                flattenResponse: flattenResponse,
+                getFamily,
+                flattenResponse,
             },
             'GET'
         );
