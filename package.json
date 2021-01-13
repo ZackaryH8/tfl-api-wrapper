@@ -14,7 +14,7 @@
     "watch": "nodemon dist/index.js"
   },
   "keywords": [
-    "tfl, api, wrapper, typescript"
+    "tfl", "api", "wrapper", "typescript"
   ],
   "author": "zackaryh8",
   "license": "ISC",
