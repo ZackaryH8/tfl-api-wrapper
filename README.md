@@ -19,7 +19,6 @@ yarn add tfl-api-wrapper
 import { Line } from 'tfl-api-wrapper';
 
 const config = {
-    app_id: '',
     app_key: 'API KEY HERE',
 };
 const line = new Line(config)
@@ -31,7 +30,6 @@ const line = new Line(config)
 import { StopPoint } from 'tfl-api-wrapper';
 
 const config = {
-    app_id: '',
     app_key: 'API KEY HERE',
 };
 const line = new StopPoint(config)
