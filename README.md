@@ -1,13 +1,16 @@
 <p align="center">
     <img width="200" src="https://blog.tfl.gov.uk/wp-content/uploads/2018/05/cropped-logo_roundel-2.png" alt="TfL Logo">
     <h1 align="center">TfL API Wrapper</h1>
+    <p align="center">A NodeJS wrapper for the TfL Unified API, made with TypeScript.</p>
+    <p align="center">Read the <a href="https://tfldoc.dparture.cc/">Doumentation</a></p>
 </p>
-A Node JS wrapper for the Transport for London API and made with TypeScript
 
-`npm install tfl-api-wrapper`
 
-## Documentation
-[Click here](https://tfldoc.dparture.cc/)
+## Installation
+```
+npm install tfl-api-wrapper
+yarn add tfl-api-wrapper
+```
 
 ## Example Usage
 
