@@ -27,16 +27,12 @@ export default class Road extends tflAPI {
      * @param endDate
      * @param id
      */
-    getStatusByID(startDate: any, endDate: any, ...id: Array<string>) {
+    getStatusByID(startDate: any = '', endDate: any = '', ...id: Array<string>) {
         if (startDate && endDate) {
             startDate = startDate.toISOString().split('.')[0] + 'Z';
-            endDate = endDate.toISOString()?.split('.')[0] + 'Z';
-        } else {
-            startDate = '';
-            endDate = '';
+            endDate = endDate.toISOString().split('.')[0] + 'Z';
         }
 
-        console.log(startDate);
         return this.sendRequest(`/Road/${this.arrayToCSV(id)}/Status`, { startDate: startDate?.toString(), endDate: endDate?.toString() }, 'GET');
     }
 
