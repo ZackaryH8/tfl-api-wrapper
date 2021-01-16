@@ -5,7 +5,8 @@
     <p align="center">Read the <a href="https://tfldoc.dparture.cc/">Doumentation</a></p>
 </p>
 
-
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ZackaryH8/tfl-api-wrapper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ZackaryH8/tfl-api-wrapper/context:javascript)
+![Issues](https://img.shields.io/github/issues/ZackaryH8/tfl-api-wrapper)
 ## Installation
 ```
 npm install tfl-api-wrapper
