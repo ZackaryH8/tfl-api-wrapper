@@ -7,33 +7,43 @@ export default class Line extends TfLAPI {
     }
 
     /** Get all valid modes */
-    listValidModes() {
+    getValidModes() {
         return this.sendRequest('/Line/Meta/Modes', {}, 'GET');
     }
 
     /** Gets a list of all severity codes */
-    listSeverityCodes() {
+    getSeverityCodes() {
         return this.sendRequest('/Line/Meta/Severity', {}, 'GET');
     }
 
     /** Gets a list of all disruption types */
-    listDisruptionCategories() {
+    getDisruptionCategories() {
         return this.sendRequest('/Line/Meta/DisruptionCategories', {}, 'GET');
     }
 
     /** Gets a list of all service types */
-    listServiceTypes() {
+    getServiceTypes() {
         return this.sendRequest('/Line/Meta/ServiceTypes', {}, 'GET');
     }
 
     /** Gets a list of the stations that serve the given line id */
-    listAllStopPoints(line: string) {
+    getAllStopPoints(line: string) {
         return this.sendRequest(`/Line/${line}/StopPoints`, {}, 'GET');
     }
 
     /** Gets all lines that serve the given modes. */
     getAllLinesFromMode(modes: Array<string | number>) {
         return this.sendRequest(`/Line/Mode/${this.arrayToCSV(modes)}`, {}, 'GET');
+    }
+
+    /** Get the list of arrival predictions for given line ids based at the given stop
+     * @param ids list of line ids e.g. ['victoria','circle','N133']
+     * @param NaptanID Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL)
+     * @param direction Optional. The direction of travel. Can be inbound or outbound or all. Default: all
+     * @param destinationStationId Optional. Id of destination stop
+     */
+    getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string) {
+        return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
     }
 
     /** Gets the timetable for a specified station on the give line with specified destination */
