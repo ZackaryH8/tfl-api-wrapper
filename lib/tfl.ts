@@ -48,4 +48,11 @@ export default class TfLAPI {
     arrayToCSV(arr: Array<string | number>) {
         return arr.join(',');
     }
+
+    /**
+     * @ignore
+     */
+    convertDate(oldDate: Date | undefined): string {
+        return oldDate?.toISOString().split('.')[0] + 'Z';
+    }
 }
