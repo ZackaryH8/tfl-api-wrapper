@@ -6,12 +6,20 @@
 </p>
 
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ZackaryH8/tfl-api-wrapper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ZackaryH8/tfl-api-wrapper/context:javascript)
+![NPM Version](https://img.shields.io/npm/v/tfl-api-wrapper)
 ![Issues](https://img.shields.io/github/issues/ZackaryH8/tfl-api-wrapper)
+
 ## Installation
 ```
 npm install tfl-api-wrapper
 yarn add tfl-api-wrapper
 ```
+
+## Contribute
+
+There are many ways to contribute to this repo.
+* [Submit bugs](https://github.com/ZackaryH8/tfl-api-wrapper/issues) and help us verify fixes as they are checked in.
+* Review the [source code changes](https://github.com/ZackaryH8/tfl-api-wrapper/pulls).
 
 ## Example Usage
 
