@@ -53,7 +53,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">Globals</a>
+					<a href="../index.html">Globals</a>
 				</li>
 				<li>
 					<a href="line.html">Line</a>
@@ -99,14 +99,15 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getalllinesfrommode" class="tsd-kind-icon">get<wbr>All<wbr>Lines<wbr>From<wbr>Mode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getallstoppoints" class="tsd-kind-icon">get<wbr>All<wbr>Stop<wbr>Points</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getarrivalsbynaptan" class="tsd-kind-icon">get<wbr>Arrivals<wbr>ByNaptan</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getdisruptioncategories" class="tsd-kind-icon">get<wbr>Disruption<wbr>Categories</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getservicetypes" class="tsd-kind-icon">get<wbr>Service<wbr>Types</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getseveritycodes" class="tsd-kind-icon">get<wbr>Severity<wbr>Codes</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#gettimetablefromstationin" class="tsd-kind-icon">get<wbr>Timetable<wbr>From<wbr>Station<wbr>In</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#gettimetablefromstationout" class="tsd-kind-icon">get<wbr>Timetable<wbr>From<wbr>Station<wbr>Out</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#gettimetablefromto" class="tsd-kind-icon">get<wbr>Timetable<wbr>From<wbr>To</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#listallstoppoints" class="tsd-kind-icon">list<wbr>All<wbr>Stop<wbr>Points</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#listdisruptioncategories" class="tsd-kind-icon">list<wbr>Disruption<wbr>Categories</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#listservicetypes" class="tsd-kind-icon">list<wbr>Service<wbr>Types</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#listseveritycodes" class="tsd-kind-icon">list<wbr>Severity<wbr>Codes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#listvalidmodes" class="tsd-kind-icon">list<wbr>Valid<wbr>Modes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="line.html#getvalidmodes" class="tsd-kind-icon">get<wbr>Valid<wbr>Modes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L4">line.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L4">line.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/tfl.ts#L6">tfl.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/tfl.ts#L6">tfl.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +164,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L35">line.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L35">line.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -182,6 +183,149 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getallstoppoints" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Stop<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Stop<wbr>Points<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L30">line.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a list of the stations that serve the given line id</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>line: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getarrivalsbynaptan" class="tsd-anchor"></a>
+					<h3>get<wbr>Arrivals<wbr>ByNaptan</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Arrivals<wbr>ByNaptan<span class="tsd-signature-symbol">(</span>ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, NaptanID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, destinationStationId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L45">line.ts:45</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the list of arrival predictions for given line ids based at the given stop</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ids: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>list of line ids e.g. [&#39;victoria&#39;,&#39;circle&#39;,&#39;N133&#39;]</p>
+									</div>
+								</li>
+								<li>
+									<h5>NaptanID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL)</p>
+									</div>
+								</li>
+								<li>
+									<h5>direction: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;all&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional. The direction of travel. Can be inbound or outbound or all. Default: all</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> destinationStationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional. Id of destination stop</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getdisruptioncategories" class="tsd-anchor"></a>
+					<h3>get<wbr>Disruption<wbr>Categories</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Disruption<wbr>Categories<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L20">line.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a list of all disruption types</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getservicetypes" class="tsd-anchor"></a>
+					<h3>get<wbr>Service<wbr>Types</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Service<wbr>Types<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L25">line.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a list of all service types</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getseveritycodes" class="tsd-anchor"></a>
+					<h3>get<wbr>Severity<wbr>Codes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Severity<wbr>Codes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L15">line.ts:15</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a list of all severity codes</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="gettimetablefromstationin" class="tsd-anchor"></a>
 					<h3>get<wbr>Timetable<wbr>From<wbr>Station<wbr>In</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -191,7 +335,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L45">line.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L55">line.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -222,7 +366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L50">line.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L60">line.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -253,7 +397,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L40">line.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L50">line.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -278,110 +422,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="listallstoppoints" class="tsd-anchor"></a>
-					<h3>list<wbr>All<wbr>Stop<wbr>Points</h3>
+					<a name="getvalidmodes" class="tsd-anchor"></a>
+					<h3>get<wbr>Valid<wbr>Modes</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<wbr>All<wbr>Stop<wbr>Points<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Valid<wbr>Modes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L30">line.ts:30</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets a list of the stations that serve the given line id</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>line: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="listdisruptioncategories" class="tsd-anchor"></a>
-					<h3>list<wbr>Disruption<wbr>Categories</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<wbr>Disruption<wbr>Categories<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L20">line.ts:20</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets a list of all disruption types</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="listservicetypes" class="tsd-anchor"></a>
-					<h3>list<wbr>Service<wbr>Types</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<wbr>Service<wbr>Types<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L25">line.ts:25</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets a list of all service types</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="listseveritycodes" class="tsd-anchor"></a>
-					<h3>list<wbr>Severity<wbr>Codes</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<wbr>Severity<wbr>Codes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L15">line.ts:15</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets a list of all severity codes</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="listvalidmodes" class="tsd-anchor"></a>
-					<h3>list<wbr>Valid<wbr>Modes</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">list<wbr>Valid<wbr>Modes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/32cdb06/lib/line.ts#L10">line.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/926978f/lib/line.ts#L10">line.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -399,7 +449,7 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class=" ">
-						<a href="../modules.html">Exports</a>
+						<a href="../index.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
@@ -426,6 +476,21 @@
 								<a href="line.html#getalllinesfrommode" class="tsd-kind-icon">get<wbr>All<wbr>Lines<wbr>From<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="line.html#getallstoppoints" class="tsd-kind-icon">get<wbr>All<wbr>Stop<wbr>Points</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="line.html#getarrivalsbynaptan" class="tsd-kind-icon">get<wbr>Arrivals<wbr>ByNaptan</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="line.html#getdisruptioncategories" class="tsd-kind-icon">get<wbr>Disruption<wbr>Categories</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="line.html#getservicetypes" class="tsd-kind-icon">get<wbr>Service<wbr>Types</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="line.html#getseveritycodes" class="tsd-kind-icon">get<wbr>Severity<wbr>Codes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="line.html#gettimetablefromstationin" class="tsd-kind-icon">get<wbr>Timetable<wbr>From<wbr>Station<wbr>In</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -435,19 +500,7 @@
 								<a href="line.html#gettimetablefromto" class="tsd-kind-icon">get<wbr>Timetable<wbr>From<wbr>To</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="line.html#listallstoppoints" class="tsd-kind-icon">list<wbr>All<wbr>Stop<wbr>Points</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="line.html#listdisruptioncategories" class="tsd-kind-icon">list<wbr>Disruption<wbr>Categories</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="line.html#listservicetypes" class="tsd-kind-icon">list<wbr>Service<wbr>Types</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="line.html#listseveritycodes" class="tsd-kind-icon">list<wbr>Severity<wbr>Codes</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="line.html#listvalidmodes" class="tsd-kind-icon">list<wbr>Valid<wbr>Modes</a>
+								<a href="line.html#getvalidmodes" class="tsd-kind-icon">get<wbr>Valid<wbr>Modes</a>
 							</li>
 						</ul>
 					</li>
