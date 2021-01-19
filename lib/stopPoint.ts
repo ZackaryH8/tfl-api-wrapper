@@ -37,7 +37,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets all stop points of a given type
-     * @param types A list of valid stop types can be obtained from the StopPoint/meta/stoptypes endpoint.
+     * @param types A list of valid stop types can be obtained from the StopPoint/meta/stoptypes endpoint
      */
     getAllByStopType(types: Array<string>) {
         return this.sendRequest(`/StopPoint/${this.arrayToCSV(types)}`, {}, 'GET');
@@ -80,14 +80,14 @@ export default class StopPoint extends TfLAPI {
     }
 
     /**
-     * Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have.
-     * @param NaPTAN
+     * Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have
+     * @param id
      * @param getFamily Specify true to return disruptions for entire family, or false to return disruptions for just this stop point. Defaults to false.
-     * @param flattenResponse Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true).
+     * @param flattenResponse Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true)
      */
-    getDisruptionsByNaPTAN(NaPTAN: string, getFamily: boolean, flattenResponse: boolean) {
+    getDisruptionsByID(id: string, getFamily: boolean, flattenResponse: boolean) {
         return this.sendRequest(
-            `/StopPoint/${NaPTAN}/Disruption`,
+            `/StopPoint/${id}/Disruption`,
             {
                 getFamily,
                 flattenResponse,
@@ -106,18 +106,18 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets Stop points that are reachable from a station/line combination
-     * @param NaPTAN The id (station naptan code e.g. 940GZZLUASL)
+     * @param id The id (station naptan code e.g. 940GZZLUASL)
      * @param lineID Line id of the line to filter by (e.g. victoria)
-     * @param serviceTypes  List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'
+     * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
-    getReachableStationsByNaPTAN(NaPTAN: string, lineID: string, serviceTypes: Array<string> = ['Regular']) {
-        return this.sendRequest(`/StopPoint/${NaPTAN}/CanReachOnLine/${lineID}`, { serviceTypes: this.arrayToCSV(serviceTypes) }, 'GET');
+    getReachableStationsByID(id: string, lineID: string, serviceTypes: Array<string> = ['Regular']) {
+        return this.sendRequest(`/StopPoint/${id}/CanReachOnLine/${lineID}`, { serviceTypes: this.arrayToCSV(serviceTypes) }, 'GET');
     }
 
     /**
      * Get the route sections for all the lines that service the given stop point id
      * @param id
-     * @param serviceTypes
+     * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getRouteSectionByID(id: string, serviceTypes: Array<string> = ['Regular']) {
         return this.sendRequest(`/StopPoint/${id}/Route`, { serviceTypes: this.arrayToCSV(serviceTypes) }, 'GET');
@@ -125,16 +125,25 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets a list of StopPoints within {radius} by the specified criteria
-     * @param stopTypes
-     * @param radius
-     * @param useStopPointHierarchy
-     * @param modes
-     * @param categories
-     * @param returnLines
+     * @param stopTypes a list of stopTypes that should be returned.
+     * @param radius The radius of the bounding circle in metres (default : 200)
+     * @param useStopPointHierarchy Re-arrange the output into a parent/child hierarchy.
+     * @param modes The list of modes to search (e.g. tube, dlr)
+     * @param categories an optional list of comma separated property categories to return in the StopPoint's property bag. If null or empty, all categories of property are returned. Pass the keyword "none" to return no properties.
+     * @param returnLines True to return the lines that each stop point serves as a nested resource.
      * @param latitude
      * @param longitude
      */
-    getInRadius(stopTypes: Array<string>, radius: number, useStopPointHierarchy: boolean, modes: Array<string>, categories: Array<string>, returnLines: boolean, latitude: number, longitude: number) {
+    getInRadius(
+        stopTypes: Array<string>,
+        radius: number = 200,
+        useStopPointHierarchy: boolean,
+        modes: Array<string>,
+        categories: Array<string>,
+        returnLines: boolean,
+        latitude: number,
+        longitude: number
+    ) {
         return this.sendRequest(
             `/StopPoint`,
             { stopTypes: this.arrayToCSV(stopTypes), radius, useStopPointHierarchy, modes: this.arrayToCSV(modes), categories: this.arrayToCSV(categories), returnLines, latitude, longitude },
