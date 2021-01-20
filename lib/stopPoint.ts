@@ -81,15 +81,17 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have
-     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     * @param ids A list of StopPoint ids (station naptan code e.g. 940GZZLUAS)
      * @param getFamily Specify true to return disruptions for entire family, or false to return disruptions for just this stop point. Defaults to false.
+     * @param includeRouteBlockedStops
      * @param flattenResponse Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true)
      */
-    getDisruptionsByID(id: string, getFamily: boolean, flattenResponse: boolean) {
+    getDisruptionsByID(ids: Array<string>, getFamily: boolean, includeRouteBlockedStops: boolean, flattenResponse: boolean) {
         return this.sendRequest(
-            `/StopPoint/${id}/Disruption`,
+            `/StopPoint/${this.arrayToCSV(ids)}/Disruption`,
             {
                 getFamily,
+                includeRouteBlockedStops,
                 flattenResponse,
             },
             'GET'
@@ -99,9 +101,10 @@ export default class StopPoint extends TfLAPI {
     /**
      * Gets a distinct list of disrupted stop points for the given modes
      * @param modes An array of modes e.g. ['tube', 'dlr']
+     * @param includeRouteBlockedStops
      */
-    getDisruptedStopsByMode(modes: Array<string>) {
-        return this.sendRequest(`/StopPoint/${this.arrayToCSV(modes)}/Disruption`, {}, 'GET');
+    getDisruptionsByMode(modes: Array<string>, includeRouteBlockedStops: boolean) {
+        return this.sendRequest(`/StopPoint/Mode/${this.arrayToCSV(modes)}/Disruption`, { includeRouteBlockedStops }, 'GET');
     }
 
     /**
