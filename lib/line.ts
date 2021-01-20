@@ -32,18 +32,23 @@ export default class Line extends TfLAPI {
     }
 
     /** Gets all lines that serve the given modes. */
-    getAllLinesFromMode(modes: Array<string | number>) {
+    getAllFromMode(modes: Array<string | number>) {
         return this.sendRequest(`/Line/Mode/${this.arrayToCSV(modes)}`, {}, 'GET');
     }
 
-    /** Get the list of arrival predictions for given line ids based at the given stop
-     * @param ids list of line ids e.g. ['victoria','circle','N133']
-     * @param NaptanID Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL)
-     * @param direction Optional. The direction of travel. Can be inbound or outbound or all. Default: all
-     * @param destinationStationId Optional. Id of destination stop
+    /**
+     * Gets the line status of for given line ids e.g Minor Delays
+     * @param lines A list of line ids e.g. victoria, circle, N133
+     * @param detail Include details of the disruptions that are causing the line status including the affected stops and routes
+     * @param startDate
+     * @param endDate
      */
-    getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string) {
-        return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
+    getStatusByLine(lines: Array<string>, detail: boolean, startDate?: Date, endDate?: Date) {
+        if (!startDate || !endDate) {
+            return this.sendRequest(`/Line/${this.arrayToCSV(lines)}/Status`, { detail }, 'GET');
+        } else {
+            return this.sendRequest(`/Line/${this.arrayToCSV(lines)}/Status/${this.convertDate(startDate)}/to/${this.convertDate(endDate)}`, { detail }, 'GET');
+        }
     }
 
     /** Gets the timetable for a specified station on the give line with specified destination */
@@ -59,5 +64,15 @@ export default class Line extends TfLAPI {
     /** Gets the outbound timetable for a specified station on the give line */
     getTimetableFromStationOut(line: string, NaPTANID: string) {
         return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, {}, 'GET');
+    }
+
+    /** Get the list of arrival predictions for given line ids based at the given stop
+     * @param ids list of line ids e.g. ['victoria','circle','N133']
+     * @param NaptanID Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL)
+     * @param direction Optional. The direction of travel. Can be inbound or outbound or all. Default: all
+     * @param destinationStationId Optional. Id of destination stop
+     */
+    getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string) {
+        return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
     }
 }
