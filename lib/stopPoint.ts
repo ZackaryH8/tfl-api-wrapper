@@ -153,4 +153,29 @@ export default class StopPoint extends TfLAPI {
             'GET'
         );
     }
+
+    /**
+     * Gets a StopPoint for a given sms code.
+     * @param smsID A 5-digit Countdown Bus Stop Code e.g. 73241, 50435, 56334.
+     * @param output If set to "web", a 302 redirect to relevant website bus stop page is returned. All other values are ignored.
+     */
+    getBySMSCode(smsID: number, output?: string) {
+        return this.sendRequest(`/StopPoint/Sms/${smsID}`, { output }, 'GET');
+    }
+
+    /**
+     * Gets a list of taxi ranks corresponding to the given stop point id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     */
+    getTaxiRanksByID(id: string) {
+        return this.sendRequest(`/StopPoint/${id}/TaxiRanks`, {}, 'GET');
+    }
+
+    /**
+     * Get car parks corresponding to the given stop point id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     */
+    getCarParksByID(id: string) {
+        return this.sendRequest(`/StopPoint/${id}/CarParks`, {}, 'GET');
+    }
 }
