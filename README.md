@@ -43,3 +43,6 @@ const config = {
 };
 const line = new StopPoint(config)
 ```
+
+## Disclaimer
+This repository is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Transport for London (TfL) or it's parent organisation Greater London Authority (GLA)
