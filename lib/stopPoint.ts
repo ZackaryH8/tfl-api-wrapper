@@ -64,7 +64,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Get all service arrivals
-     * @param id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      */
     getStationArrivals(id: string) {
         return this.sendRequest(`/StopPoint/${id}/Arrivals`, {}, 'GET');
@@ -81,7 +81,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have
-     * @param id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      * @param getFamily Specify true to return disruptions for entire family, or false to return disruptions for just this stop point. Defaults to false.
      * @param flattenResponse Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true)
      */
@@ -100,13 +100,13 @@ export default class StopPoint extends TfLAPI {
      * Gets a distinct list of disrupted stop points for the given modes
      * @param modes An array of modes e.g. ['tube', 'dlr']
      */
-    getDisruptionsByMode(modes: Array<string>) {
+    getDisruptedStopsByMode(modes: Array<string>) {
         return this.sendRequest(`/StopPoint/${this.arrayToCSV(modes)}/Disruption`, {}, 'GET');
     }
 
     /**
      * Gets Stop points that are reachable from a station/line combination
-     * @param id The id (station naptan code e.g. 940GZZLUASL)
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      * @param lineID Line id of the line to filter by (e.g. victoria)
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
@@ -116,7 +116,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Get the route sections for all the lines that service the given stop point id
-     * @param id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getRouteSectionByID(id: string, serviceTypes: Array<string> = ['Regular']) {
