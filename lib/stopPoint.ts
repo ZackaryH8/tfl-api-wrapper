@@ -64,7 +64,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Get all service arrivals
-     * @param id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      */
     getStationArrivals(id: string) {
         return this.sendRequest(`/StopPoint/${id}/Arrivals`, {}, 'GET');
@@ -81,15 +81,17 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets all disruptions for the specified StopPointId, plus disruptions for any child Naptan records it may have
-     * @param id
+     * @param ids A list of StopPoint ids (station naptan code e.g. 940GZZLUAS)
      * @param getFamily Specify true to return disruptions for entire family, or false to return disruptions for just this stop point. Defaults to false.
+     * @param includeRouteBlockedStops
      * @param flattenResponse Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true)
      */
-    getDisruptionsByID(id: string, getFamily: boolean, flattenResponse: boolean) {
+    getDisruptionsByID(ids: Array<string>, getFamily: boolean, includeRouteBlockedStops: boolean, flattenResponse: boolean) {
         return this.sendRequest(
-            `/StopPoint/${id}/Disruption`,
+            `/StopPoint/${this.arrayToCSV(ids)}/Disruption`,
             {
                 getFamily,
+                includeRouteBlockedStops,
                 flattenResponse,
             },
             'GET'
@@ -99,14 +101,15 @@ export default class StopPoint extends TfLAPI {
     /**
      * Gets a distinct list of disrupted stop points for the given modes
      * @param modes An array of modes e.g. ['tube', 'dlr']
+     * @param includeRouteBlockedStops
      */
-    getDisruptionsByMode(modes: Array<string>) {
-        return this.sendRequest(`/StopPoint/${this.arrayToCSV(modes)}/Disruption`, {}, 'GET');
+    getDisruptionsByMode(modes: Array<string>, includeRouteBlockedStops: boolean) {
+        return this.sendRequest(`/StopPoint/Mode/${this.arrayToCSV(modes)}/Disruption`, { includeRouteBlockedStops }, 'GET');
     }
 
     /**
      * Gets Stop points that are reachable from a station/line combination
-     * @param id The id (station naptan code e.g. 940GZZLUASL)
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      * @param lineID Line id of the line to filter by (e.g. victoria)
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
@@ -116,7 +119,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Get the route sections for all the lines that service the given stop point id
-     * @param id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getRouteSectionByID(id: string, serviceTypes: Array<string> = ['Regular']) {
@@ -149,5 +152,30 @@ export default class StopPoint extends TfLAPI {
             { stopTypes: this.arrayToCSV(stopTypes), radius, useStopPointHierarchy, modes: this.arrayToCSV(modes), categories: this.arrayToCSV(categories), returnLines, latitude, longitude },
             'GET'
         );
+    }
+
+    /**
+     * Gets a StopPoint for a given sms code.
+     * @param smsID A 5-digit Countdown Bus Stop Code e.g. 73241, 50435, 56334.
+     * @param output If set to "web", a 302 redirect to relevant website bus stop page is returned. All other values are ignored.
+     */
+    getBySMSCode(smsID: number, output?: string) {
+        return this.sendRequest(`/StopPoint/Sms/${smsID}`, { output }, 'GET');
+    }
+
+    /**
+     * Gets a list of taxi ranks corresponding to the given stop point id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     */
+    getTaxiRanksByID(id: string) {
+        return this.sendRequest(`/StopPoint/${id}/TaxiRanks`, {}, 'GET');
+    }
+
+    /**
+     * Get car parks corresponding to the given stop point id
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     */
+    getCarParksByID(id: string) {
+        return this.sendRequest(`/StopPoint/${id}/CarParks`, {}, 'GET');
     }
 }
