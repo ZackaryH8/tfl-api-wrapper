@@ -6,8 +6,9 @@
 </p>
 
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ZackaryH8/tfl-api-wrapper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ZackaryH8/tfl-api-wrapper/context:javascript)
-![NPM Version](https://img.shields.io/npm/v/tfl-api-wrapper)
-![Issues](https://img.shields.io/github/issues/ZackaryH8/tfl-api-wrapper)
+[![NPM Version](https://img.shields.io/npm/v/tfl-api-wrapper)](https://www.npmjs.com/package/tfl-api-wrapper)
+[![Issues](https://img.shields.io/github/issues/ZackaryH8/tfl-api-wrapper)](https://github.com/ZackaryH8/tfl-api-wrapper/issues)
+
 
 ## Installation
 ```
