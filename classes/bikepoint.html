@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Disruptions | TfL API Wrapper</title>
+	<title>BikePoint | TfL API Wrapper</title>
 	<meta name="description" content="Documentation for TfL API Wrapper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="disruptions.html">Disruptions</a>
+					<a href="bikepoint.html">BikePoint</a>
 				</li>
 			</ul>
-			<h1>Class Disruptions</h1>
+			<h1>Class BikePoint</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<span class="tsd-signature-type">TfLAPI</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Disruptions</span>
+								<span class="target">BikePoint</span>
 							</li>
 						</ul>
 					</li>
@@ -86,19 +86,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="disruptions.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="bikepoint.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="disruptions.html#config" class="tsd-kind-icon">config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bikepoint.html#config" class="tsd-kind-icon">config</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="disruptions.html#getalllifts" class="tsd-kind-icon">get<wbr>All<wbr>Lifts</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bikepoint.html#getall" class="tsd-kind-icon">get<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bikepoint.html#getbyid" class="tsd-kind-icon">get<wbr>ByID</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bikepoint.html#getbyname" class="tsd-kind-icon">get<wbr>ByName</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,13 +112,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Disruptions<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">config</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="disruptions.html" class="tsd-signature-type">Disruptions</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bike<wbr>Point<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">config</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bikepoint.html" class="tsd-signature-type">BikePoint</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/c12f5ca/lib/disruptions.ts#L4">disruptions.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/c12f5ca/lib/bikePoint.ts#L4">bikePoint.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -125,7 +127,7 @@
 									<h5>config: <span class="tsd-signature-type">config</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="disruptions.html" class="tsd-signature-type">Disruptions</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="bikepoint.html" class="tsd-signature-type">BikePoint</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -146,23 +148,64 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getalllifts" class="tsd-anchor"></a>
-					<h3>get<wbr>All<wbr>Lifts</h3>
+					<a name="getall" class="tsd-anchor"></a>
+					<h3>get<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Lifts<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/c12f5ca/lib/disruptions.ts#L12">disruptions.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/c12f5ca/lib/bikePoint.ts#L9">bikePoint.ts:9</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>List of all currently disrupted lift routes, refreshed every 1 minute</p>
-								</div>
-							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbyid" class="tsd-anchor"></a>
+					<h3>get<wbr>ByID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ByID<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/c12f5ca/lib/bikePoint.ts#L13">bikePoint.ts:13</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbyname" class="tsd-anchor"></a>
+					<h3>get<wbr>ByName</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ByName<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/c12f5ca/lib/bikePoint.ts#L17">bikePoint.ts:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>query: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -182,27 +225,33 @@
 					<li class=" tsd-kind-class">
 						<a href="airquality.html" class="tsd-kind-icon">Air<wbr>Quality</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="bikepoint.html" class="tsd-kind-icon">Bike<wbr>Point</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="disruptions.html" class="tsd-kind-icon">Disruptions</a>
+						<a href="bikepoint.html" class="tsd-kind-icon">Bike<wbr>Point</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="disruptions.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="bikepoint.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="disruptions.html#config" class="tsd-kind-icon">config</a>
+								<a href="bikepoint.html#config" class="tsd-kind-icon">config</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="disruptions.html#getalllifts" class="tsd-kind-icon">get<wbr>All<wbr>Lifts</a>
+								<a href="bikepoint.html#getall" class="tsd-kind-icon">get<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="bikepoint.html#getbyid" class="tsd-kind-icon">get<wbr>ByID</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="bikepoint.html#getbyname" class="tsd-kind-icon">get<wbr>ByName</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="disruptions.html" class="tsd-kind-icon">Disruptions</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="line.html" class="tsd-kind-icon">Line</a>
 					</li>
