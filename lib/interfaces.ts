@@ -41,7 +41,7 @@ export declare module ITrackerNet {
 
     /**
      * Train Object
-     * @interface S
+     * @interface T
      */
     export interface T {
         $: Train;
@@ -49,7 +49,7 @@ export declare module ITrackerNet {
 
     /**
      * Platform Object
-     * @interface S
+     * @interface P
      */
     export interface P {
         $: 3;
