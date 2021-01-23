@@ -5,5 +5,6 @@ import Line from './lib/line';
 import Mode from './lib/mode';
 import Road from './lib/road';
 import StopPoint from './lib/stopPoint';
+import TrackerNet from './lib/trackerNet';
 
-export { AirQuality, BikePoint, Disruptions, Line, Mode, Road, StopPoint };
+export { AirQuality, BikePoint, Disruptions, Line, Mode, Road, StopPoint, TrackerNet };
