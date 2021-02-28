@@ -111,4 +111,24 @@ export default class TrackerNet extends TfLAPI {
             };
         });
     }
+
+    /**
+     * Gets station status information for all stations.
+     * @param {boolean} incidentsOnly Gets station status information for stations with incidents only.
+     */
+    async getAllStationStatus(incidentsOnly?: boolean): Promise<getAllStationStatus> {
+        const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
+        const request = await this.sendRequestTrackerNet(`/StationStatus${incidentsOnlyCheck}`, {}, 'GET');
+
+        return request.ArrayOfStationStatus.StationStatus.map((station: any) => {
+            return {
+                stationID: station.$.ID,
+                statusDetails: station.$.StatusDetails,
+                stationName: station.Station[0].$.Name,
+                description: station.Status[0].$.Description,
+                isActive: !!station.Status[0].$.IsActive,
+                cssClass: station.Status[0].$.CssClass,
+            };
+        });
+    }
 }
