@@ -4,7 +4,8 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "dist",
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules",
