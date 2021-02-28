@@ -18,13 +18,13 @@ export default class TrackerNet extends TfLAPI {
 
     /**
      * This service will return the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.
-     * @param IncidentsOnly An indication of whether only lines that have incidents should be returned
+     * @param incidentsOnly An indication of whether only lines that have incidents should be returned
      */
-    async getAllLinesStatus(IncidentsOnly?: boolean): Promise<ITrackerNet.ArrayOfLineStatus> {
-        let uri = IncidentsOnly ? '/IncidentsOnly' : '';
-        const req = await this.sendRequestTrackerNet(`/LineStatus${uri}`, {}, 'GET');
+    async getAllLinesStatus(incidentsOnly?: boolean): Promise<ITrackerNet.ArrayOfLineStatus> {
+        const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
+        const request = await this.sendRequestTrackerNet(`/LineStatus${incidentsOnlyCheck}`, {}, 'GET');
 
-        return req.ArrayOfLineStatus.LineStatus.map((line: any) => {
+        return request.ArrayOfLineStatus.LineStatus.map((line: any) => {
             return {
                 id: line.$.ID,
                 statusDetails: line.$.StatusDetails,
