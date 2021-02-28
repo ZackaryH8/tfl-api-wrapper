@@ -1,6 +1,7 @@
-import * as interfaces from './interfaces';
 import fetch from 'node-fetch';
 import * as qs from 'querystring';
+import * as xml2js from 'xml2js';
+import * as interfaces from './interfaces/config';
 
 export default class TfLAPI {
     public config: interfaces.config | any;
@@ -29,6 +30,30 @@ export default class TfLAPI {
 
         const fetchReq = await fetch(FullURL, options);
         return await fetchReq.json();
+    }
+
+    /**
+     * @ignore
+     */
+    async sendRequestTrackerNet(uri: string, params: any, method: string) {
+        let FullURL = `http://cloud.tfl.gov.uk/TrackerNet${uri}`;
+        // console.log(FullURL);
+
+        const options = {
+            method,
+            headers: {
+                Accept: 'application/xml',
+                'cache-control': 'no-cache',
+            },
+        };
+        // if (params) {
+        //     FullURL = `${FullURL}?${qs.stringify(params)}`;
+        // }
+
+        const fetchReq = await fetch(FullURL, options);
+        const xml = await xml2js.parseStringPromise(await fetchReq.text());
+        console.log(fetchReq.url);
+        return xml;
     }
 
     /**

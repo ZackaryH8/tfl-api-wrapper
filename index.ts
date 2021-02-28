@@ -5,5 +5,11 @@ import Line from './lib/line';
 import Mode from './lib/mode';
 import Road from './lib/road';
 import StopPoint from './lib/stopPoint';
+import TrackerNet from './lib/trackerNet';
 
-export { AirQuality, BikePoint, Disruptions, Line, Mode, Road, StopPoint };
+import TrackerNetLines from './lib/enums/lines';
+import TrackerNetStations from './lib/enums/stationCodes';
+
+export { AirQuality, BikePoint, Disruptions, Line, Mode, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations };
+
+import './tests/test';
