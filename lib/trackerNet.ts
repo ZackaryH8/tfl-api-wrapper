@@ -1,10 +1,44 @@
 import TfLAPI from './tfl';
 import * as interfaces from './interfaces/config';
-import { ITrackerNet } from './interfaces/trackerNet';
+import { getPredictionSummary, getPredictionDetailed } from './interfaces/trackerNet';
+import TrackerNetLines from './enums/lines';
+import TrackerNetStations from './enums/stationCodes';
 
 export default class TrackerNet extends TfLAPI {
     constructor(config: interfaces.config) {
         super(config);
+    }
+
+    async getPredictionSummary(line: TrackerNetLines): Promise<getPredictionSummary.Root> {
+        const request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, {}, 'GET');
+        const root = request.ROOT;
+
+        return {
+            currentTime: root.Time[0].$.TimeStamp,
+            stations: root.S.map((station: any) => {
+                return {
+                    code: station.$.Code,
+                    name: station.$.N.slice(0, -1),
+                    platforms: station.P.map((platform: any) => {
+                        return {
+                            name: platform.$.N,
+                            code: platform.$.Code,
+                            next: platform.$.Next,
+                            trains: platform?.T?.map((train: any) => {
+                                return {
+                                    setNumber: train.$.S,
+                                    tripNumber: train.$.T,
+                                    destinationCode: train.$.D,
+                                    timeToStation: train.$.C,
+                                    currentLocation: train.$.L,
+                                    destination: train.$.D,
+                                };
+                            }),
+                        };
+                    }),
+                };
+            }),
+        };
     }
 
     /**
