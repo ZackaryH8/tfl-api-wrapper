@@ -10,6 +10,8 @@ import TrackerNet from './lib/trackerNet';
 import TrackerNetLines from './lib/enums/lines';
 import TrackerNetStations from './lib/enums/stationCodes';
 
-export { AirQuality, BikePoint, Disruptions, Line, Mode, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations };
+import tflColors from './static/tflColors'
+
+export { AirQuality, BikePoint, Disruptions, Line, Mode, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations, tflColors };
 
 import './tests/test';
