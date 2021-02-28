@@ -33,6 +33,7 @@ export default class TrackerNet extends TfLAPI {
                             LCID: train.$.LCID,
                             setNumber: train.$.SetNo,
                             tripNumber: train.$.TripNo,
+                            secondsToStation: train.$.SecondsTo,
                             timeToStation: train.$.TimeTo,
                             currentLocation: train.$.Location,
                             destination: train.$.Destination,
@@ -41,7 +42,6 @@ export default class TrackerNet extends TfLAPI {
                             departureInterval: train.$.DepartInterval,
                             hasDeparted: !!train.$.Departed,
                             direction: train.$.Direction,
-                            isStalled: train.$.IsStalled,
                             trackCode: train.$.TrackCode,
                             line: train.$.LN,
                             leadingCarNumber: train.$.LeadingCarNo,
@@ -65,7 +65,6 @@ export default class TrackerNet extends TfLAPI {
                 id: line.$.ID,
                 name: line.Line[0].$.Name,
                 statusDetails: line.$.StatusDetails,
-                branchDisruptions: line.BranchDisruptions,
                 status: line.Status.map((obj: any) => {
                     return { id: obj.$.ID, cssClass: obj.$.CssClass, description: obj.$.Description, isActive: !!obj.$.IsActive };
                 }),
