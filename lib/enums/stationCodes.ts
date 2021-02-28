@@ -1,4 +1,4 @@
-export enum TrackerNetStations {
+enum TrackerNetStations {
     BakerStreet = 'BST',
     CharingCross = 'CHX',
     EdwareRoadBakerloo = 'ERB',
@@ -36,3 +36,4 @@ export enum TrackerNetStations {
     GantsHill = 'GHL',
 }
 
+export default TrackerNetStations;
