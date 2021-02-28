@@ -1,6 +1,6 @@
 import TfLAPI from './tfl';
 import * as interfaces from './interfaces/config';
-import { getPredictionSummary, getPredictionDetailed } from './interfaces/trackerNet';
+import { getPredictionSummary, getPredictionDetailed, getAllStationStatus } from './interfaces/trackerNet';
 import TrackerNetLines from './enums/lines';
 import TrackerNetStations from './enums/stationCodes';
 
