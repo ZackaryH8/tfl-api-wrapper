@@ -46,7 +46,7 @@ export declare module ITrackerNet {
         number: string;
         trackCode: string;
         nextTrain: string;
-        trains: Train[];
+        trains?: Train[];
     }
 
     export interface PredictionDetailed {
