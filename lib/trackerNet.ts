@@ -101,7 +101,12 @@ export default class TrackerNet extends TfLAPI {
                 name: line.Line[0].$.Name,
                 statusDetails: line.$.StatusDetails,
                 status: line.Status.map((obj: any) => {
-                    return { id: obj.$.ID, cssClass: obj.$.CssClass, description: obj.$.Description, isActive: !!obj.$.IsActive };
+                    return {
+                        id: obj.$.ID,
+                        cssClass: obj.$.CssClass,
+                        description: obj.$.Description,
+                        isActive: !!obj.$.IsActive,
+                    };
                 }),
 
                 // The data below is duplicated from above
