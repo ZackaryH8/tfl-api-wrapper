@@ -171,3 +171,23 @@ export declare module getPredictionDetailed {
         statusType: StatusType[];
     }
 }
+
+export interface getAllStationStatus {
+    /* A code representing the station */
+    stationID: string;
+
+    /* A description of the status of the station if the status is not normal otherwise this will be blank */
+    statusDetails: string;
+
+    /* The station name */
+    stationName: string;
+
+    /* A description of the status of the station e.g. No Step Free Access */
+    description: string;
+
+    /* A Boolean indicating if the status shown is active */
+    isActive: boolean;
+
+    /* A text code representing the general status of the station e.g. Open, Closed */
+    cssClass: string;
+}
