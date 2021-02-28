@@ -101,7 +101,10 @@ export declare module ITrackerNet {
 
     /** This service will return detailed train prediction information for a nominated station on a nominated line within 100 minute range */
     export interface PredictionDetailed {
+        /** An object containing basic station information */
         information: Information;
+
+        /** An array of platforms on the station */
         platforms: Platform[];
     }
 
