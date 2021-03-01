@@ -176,8 +176,8 @@ export interface getAllStationStatus {
     /* A code representing the station */
     stationID: string;
 
-    /* A description of the status of the station if the status is not normal otherwise this will be blank */
-    statusDetails: string;
+    /* An array of the statuses of the station if the status is not normal otherwise this will be blank */
+    statusDetails: Array<string>;
 
     /* The station name */
     stationName: string;
