@@ -37,7 +37,6 @@ export default class TfLAPI {
      */
     async sendRequestTrackerNet(uri: string, params: any, method: string) {
         let FullURL = `http://cloud.tfl.gov.uk/TrackerNet${uri}`;
-        // console.log(FullURL);
 
         const options = {
             method,
@@ -46,25 +45,18 @@ export default class TfLAPI {
                 'cache-control': 'no-cache',
             },
         };
-        // if (params) {
-        //     FullURL = `${FullURL}?${qs.stringify(params)}`;
-        // }
 
         const fetchReq = await fetch(FullURL, options);
-        const xml = await xml2js.parseStringPromise(await fetchReq.text());
-        console.log(fetchReq.url);
-        return xml;
+        return await xml2js.parseStringPromise(await fetchReq.text());
     }
 
     /**
      * @ignore
      */
     objectToQuery(params: any): string {
-        const x = Object.keys(params)
+        return Object.keys(params)
             .map((key) => key + '=' + params[key])
             .join('&');
-        console.log(x);
-        return x;
     }
 
     /**
