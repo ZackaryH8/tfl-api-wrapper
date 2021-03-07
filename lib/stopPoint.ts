@@ -29,10 +29,10 @@ export default class StopPoint extends TfLAPI {
     /**
      * Gets a list of StopPoints corresponding to the given list of stop ids
      * @param ids A list of stop point ids (station naptan code e.g. 940GZZLUASL).
-     * @param includeCrowding Include the crowding data (static). To Filter further use: /StopPoint/{ids}/Crowding/{line}
+     * @param includeCrowdingData Include the crowding data (static). To Filter further use: /StopPoint/{ids}/Crowding/{line}
      */
-    getByIDs(ids: Array<string>, includeCrowding: boolean) {
-        return this.sendRequest(`/StopPoint/${this.arrayToCSV(ids)}`, { includeCrowding }, 'GET');
+    getByIDs(ids: Array<string>, includeCrowdingData: boolean) {
+        return this.sendRequest(`/StopPoint/${this.arrayToCSV(ids)}`, { includeCrowdingData }, 'GET');
     }
 
     /**
