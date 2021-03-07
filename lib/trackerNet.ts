@@ -42,7 +42,7 @@ export default class TrackerNet extends TfLAPI {
     }
 
     /**
-     * This service will return detailed train prediction information for a nominated station on a nominated line within 100 minute range.
+     * Get detailed train prediction information for a nominated station on a nominated line within 100 minute range.
      * @param {TrackerNetLines} line
      * @param {TrackerNetStations} stationCode
      * @returns {<ITrackerNet.PredictionDetailed>}
@@ -88,7 +88,7 @@ export default class TrackerNet extends TfLAPI {
     }
 
     /**
-     * This service will return the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.
+     * Get the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.
      * @param incidentsOnly An indication of whether only lines that have incidents should be returned
      */
     async getAllLinesStatus(incidentsOnly?: boolean): Promise<getPredictionDetailed.ArrayOfLineStatus[]> {
@@ -118,8 +118,8 @@ export default class TrackerNet extends TfLAPI {
     }
 
     /**
-     * Gets station status information for all stations.
-     * @param {boolean} incidentsOnly Gets station status information for stations with incidents only.
+     *  station status information for all stations.
+     * @param {boolean} incidentsOnly Get station status information for stations with incidents only.
      */
     async getAllStationStatus(incidentsOnly?: boolean): Promise<getAllStationStatus> {
         const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
