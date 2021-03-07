@@ -40,7 +40,7 @@ export default class StopPoint extends TfLAPI {
      * @param types A list of valid stop types can be obtained from the StopPoint/meta/stoptypes endpoint
      */
     getAllByStopType(types: Array<string>) {
-        return this.sendRequest(`/StopPoint/${this.arrayToCSV(types)}`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/Type/${this.arrayToCSV(types)}`, {}, 'GET');
     }
 
     /**
