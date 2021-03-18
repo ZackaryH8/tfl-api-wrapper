@@ -75,4 +75,12 @@ export default class Line extends TfLAPI {
     getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string) {
         return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
     }
+
+    /**
+     * Get disruptions for the given line ids
+     * @param ids list of line ids e.g. ['victoria','circle','N133']
+     */
+    getDistruptionsByID(ids: Array<string>) {
+        return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Disruption`, {}, 'GET');
+    }
 }
