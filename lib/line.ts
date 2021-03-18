@@ -92,4 +92,12 @@ export default class Line extends TfLAPI {
     searchByString(query: string, modes?: Array<string>, serviceTypes?: boolean) {
         return this.sendRequest(`/Line/${query}/Disruption`, { modes, serviceTypes }, 'GET');
     }
+
+    /**
+     * Get all valid routes for all lines, including the name and id of the originating and terminating stops for each route.
+     * @param serviceTypes A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
+     */
+    getAllValidRoutes(serviceTypes?: string) {
+        return this.sendRequest(`/Line/Route`, { serviceTypes }, 'GET');
+    }
 }
