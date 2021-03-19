@@ -43,12 +43,22 @@ export default class Line extends TfLAPI {
      * @param startDate
      * @param endDate
      */
-    getStatusByLine(lines: Array<string>, detail: boolean, startDate?: Date, endDate?: Date) {
+    getStatusByLine(lines: Array<string>, detail: boolean = false, startDate?: Date, endDate?: Date) {
         if (!startDate || !endDate) {
             return this.sendRequest(`/Line/${this.arrayToCSV(lines)}/Status`, { detail }, 'GET');
         } else {
             return this.sendRequest(`/Line/${this.arrayToCSV(lines)}/Status/${this.convertDate(startDate)}/to/${this.convertDate(endDate)}`, { detail }, 'GET');
         }
+    }
+
+    /**
+     * Gets the line status of for all lines for the given modes
+     * @param modes A comma-separated list of modes to filter by. e.g. tube,dlr
+     * @param detail Include details of the disruptions that are causing the line status including the affected stops and routes
+     * @param severityLevel If specified, ensures that only those line status(es) are returned within the lines that have disruptions with the matching severity level.
+     */
+    getStatusByModes(modes: Array<string>, detail?: boolean, severityLevel?: string) {
+        return this.sendRequest(`/Line/Mode/${this.arrayToCSV(modes)}/Status`, { detail, severityLevel }, 'GET');
     }
 
     /** Gets the timetable for a specified station on the give line with specified destination */
