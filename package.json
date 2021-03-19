@@ -1,6 +1,6 @@
 {
   "name": "tfl-api-wrapper",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A Node JS wrapper for the Transport for London API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "build-docs": "typedoc --options",
-    "watch": "nodemon dist/index.js"
+    "start": "tsc-watch --onSuccess \"node dist/index.js\""
   },
   "keywords": [
     "tfl",
@@ -26,7 +26,8 @@
     "@types/xml2js": "^0.4.8",
     "typedoc": "^0.20.14",
     "typedoc-theme-dark": "0.0.5",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "tsc-watch": "^4.2.9"
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
