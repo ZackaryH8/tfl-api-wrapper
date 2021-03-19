@@ -24,6 +24,10 @@ export default class TfLAPI {
                 'cache-control': 'no-cache',
             },
         };
+
+        // Removed all undefined objects from params
+        Object.keys(params).forEach((key) => (params[key] === undefined ? delete params[key] : {}));
+
         if (params) {
             FullURL = `${FullURL}&${qs.stringify(params)}`;
         }
