@@ -1,14 +1,14 @@
 import fetch from 'node-fetch';
 import * as qs from 'querystring';
 import * as xml2js from 'xml2js';
-import * as interfaces from './interfaces/config';
+import Config from './interfaces/config';
 
 export default class TfLAPI {
-    public config: interfaces.config | any;
+    public config: Config | any;
     private readonly host: string = 'api.tfl.gov.uk';
     private readonly port: number = 443;
 
-    constructor(config: interfaces.config) {
+    constructor(config: Config) {
         this.config = config;
     }
 

@@ -1,8 +1,8 @@
 import TfLAPI from './tfl';
-import * as interfaces from './interfaces/config';
+import Config from './interfaces/config';
 
 export default class Mode extends TfLAPI {
-    constructor(config: interfaces.config) {
+    constructor(config: Config) {
         super(config);
     }
 
