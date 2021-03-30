@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Mode | TfL API Wrapper</title>
+	<title>Crowding | TfL API Wrapper</title>
 	<meta name="description" content="Documentation for TfL API Wrapper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="mode.html">Mode</a>
+					<a href="crowding.html">Crowding</a>
 				</li>
 			</ul>
-			<h1>Class Mode</h1>
+			<h1>Class Crowding</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<span class="tsd-signature-type">TfLAPI</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Mode</span>
+								<span class="target">Crowding</span>
 							</li>
 						</ul>
 					</li>
@@ -86,20 +86,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="mode.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="crowding.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="mode.html#config" class="tsd-kind-icon">config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="crowding.html#config" class="tsd-kind-icon">config</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mode.html#getactiveservicetypes" class="tsd-kind-icon">get<wbr>Active<wbr>Service<wbr>Types</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mode.html#getarrivalpredictionsallstops" class="tsd-kind-icon">get<wbr>Arrival<wbr>Predictions<wbr>All<wbr>Stops</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="crowding.html#getbynaptanday" class="tsd-kind-icon">get<wbr>ByNaptan<wbr>Day</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="crowding.html#getallbynaptan" class="tsd-kind-icon">getall<wbr>ByNaptan</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,14 +111,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Mode<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mode.html" class="tsd-signature-type">Mode</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Crowding<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="crowding.html" class="tsd-signature-type">Crowding</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides TfLAPI.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/f8b669a/lib/mode.ts#L4">lib/mode.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/f8b669a/lib/crowding.ts#L5">lib/crowding.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -127,7 +127,7 @@
 									<h5>config: <span class="tsd-signature-type">default</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="mode.html" class="tsd-signature-type">Mode</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="crowding.html" class="tsd-signature-type">Crowding</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -149,56 +149,70 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getactiveservicetypes" class="tsd-anchor"></a>
-					<h3>get<wbr>Active<wbr>Service<wbr>Types</h3>
+					<a name="getbynaptanday" class="tsd-anchor"></a>
+					<h3>get<wbr>ByNaptan<wbr>Day</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Active<wbr>Service<wbr>Types<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ByNaptan<wbr>Day<span class="tsd-signature-symbol">(</span>naptanID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dayOfTheWeek<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/f8b669a/lib/mode.ts#L12">lib/mode.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/f8b669a/lib/crowding.ts#L24">lib/crowding.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the service type active for a mode. Currently only supports tube</p>
+									<p>Returns crowding information for Naptan for Day of Week</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>naptanID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the stop (eg. 940GZZLUASL)</p>
+									</div>
+								</li>
+								<li>
+									<h5>dayOfTheWeek: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The day of which you would like data to return (eg. MON, TUE, WED, THU, FRI, SAT, SUN)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getarrivalpredictionsallstops" class="tsd-anchor"></a>
-					<h3>get<wbr>Arrival<wbr>Predictions<wbr>All<wbr>Stops</h3>
+					<a name="getallbynaptan" class="tsd-anchor"></a>
+					<h3>getall<wbr>ByNaptan</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Arrival<wbr>Predictions<wbr>All<wbr>Stops<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, count<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">getall<wbr>ByNaptan<span class="tsd-signature-symbol">(</span>naptanID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/f8b669a/lib/mode.ts#L21">lib/mode.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/f8b669a/lib/crowding.ts#L14">lib/crowding.ts:14</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns crowding information for Naptan</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>mode: <span class="tsd-signature-type">string</span></h5>
+									<h5>naptanID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>A mode name e.g. tube, dlr</p>
-									</div>
-								</li>
-								<li>
-									<h5>count: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A number of arrivals to return for each stop, -1 to return all available.</p>
+										<p>ID of the stop (eg. 940GZZLUASL)</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -229,36 +243,36 @@
 					<li class=" tsd-kind-class">
 						<a href="bikepoint.html" class="tsd-kind-icon">Bike<wbr>Point</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="crowding.html" class="tsd-kind-icon">Crowding</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="crowding.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="crowding.html#config" class="tsd-kind-icon">config</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="crowding.html#getbynaptanday" class="tsd-kind-icon">get<wbr>ByNaptan<wbr>Day</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="crowding.html#getallbynaptan" class="tsd-kind-icon">getall<wbr>ByNaptan</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="disruptions.html" class="tsd-kind-icon">Disruptions</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="line.html" class="tsd-kind-icon">Line</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="mode.html" class="tsd-kind-icon">Mode</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="mode.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="mode.html#config" class="tsd-kind-icon">config</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="mode.html#getactiveservicetypes" class="tsd-kind-icon">get<wbr>Active<wbr>Service<wbr>Types</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="mode.html#getarrivalpredictionsallstops" class="tsd-kind-icon">get<wbr>Arrival<wbr>Predictions<wbr>All<wbr>Stops</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="road.html" class="tsd-kind-icon">Road</a>
 					</li>
