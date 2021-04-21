@@ -1,5 +1,6 @@
 import TfLAPI from './tfl';
 import Config from './interfaces/config';
+import { ActiveServiceTypes, Arrivals } from './interfaces/mode';
 
 export default class Mode extends TfLAPI {
     constructor(config: Config) {
@@ -9,16 +10,16 @@ export default class Mode extends TfLAPI {
     /**
      * Returns the service type active for a mode. Currently only supports tube
      */
-    getActiveServiceTypes() {
+    getActiveServiceTypes(): Promise<ActiveServiceTypes> {
         return this.sendRequest(`/Mode/ActiveServiceTypes`, {}, 'GET');
     }
 
     /**
      *
      * @param mode A mode name e.g. tube, dlr
-     * @param count A number of arrivals to return for each stop, -1 to return all available.
+     * @param count Number of arrivals to return for each stop, -1 to return all available (default).
      */
-    getArrivalPredictionsAllStops(mode: string, count: number) {
+    getArrivalPredictionsAllStops(mode: string, count: number = -1): Promise<Arrivals.Root> {
         return this.sendRequest(`/Mode/${mode}/Arrivals`, { count }, 'GET');
     }
 }
