@@ -1,6 +1,6 @@
 import TfLAPI from './tfl';
 import Config from './interfaces/config';
-import Crowding from './interfaces/crowding'
+import Crowding from './interfaces/crowding';
 
 export default class Crowding extends TfLAPI {
     constructor(config: Config) {
@@ -14,7 +14,6 @@ export default class Crowding extends TfLAPI {
     getallByNaptan(naptanID: string): Promise<Crowding.Root> {
         return this.sendRequest(`/Crowding/${naptanID}`, {}, 'GET');
     }
-
 
     /**
      * Returns crowding information for Naptan for Day of Week

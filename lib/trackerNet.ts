@@ -31,13 +31,13 @@ export default class TrackerNet extends TfLAPI {
                                     destinationCode: train.$.D,
                                     timeToStation: train.$.C,
                                     currentLocation: train.$.L,
-                                    destination: train.$.D,
+                                    destination: train.$.D
                                 };
-                            }),
+                            })
                         };
-                    }),
+                    })
                 };
-            }),
+            })
         };
     }
 
@@ -54,7 +54,7 @@ export default class TrackerNet extends TfLAPI {
             information: {
                 code: root.S[0].$.Code,
                 name: root.S[0].$.N.slice(0, -1),
-                currentTime: root.S[0].$.CurTime,
+                currentTime: root.S[0].$.CurTime
             },
             platforms: root.S[0].P.map((platform: any) => {
                 return {
@@ -79,11 +79,11 @@ export default class TrackerNet extends TfLAPI {
                             direction: train.$.Direction,
                             trackCode: train.$.TrackCode,
                             line: train.$.LN,
-                            leadingCarNumber: train.$.LeadingCarNo,
+                            leadingCarNumber: train.$.LeadingCarNo
                         };
-                    }),
+                    })
                 };
-            }),
+            })
         };
     }
 
@@ -105,9 +105,9 @@ export default class TrackerNet extends TfLAPI {
                         id: obj.$.ID,
                         cssClass: obj.$.CssClass,
                         description: obj.$.Description,
-                        isActive: !!obj.$.IsActive,
+                        isActive: !!obj.$.IsActive
                     };
-                }),
+                })
 
                 // The data below is duplicated from above
                 // statusType: line.Status.map((obj: any) => {
@@ -132,7 +132,7 @@ export default class TrackerNet extends TfLAPI {
                 stationName: station.Station[0].$.Name,
                 description: station.Status[0].$.Description,
                 isActive: !!station.Status[0].$.IsActive,
-                cssClass: station.Status[0].$.CssClass,
+                cssClass: station.Status[0].$.CssClass
             };
         });
     }

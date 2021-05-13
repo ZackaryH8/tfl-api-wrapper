@@ -21,8 +21,8 @@ export default class TfLAPI {
             method,
             headers: {
                 Accept: 'application/json',
-                'cache-control': 'no-cache',
-            },
+                'cache-control': 'no-cache'
+            }
         };
 
         // Removed all undefined objects from params
@@ -46,8 +46,8 @@ export default class TfLAPI {
             method,
             headers: {
                 Accept: 'application/xml',
-                'cache-control': 'no-cache',
-            },
+                'cache-control': 'no-cache'
+            }
         };
 
         const fetchReq = await fetch(FullURL, options);
