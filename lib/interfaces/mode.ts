@@ -1,10 +1,4 @@
-export interface ActiveServiceTypes {
-    $type: string;
-    mode: string;
-    serviceType: string;
-}
-
-export declare module Arrivals {
+declare module GetArrivalPredictionsAllStops {
     export interface Timing {
         $type: string;
         countdownServerAdjustment: string;
@@ -38,5 +32,19 @@ export declare module Arrivals {
         modeName: string;
         timing: Timing;
     }
+}
+
+declare module GetActiveServiceTypes {
+
+    export interface Root {
+        $type: string;
+        mode: string;
+        serviceType: string;
+    }
 
 }
+
+export {
+    GetArrivalPredictionsAllStops,
+    GetActiveServiceTypes
+};
