@@ -98,7 +98,7 @@ export default class Line extends TfLAPI {
      * @param query Search term e.g victoria
      * @param modes Optionally filter by the specified modes
      * @param serviceTypes A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
-    */
+     */
     searchByString(query: string, modes?: Array<string>, serviceTypes?: boolean) {
         return this.sendRequest(`/Line/${query}/Disruption`, { modes, serviceTypes }, 'GET');
     }

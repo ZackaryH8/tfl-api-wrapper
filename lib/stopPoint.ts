@@ -92,7 +92,7 @@ export default class StopPoint extends TfLAPI {
             {
                 getFamily,
                 includeRouteBlockedStops,
-                flattenResponse,
+                flattenResponse
             },
             'GET'
         );

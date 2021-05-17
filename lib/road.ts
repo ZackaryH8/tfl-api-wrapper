@@ -29,11 +29,11 @@ export default class Road extends tflAPI {
      */
     getStatusByID(ids: Array<string>, startDate?: Date, endDate?: Date) {
         return this.sendRequest(
-            `/Road/${this.arrayToCSV(ids)}/Status`, 
+            `/Road/${this.arrayToCSV(ids)}/Status`,
             {
                 startDate: this.convertDate(startDate),
                 endDate: this.convertDate(endDate)
-            }, 
+            },
             'GET'
         );
     }
@@ -44,17 +44,21 @@ export default class Road extends tflAPI {
      * @param endDate
      */
     getAllStreetDisruption(startDate: Date, endDate: Date) {
-        return this.sendRequest(`/Road/all/Street/Disruption`, {
-            startDate: this.convertDate(startDate),
-            endDate: this.convertDate(endDate)
-        }, 'GET');
+        return this.sendRequest(
+            `/Road/all/Street/Disruption`,
+            {
+                startDate: this.convertDate(startDate),
+                endDate: this.convertDate(endDate)
+            },
+            'GET'
+        );
     }
 
     /**
      * Gets a list of active disruptions filtered by disruption Ids.
      * @param ids
-     * @param stripContent When true, removes every property/node 
-     *                     except for id, point, severity, severityDescription, 
+     * @param stripContent When true, removes every property/node
+     *                     except for id, point, severity, severityDescription,
      *                     startDate, endDate, corridor details, location and comments.
      */
     getAllDisruptionsByID(ids: Array<string>, stripContent?: boolean) {

@@ -1,6 +1,6 @@
 import TfLAPI from './tfl';
 import Config from './interfaces/config';
-import Occupancy from './interfaces/occupancy'
+import Occupancy from './interfaces/occupancy';
 
 export default class Occupancy extends TfLAPI {
     constructor(config: Config) {
@@ -13,7 +13,6 @@ export default class Occupancy extends TfLAPI {
      */
     getBikePointByID(id: string): Promise<Occupancy.CarPark> {
         return this.sendRequest(`/Occupancy/BikePoints/${id}`, {}, 'GET');
-
     }
 
     /**
@@ -22,7 +21,6 @@ export default class Occupancy extends TfLAPI {
      */
     getCarkParkByID(id: string): Promise<Occupancy.CarPark> {
         return this.sendRequest(`/Occupancy/ChargeConnector/${id}`, {}, 'GET');
-
     }
 
     /**
@@ -31,7 +29,6 @@ export default class Occupancy extends TfLAPI {
      */
     getChargeConnectorByID(id: string): Promise<Occupancy.ChargeConnector> {
         return this.sendRequest(`/Occupancy/ChargeConnector/${id}`, {}, 'GET');
-
     }
 
     /**
@@ -46,6 +43,5 @@ export default class Occupancy extends TfLAPI {
      */
     getAllChargeConnectors(): Promise<Occupancy.ChargeConnector[]> {
         return this.sendRequest(`/Occupancy/ChargeConnector`, {}, 'GET');
-
     }
 }
