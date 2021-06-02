@@ -1,9 +1,13 @@
 import TfLAPI from './tfl';
+<<<<<<< Updated upstream
 import Config from './interfaces/config';
 import { GetArrivalPredictionsAllStops, GetActiveServiceTypes } from './interfaces/mode';
+=======
+import { ActiveServiceTypes, Arrivals } from './interfaces/mode';
+>>>>>>> Stashed changes
 
 export default class Mode extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 

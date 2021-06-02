@@ -1,9 +1,8 @@
 import TfLAPI from './tfl';
-import Config from './interfaces/config';
-import Crowding from './interfaces/crowding';
+import Crowding from './interfaces/crowding'
 
 export default class Crowding extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 
@@ -16,7 +15,7 @@ export default class Crowding extends TfLAPI {
     }
 
     /**
-     * Returns crowding information for Naptan for Day of Week
+     * Returns crowding information for Naptan for a specified day of week
      * @param naptanID ID of the stop (eg. 940GZZLUASL)
      * @param dayOfTheWeek The day of which you would like data to return (eg. MON, TUE, WED, THU, FRI, SAT, SUN)
      */

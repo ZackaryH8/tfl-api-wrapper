@@ -1,8 +1,8 @@
 import tflAPI from './tfl';
-import Config from './interfaces/config';
+
 
 export default class Road extends tflAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 

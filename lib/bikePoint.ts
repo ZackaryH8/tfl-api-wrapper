@@ -1,9 +1,8 @@
 import TfLAPI from './tfl';
-import Config from './interfaces/config';
 import { IBikePoint } from './interfaces/bikepoint';
 
 export default class BikePoint extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 

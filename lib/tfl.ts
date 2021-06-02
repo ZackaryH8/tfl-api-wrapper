@@ -1,22 +1,21 @@
 import fetch from 'node-fetch';
 import * as qs from 'querystring';
-import * as xml2js from 'xml2js';
-import Config from './interfaces/config';
+import { parseStringPromise } from 'xml2js';
 
 export default class TfLAPI {
-    public config: Config | any;
+    public appKey: string;
     private readonly host: string = 'api.tfl.gov.uk';
     private readonly port: number = 443;
 
-    constructor(config: Config) {
-        this.config = config;
+    constructor(appKey: string) {
+        this.appKey = appKey;
     }
 
     /**
      * @ignore
      */
     async sendRequest(uri: string, params: any, method: string) {
-        let FullURL = `https://${this.host}:${this.port}${uri}?${qs.stringify(this.config)}`;
+        let FullURL: string = `https://${this.host}:${this.port}${uri}?app_key=${this.appKey}`;
         const options = {
             method,
             headers: {
@@ -51,7 +50,7 @@ export default class TfLAPI {
         };
 
         const fetchReq = await fetch(FullURL, options);
-        return await xml2js.parseStringPromise(await fetchReq.text());
+        return await parseStringPromise(await fetchReq.text());
     }
 
     /**

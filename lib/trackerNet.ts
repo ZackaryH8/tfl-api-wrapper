@@ -1,11 +1,10 @@
 import TfLAPI from './tfl';
-import Config from './interfaces/config';
 import { getPredictionSummary, getPredictionDetailed, getAllStationStatus } from './interfaces/trackerNet';
 import TrackerNetLines from './enums/lines';
 import TrackerNetStations from './enums/stationCodes';
 
 export default class TrackerNet extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 

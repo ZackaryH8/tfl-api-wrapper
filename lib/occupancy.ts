@@ -1,9 +1,8 @@
 import TfLAPI from './tfl';
-import Config from './interfaces/config';
 import Occupancy from './interfaces/occupancy';
 
 export default class Occupancy extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 
