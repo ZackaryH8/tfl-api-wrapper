@@ -1,4 +1,4 @@
-enum TrackerNetLines {
+const enum TrackerNetLines {
     Bakerloo = 'B',
     Central = 'C',
     District = 'D',
