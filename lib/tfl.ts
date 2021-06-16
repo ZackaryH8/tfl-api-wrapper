@@ -57,7 +57,7 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    objectToQuery(params: any): string {
+    static objectToQuery(params: any): string {
         return Object.keys(params)
             .map((key) => key + '=' + params[key])
             .join('&');
@@ -66,14 +66,14 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    arrayToCSV(arr: Array<string | number>) {
+    static arrayToCSV(arr: Array<string | number>) {
         return arr.join(',');
     }
 
     /**
      * @ignore
      */
-    convertDate(oldDate: Date | undefined): string {
+    static convertDate(oldDate: Date | undefined): string {
         return oldDate?.toISOString().split('.')[0] + 'Z';
     }
 }
