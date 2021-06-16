@@ -120,18 +120,18 @@ export default class TrackerNet extends TfLAPI {
      *  station status information for all stations.
      * @param {boolean} incidentsOnly Get station status information for stations with incidents only.
      */
-    async getAllStationStatus(incidentsOnly?: boolean): Promise<getAllStationStatus> {
+    async getAllStationStatus(incidentsOnly?: boolean): Promise<ITrackerNet.getAllStationStatus.Root> {
         const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
-        const request = await this.sendRequestTrackerNet(`/StationStatus${incidentsOnlyCheck}`, {}, 'GET');
+        const request = await this.sendRequestTrackerNet(`/StationStatus${incidentsOnlyCheck}`, {}, 'GET', false);
 
         return request.ArrayOfStationStatus.StationStatus.map((station: any) => {
             return {
-                stationID: station.$.ID,
-                statusDetails: station.$.StatusDetails,
-                stationName: station.Station[0].$.Name,
-                description: station.Status[0].$.Description,
-                isActive: !!station.Status[0].$.IsActive,
-                cssClass: station.Status[0].$.CssClass
+                stationID: station.ID,
+                statusDetails: station.StatusDetails,
+                stationName: station.Station.Name,
+                description: station.Status.Description,
+                isActive: !!station.Status.IsActive,
+                cssClass: station.Status.CssClass
             };
         });
     }
