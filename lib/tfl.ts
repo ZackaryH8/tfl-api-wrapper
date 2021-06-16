@@ -1,7 +1,8 @@
 import fetch from 'node-fetch';
 import * as qs from 'querystring';
-import { parseStringPromise } from 'xml2js';
-
+import * as xmlparser from 'fast-xml-parser';
+// @ts-ignore
+import { retag } from 'trackernet-xml-retag';
 export default class TfLAPI {
     public appKey: string;
     private readonly host: string = 'api.tfl.gov.uk';
