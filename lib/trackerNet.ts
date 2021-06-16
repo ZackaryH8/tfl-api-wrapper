@@ -1,5 +1,5 @@
 import TfLAPI from './tfl';
-import { getPredictionSummary, getPredictionDetailed, getAllStationStatus } from './interfaces/trackerNet';
+import * as ITrackerNet from './interfaces/trackerNet';
 import TrackerNetLines from './enums/lines';
 import TrackerNetStations from './enums/stationCodes';
 
