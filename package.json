@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "build-docs": "typedoc --options",
-    "start": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
     "prettier": "prettier --write ./**/*.ts"
   },
   "keywords": [
