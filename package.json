@@ -32,6 +32,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
+    "fast-xml-parser": "^3.19.0",
     "node-fetch": "^2.6.1",
     "trackernet-xml-retag": "^1.0.4"
   },
