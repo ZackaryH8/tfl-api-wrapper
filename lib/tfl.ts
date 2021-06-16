@@ -38,7 +38,7 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    async sendRequestTrackerNet(uri: string, params: any, method: string) {
+    protected async sendRequestTrackerNet(uri: string, params: any, method: string, reTag: boolean) {
         let FullURL = `http://cloud.tfl.gov.uk/TrackerNet${uri}`;
 
         const options = {

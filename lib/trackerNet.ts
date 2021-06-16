@@ -9,7 +9,7 @@ export default class TrackerNet extends TfLAPI {
     }
 
     async getPredictionSummary(line: TrackerNetLines): Promise<getPredictionSummary.Root> {
-        const request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, {}, 'GET');
+        const request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, {}, 'GET', true);
         const root = request.ROOT;
 
         return {
@@ -47,7 +47,7 @@ export default class TrackerNet extends TfLAPI {
      * @returns {<ITrackerNet.PredictionDetailed>}
      */
     async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<getPredictionDetailed.Root> {
-        const request = await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, {}, 'GET');
+        return await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, {}, 'GET', true);
         const root = request.ROOT;
         return {
             information: {
@@ -92,7 +92,7 @@ export default class TrackerNet extends TfLAPI {
      */
     async getAllLinesStatus(incidentsOnly?: boolean): Promise<getPredictionDetailed.ArrayOfLineStatus[]> {
         const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
-        const request = await this.sendRequestTrackerNet(`/LineStatus${incidentsOnlyCheck}`, {}, 'GET');
+        const request = await this.sendRequestTrackerNet(`/LineStatus${incidentsOnlyCheck}`, {}, 'GET', true);
 
         return request.ArrayOfLineStatus.LineStatus.map((line: any) => {
             return {
