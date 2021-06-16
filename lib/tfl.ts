@@ -14,7 +14,7 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    async sendRequest(uri: string, params: any, method: string) {
+    protected async sendRequest(uri: string, params: any, method: string) {
         let FullURL: string = `https://${this.host}:${this.port}${uri}?app_key=${this.appKey}`;
         const options = {
             method,
