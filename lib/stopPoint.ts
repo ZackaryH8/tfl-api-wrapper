@@ -1,6 +1,5 @@
 import TfLAPI from './tfl';
 
-
 export default class StopPoint extends TfLAPI {
     constructor(config: string) {
         super(config);
@@ -32,7 +31,7 @@ export default class StopPoint extends TfLAPI {
      * @param includeCrowdingData Include the crowding data (static). To Filter further use: /StopPoint/{ids}/Crowding/{line}
      */
     getByIDs(ids: Array<string>, includeCrowdingData: boolean) {
-        return this.sendRequest(`/StopPoint/${this.arrayToCSV(ids)}`, { includeCrowdingData }, 'GET');
+        return this.sendRequest(`/StopPoint/${TfLAPI.arrayToCSV(ids)}`, { includeCrowdingData }, 'GET');
     }
 
     /**
@@ -40,7 +39,7 @@ export default class StopPoint extends TfLAPI {
      * @param types A list of valid stop types can be obtained from the StopPoint/meta/stoptypes endpoint
      */
     getAllByStopType(types: Array<string>) {
-        return this.sendRequest(`/StopPoint/Type/${this.arrayToCSV(types)}`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/Type/${TfLAPI.arrayToCSV(types)}`, {}, 'GET');
     }
 
     /**
@@ -88,7 +87,7 @@ export default class StopPoint extends TfLAPI {
      */
     getDisruptionsByID(ids: Array<string>, getFamily: boolean, includeRouteBlockedStops: boolean, flattenResponse: boolean) {
         return this.sendRequest(
-            `/StopPoint/${this.arrayToCSV(ids)}/Disruption`,
+            `/StopPoint/${TfLAPI.arrayToCSV(ids)}/Disruption`,
             {
                 getFamily,
                 includeRouteBlockedStops,
@@ -104,7 +103,7 @@ export default class StopPoint extends TfLAPI {
      * @param includeRouteBlockedStops
      */
     getDisruptionsByMode(modes: Array<string>, includeRouteBlockedStops: boolean) {
-        return this.sendRequest(`/StopPoint/Mode/${this.arrayToCSV(modes)}/Disruption`, { includeRouteBlockedStops }, 'GET');
+        return this.sendRequest(`/StopPoint/Mode/${TfLAPI.arrayToCSV(modes)}/Disruption`, { includeRouteBlockedStops }, 'GET');
     }
 
     /**
@@ -114,7 +113,7 @@ export default class StopPoint extends TfLAPI {
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getReachableStationsByID(id: string, lineID: string, serviceTypes: Array<string> = ['Regular']) {
-        return this.sendRequest(`/StopPoint/${id}/CanReachOnLine/${lineID}`, { serviceTypes: this.arrayToCSV(serviceTypes) }, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/CanReachOnLine/${lineID}`, { serviceTypes: TfLAPI.arrayToCSV(serviceTypes) }, 'GET');
     }
 
     /**
@@ -123,7 +122,7 @@ export default class StopPoint extends TfLAPI {
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getRouteSectionByID(id: string, serviceTypes: Array<string> = ['Regular']) {
-        return this.sendRequest(`/StopPoint/${id}/Route`, { serviceTypes: this.arrayToCSV(serviceTypes) }, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/Route`, { serviceTypes: TfLAPI.arrayToCSV(serviceTypes) }, 'GET');
     }
 
     /**
@@ -149,7 +148,7 @@ export default class StopPoint extends TfLAPI {
     ) {
         return this.sendRequest(
             `/StopPoint`,
-            { stopTypes: this.arrayToCSV(stopTypes), radius, useStopPointHierarchy, modes: this.arrayToCSV(modes), categories: this.arrayToCSV(categories), returnLines, latitude, longitude },
+            { stopTypes: TfLAPI.arrayToCSV(stopTypes), radius, useStopPointHierarchy, modes: TfLAPI.arrayToCSV(modes), categories: TfLAPI.arrayToCSV(categories), returnLines, latitude, longitude },
             'GET'
         );
     }
