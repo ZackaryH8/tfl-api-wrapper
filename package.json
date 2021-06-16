@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
-    "xml2js": "^0.4.23"
+    "trackernet-xml-retag": "^1.0.4"
   },
   "directories": {
     "lib": "lib"
