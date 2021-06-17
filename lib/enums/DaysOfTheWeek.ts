@@ -1,4 +1,4 @@
-enum DaysOfTheWeek {
+const enum DaysOfTheWeek {
     Monday = 'MON',
     Tuesday = 'TUE',
     Wednesday = 'WED',
@@ -7,4 +7,5 @@ enum DaysOfTheWeek {
     Saturday = 'SAT',
     Sunday = 'SUN'
 }
+
 export default DaysOfTheWeek;
