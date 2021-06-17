@@ -76,4 +76,12 @@ export default class TfLAPI {
     static convertDate(oldDate: Date | undefined): string {
         return oldDate?.toISOString().split('.')[0] + 'Z';
     }
+
+    /**
+     * @ignore
+     */
+
+    static incidentsCheck(incidentsOnly: boolean): string {
+        return incidentsOnly ? '/IncidentsOnly' : '';
+    }
 }
