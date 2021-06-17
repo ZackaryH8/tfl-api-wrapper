@@ -1,4 +1,5 @@
 import TfLAPI from './tfl';
+import * as humps from 'humps';
 import * as ITrackerNet from './interfaces/trackerNet';
 import TrackerNetLines from './enums/lines';
 import TrackerNetStations from './enums/stationCodes';
@@ -8,36 +9,15 @@ export default class TrackerNet extends TfLAPI {
         super(config);
     }
 
-    async getPredictionSummary(line: TrackerNetLines): Promise<getPredictionSummary.Root> {
-        const request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, {}, 'GET', true);
-        const root = request.ROOT;
+    async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.getPredictionSummary.Root> {
+        const request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
 
-        return {
-            currentTime: root.Time[0].$.TimeStamp,
-            stations: root.S.map((station: any) => {
-                return {
-                    code: station.$.Code,
-                    name: station.$.N.slice(0, -1),
-                    platforms: station.P.map((platform: any) => {
-                        return {
-                            name: platform.$.N,
-                            code: platform.$.Code,
-                            next: platform.$.Next,
-                            trains: platform?.T?.map((train: any) => {
-                                return {
-                                    setNumber: train.$.S,
-                                    tripNumber: train.$.T,
-                                    destinationCode: train.$.D,
-                                    timeToStation: train.$.C,
-                                    currentLocation: train.$.L,
-                                    destination: train.$.D
-                                };
-                            })
-                        };
-                    })
-                };
-            })
-        };
+        //@ts-expect-error
+        request = humps.camelizeKeys(request.ROOT, function (key, convert) {
+            return /^[A-Z0-9_]+$/.test(key) ? key.toLowerCase() : convert(key);
+        });
+
+        return request;
     }
 
     /**
@@ -46,93 +26,47 @@ export default class TrackerNet extends TfLAPI {
      * @param {TrackerNetStations} stationCode
      * @returns {<ITrackerNet.PredictionDetailed>}
      */
-    async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<getPredictionDetailed.Root> {
-        return await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, {}, 'GET', true);
-        const root = request.ROOT;
-        return {
-            information: {
-                code: root.S[0].$.Code,
-                name: root.S[0].$.N.slice(0, -1),
-                currentTime: root.S[0].$.CurTime
-            },
-            platforms: root.S[0].P.map((platform: any) => {
-                return {
-                    name: platform.$.N,
-                    number: platform.$.Num,
-                    trackCode: platform.$.TrackCode,
-                    nextTrain: platform.$.NextTrain,
-                    trains: platform?.T?.map((train: any) => {
-                        return {
-                            trainID: train.$.TrainId,
-                            LCID: train.$.LCID,
-                            setNumber: train.$.SetNo,
-                            tripNumber: train.$.TripNo,
-                            secondsToStation: train.$.SecondsTo,
-                            timeToStation: train.$.TimeTo,
-                            currentLocation: train.$.Location,
-                            destination: train.$.Destination,
-                            destinationCode: train.$.DestCode,
-                            departedTime: train.$.DepartTime,
-                            departureInterval: train.$.DepartInterval,
-                            hasDeparted: !!train.$.Departed,
-                            direction: train.$.Direction,
-                            trackCode: train.$.TrackCode,
-                            line: train.$.LN,
-                            leadingCarNumber: train.$.LeadingCarNo
-                        };
-                    })
-                };
-            })
-        };
+    async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.getPredictionDetailed.Root> {
+        if (!line) console.error('You must enter a line code!');
+        if (!stationCode) console.error('You must enter a station code!');
+        const request = await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, 'GET', true);
+
+        //@ts-expect-error
+        request = humps.camelizeKeys(request.ROOT, function (key, convert) {
+            return /^[A-Z0-9_]+$/.test(key) ? key.toLowerCase() : convert(key);
+        });
+
+        delete request['xmlns'];
+        delete request['xmlns:xsd'];
+        delete request['xmlns:xsi'];
+        delete request.disclaimer;
+
+        return request;
     }
 
     /**
      * Get the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.
-     * @param incidentsOnly An indication of whether only lines that have incidents should be returned
+     * @param {boolean} incidentsOnly An indication of whether only lines that have incidents should be returned. Default: false
      */
-    async getAllLinesStatus(incidentsOnly?: boolean): Promise<getPredictionDetailed.ArrayOfLineStatus[]> {
-        const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
-        const request = await this.sendRequestTrackerNet(`/LineStatus${incidentsOnlyCheck}`, {}, 'GET', true);
+    async getAllLinesStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.getAllLinesStatus.Root> {
+        const request = await this.sendRequestTrackerNet(`/LineStatus${TrackerNet.incidentsCheck(incidentsOnly)}`, 'GET', false);
 
-        return request.ArrayOfLineStatus.LineStatus.map((line: any) => {
-            return {
-                id: line.$.ID,
-                name: line.Line[0].$.Name,
-                statusDetails: line.$.StatusDetails,
-                status: line.Status.map((obj: any) => {
-                    return {
-                        id: obj.$.ID,
-                        cssClass: obj.$.CssClass,
-                        description: obj.$.Description,
-                        isActive: !!obj.$.IsActive
-                    };
-                })
-
-                // The data below is duplicated from above
-                // statusType: line.Status.map((obj: any) => {
-                //     return { id: obj.$.ID, description: obj.$.Description };
-                // }),
-            };
+        //@ts-expect-error
+        return humps.camelizeKeys(request.ArrayOfLineStatus.LineStatus, function (key, convert) {
+            return /^[A-Z0-9_]+$/.test(key) ? key.toLowerCase() : convert(key);
         });
     }
 
     /**
-     *  station status information for all stations.
-     * @param {boolean} incidentsOnly Get station status information for stations with incidents only.
+     * Get the status of all stations on the network indicating any disruptions or closures of stations.
+     * @param {boolean} incidentsOnly Get station status information for stations with incidents only. Default: false
      */
-    async getAllStationStatus(incidentsOnly?: boolean): Promise<ITrackerNet.getAllStationStatus.Root> {
-        const incidentsOnlyCheck = incidentsOnly ? '/IncidentsOnly' : '';
-        const request = await this.sendRequestTrackerNet(`/StationStatus${incidentsOnlyCheck}`, {}, 'GET', false);
+    async getAllStationStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.getAllStationStatus.Root> {
+        const request = await this.sendRequestTrackerNet(`/StationStatus${TrackerNet.incidentsCheck(incidentsOnly)}`, 'GET', false);
 
-        return request.ArrayOfStationStatus.StationStatus.map((station: any) => {
-            return {
-                stationID: station.ID,
-                statusDetails: station.StatusDetails,
-                stationName: station.Station.Name,
-                description: station.Status.Description,
-                isActive: !!station.Status.IsActive,
-                cssClass: station.Status.CssClass
-            };
+        //@ts-expect-error
+        return humps.camelizeKeys(request.ArrayOfStationStatus.StationStatus, function (key, convert) {
+            return /^[A-Z0-9_]+$/.test(key) ? key.toLowerCase() : convert(key);
         });
     }
 }
