@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TrackerNet | TfL API Wrapper</title>
+	<title>Occupancy | TfL API Wrapper</title>
 	<meta name="description" content="Documentation for TfL API Wrapper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="trackernet.html">TrackerNet</a>
+					<a href="occupancy.html">Occupancy</a>
 				</li>
 			</ul>
-			<h1>Class TrackerNet</h1>
+			<h1>Class Occupancy</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<span class="tsd-signature-type">TfLAPI</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">TrackerNet</span>
+								<span class="target">Occupancy</span>
 							</li>
 						</ul>
 					</li>
@@ -86,22 +86,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="trackernet.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="occupancy.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="trackernet.html#appkey" class="tsd-kind-icon">app<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="occupancy.html#appkey" class="tsd-kind-icon">app<wbr>Key</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="trackernet.html#getalllinesstatus" class="tsd-kind-icon">get<wbr>All<wbr>Lines<wbr>Status</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="trackernet.html#getallstationstatus" class="tsd-kind-icon">get<wbr>All<wbr>Station<wbr>Status</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="trackernet.html#getpredictiondetailed" class="tsd-kind-icon">get<wbr>Prediction<wbr>Detailed</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="trackernet.html#getpredictionsummary" class="tsd-kind-icon">get<wbr>Prediction<wbr>Summary</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="occupancy.html#getallcarparks" class="tsd-kind-icon">get<wbr>All<wbr>Car<wbr>Parks</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="occupancy.html#getallchargeconnectors" class="tsd-kind-icon">get<wbr>All<wbr>Charge<wbr>Connectors</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="occupancy.html#getbikepointbyid" class="tsd-kind-icon">get<wbr>Bike<wbr>Point<wbr>ByID</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="occupancy.html#getcarkparkbyid" class="tsd-kind-icon">get<wbr>Cark<wbr>Park<wbr>ByID</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="occupancy.html#getchargeconnectorbyid" class="tsd-kind-icon">get<wbr>Charge<wbr>Connector<wbr>ByID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,14 +114,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Tracker<wbr>Net<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="trackernet.html" class="tsd-signature-type">TrackerNet</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Occupancy<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="occupancy.html" class="tsd-signature-type">Occupancy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides TfLAPI.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/trackerNet.ts#L7">lib/trackerNet.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/occupancy.ts#L4">lib/occupancy.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,7 +130,7 @@
 									<h5>config: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="trackernet.html" class="tsd-signature-type">TrackerNet</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="occupancy.html" class="tsd-signature-type">Occupancy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -151,118 +152,139 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getalllinesstatus" class="tsd-anchor"></a>
-					<h3>get<wbr>All<wbr>Lines<wbr>Status</h3>
+					<a name="getallcarparks" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Car<wbr>Parks</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Lines<wbr>Status<span class="tsd-signature-symbol">(</span>incidentsOnly<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Car<wbr>Parks<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CarPark</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/trackerNet.ts#L51">lib/trackerNet.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/occupancy.ts#L36">lib/occupancy.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.</p>
+									<p>Gets the occupancy for all car parks that have occupancy data</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CarPark</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getallchargeconnectors" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Charge<wbr>Connectors</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Charge<wbr>Connectors<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ChargeConnector</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/occupancy.ts#L43">lib/occupancy.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the occupancy for all charge connectors</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ChargeConnector</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbikepointbyid" class="tsd-anchor"></a>
+					<h3>get<wbr>Bike<wbr>Point<wbr>ByID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Bike<wbr>Point<wbr>ByID<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CarPark</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/occupancy.ts#L13">lib/occupancy.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the occupancy for bike points.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>incidentsOnly: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>An indication of whether only lines that have incidents should be returned. Default: false</p>
+										<p>Bike Point ID</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CarPark</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getallstationstatus" class="tsd-anchor"></a>
-					<h3>get<wbr>All<wbr>Station<wbr>Status</h3>
+					<a name="getcarkparkbyid" class="tsd-anchor"></a>
+					<h3>get<wbr>Cark<wbr>Park<wbr>ByID</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Station<wbr>Status<span class="tsd-signature-symbol">(</span>incidentsOnly<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Cark<wbr>Park<wbr>ByID<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CarPark</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/trackerNet.ts#L64">lib/trackerNet.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/occupancy.ts#L21">lib/occupancy.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the status of all stations on the network indicating any disruptions or closures of stations.</p>
+									<p>Gets the occupancy for a charge connectors with a given id</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>incidentsOnly: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Get station status information for stations with incidents only. Default: false</p>
+										<p>Charge Connector ID (Eg. ChargePointESB-UT06NW-1)</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CarPark</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getpredictiondetailed" class="tsd-anchor"></a>
-					<h3>get<wbr>Prediction<wbr>Detailed</h3>
+					<a name="getchargeconnectorbyid" class="tsd-anchor"></a>
+					<h3>get<wbr>Charge<wbr>Connector<wbr>ByID</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Prediction<wbr>Detailed<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><a href="../enums/trackernetlines.html" class="tsd-signature-type">TrackerNetLines</a>, stationCode<span class="tsd-signature-symbol">: </span><a href="../enums/trackernetstations.html" class="tsd-signature-type">TrackerNetStations</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Charge<wbr>Connector<wbr>ByID<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ChargeConnector</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/trackerNet.ts#L29">lib/trackerNet.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/occupancy.ts#L29">lib/occupancy.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get detailed train prediction information for a nominated station on a nominated line within 100 minute range.</p>
+									<p>Gets the occupancy for a charge connectors with a given id</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>line: <a href="../enums/trackernetlines.html" class="tsd-signature-type">TrackerNetLines</a></h5>
-								</li>
-								<li>
-									<h5>stationCode: <a href="../enums/trackernetstations.html" class="tsd-signature-type">TrackerNetStations</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getpredictionsummary" class="tsd-anchor"></a>
-					<h3>get<wbr>Prediction<wbr>Summary</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Prediction<wbr>Summary<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><a href="../enums/trackernetlines.html" class="tsd-signature-type">TrackerNetLines</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/trackerNet.ts#L12">lib/trackerNet.ts:12</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>line: <a href="../enums/trackernetlines.html" class="tsd-signature-type">TrackerNetLines</a></h5>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Charge Connector ID (Eg. ChargePointESB-UT06NW-1)</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ChargeConnector</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -305,42 +327,45 @@
 					<li class=" tsd-kind-class">
 						<a href="mode.html" class="tsd-kind-icon">Mode</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="occupancy.html" class="tsd-kind-icon">Occupancy</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="occupancy.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="occupancy.html#appkey" class="tsd-kind-icon">app<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="occupancy.html#getallcarparks" class="tsd-kind-icon">get<wbr>All<wbr>Car<wbr>Parks</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="occupancy.html#getallchargeconnectors" class="tsd-kind-icon">get<wbr>All<wbr>Charge<wbr>Connectors</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="occupancy.html#getbikepointbyid" class="tsd-kind-icon">get<wbr>Bike<wbr>Point<wbr>ByID</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="occupancy.html#getcarkparkbyid" class="tsd-kind-icon">get<wbr>Cark<wbr>Park<wbr>ByID</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="occupancy.html#getchargeconnectorbyid" class="tsd-kind-icon">get<wbr>Charge<wbr>Connector<wbr>ByID</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="road.html" class="tsd-kind-icon">Road</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="stoppoint.html" class="tsd-kind-icon">Stop<wbr>Point</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="trackernet.html" class="tsd-kind-icon">Tracker<wbr>Net</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="trackernet.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="trackernet.html#appkey" class="tsd-kind-icon">app<wbr>Key</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="trackernet.html#getalllinesstatus" class="tsd-kind-icon">get<wbr>All<wbr>Lines<wbr>Status</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="trackernet.html#getallstationstatus" class="tsd-kind-icon">get<wbr>All<wbr>Station<wbr>Status</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="trackernet.html#getpredictiondetailed" class="tsd-kind-icon">get<wbr>Prediction<wbr>Detailed</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="trackernet.html#getpredictionsummary" class="tsd-kind-icon">get<wbr>Prediction<wbr>Summary</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
