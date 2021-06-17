@@ -1,8 +1,7 @@
 import TfLAPI from './tfl';
-import Config from './interfaces/config';
 
 export default class AirQuality extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 

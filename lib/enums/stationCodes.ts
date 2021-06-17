@@ -94,8 +94,6 @@ const enum TrackerNetStations {
     Hornchurch = 'HCH',
     Olympia = 'OLY',
     KewGardens = 'KEW'
-
-
 }
 
 export default TrackerNetStations;

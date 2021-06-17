@@ -1,5 +1,4 @@
 declare module Crowding {
-
     export interface TimeBand {
         timeBand: string;
         percentageOfBaseLine: number;
@@ -13,7 +12,6 @@ declare module Crowding {
         timeBands: TimeBand[];
         isFound: boolean;
     }
-
 }
 
 export default Crowding;

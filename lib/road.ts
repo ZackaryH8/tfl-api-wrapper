@@ -1,8 +1,7 @@
-import tflAPI from './tfl';
-import Config from './interfaces/config';
+import TfLAPI from './tfl';
 
-export default class Road extends tflAPI {
-    constructor(config: Config) {
+export default class Road extends TfLAPI {
+    constructor(config: string) {
         super(config);
     }
 
@@ -18,7 +17,7 @@ export default class Road extends tflAPI {
      * @param ids ID(s) of the road(s)
      */
     getByID(ids: Array<string>) {
-        return this.sendRequest(`/Road/${this.arrayToCSV(ids)}`, {}, 'GET');
+        return this.sendRequest(`/Road/${TfLAPI.arrayToCSV(ids)}`, {}, 'GET');
     }
 
     /**
@@ -29,10 +28,10 @@ export default class Road extends tflAPI {
      */
     getStatusByID(ids: Array<string>, startDate?: Date, endDate?: Date) {
         return this.sendRequest(
-            `/Road/${this.arrayToCSV(ids)}/Status`,
+            `/Road/${TfLAPI.arrayToCSV(ids)}/Status`,
             {
-                startDate: this.convertDate(startDate),
-                endDate: this.convertDate(endDate)
+                startDate: TfLAPI.convertDate(startDate),
+                endDate: TfLAPI.convertDate(endDate)
             },
             'GET'
         );
@@ -47,8 +46,8 @@ export default class Road extends tflAPI {
         return this.sendRequest(
             `/Road/all/Street/Disruption`,
             {
-                startDate: this.convertDate(startDate),
-                endDate: this.convertDate(endDate)
+                startDate: TfLAPI.convertDate(startDate),
+                endDate: TfLAPI.convertDate(endDate)
             },
             'GET'
         );
@@ -63,7 +62,7 @@ export default class Road extends tflAPI {
      */
     getAllDisruptionsByID(ids: Array<string>, stripContent?: boolean) {
         return this.sendRequest(
-            `/Road/all/Disruption/${this.arrayToCSV(ids)}`,
+            `/Road/all/Disruption/${TfLAPI.arrayToCSV(ids)}`,
             {
                 stripContent
             },

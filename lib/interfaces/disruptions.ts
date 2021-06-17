@@ -1,5 +1,4 @@
 declare module getAllLifts {
-
     export interface Root {
         icsCode: string;
         naptanCode: string;
@@ -8,6 +7,4 @@ declare module getAllLifts {
         outageEndArea: string;
         message: string;
     }
-
 }
-

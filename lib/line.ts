@@ -1,8 +1,7 @@
 import TfLAPI from './tfl';
-import Config from './interfaces/config';
 
 export default class Line extends TfLAPI {
-    constructor(config: Config) {
+    constructor(config: string) {
         super(config);
     }
 
@@ -33,7 +32,7 @@ export default class Line extends TfLAPI {
 
     /** Gets all lines that serve the given modes. */
     getAllFromMode(modes: Array<string | number>) {
-        return this.sendRequest(`/Line/Mode/${this.arrayToCSV(modes)}`, {}, 'GET');
+        return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}`, {}, 'GET');
     }
 
     /**
@@ -45,9 +44,9 @@ export default class Line extends TfLAPI {
      */
     getStatusByLine(lines: Array<string>, detail: boolean = false, startDate?: Date, endDate?: Date) {
         if (!startDate || !endDate) {
-            return this.sendRequest(`/Line/${this.arrayToCSV(lines)}/Status`, { detail }, 'GET');
+            return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(lines)}/Status`, { detail }, 'GET');
         } else {
-            return this.sendRequest(`/Line/${this.arrayToCSV(lines)}/Status/${this.convertDate(startDate)}/to/${this.convertDate(endDate)}`, { detail }, 'GET');
+            return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(lines)}/Status/${TfLAPI.convertDate(startDate)}/to/${TfLAPI.convertDate(endDate)}`, { detail }, 'GET');
         }
     }
 
@@ -58,7 +57,7 @@ export default class Line extends TfLAPI {
      * @param severityLevel If specified, ensures that only those line status(es) are returned within the lines that have disruptions with the matching severity level.
      */
     getStatusByModes(modes: Array<string>, detail?: boolean, severityLevel?: string) {
-        return this.sendRequest(`/Line/Mode/${this.arrayToCSV(modes)}/Status`, { detail, severityLevel }, 'GET');
+        return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}/Status`, { detail, severityLevel }, 'GET');
     }
 
     /** Gets the timetable for a specified station on the give line with specified destination */
@@ -83,7 +82,7 @@ export default class Line extends TfLAPI {
      * @param destinationStationId Optional. Id of destination stop
      */
     getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string) {
-        return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
+        return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
     }
 
     /**
@@ -91,7 +90,7 @@ export default class Line extends TfLAPI {
      * @param ids list of line ids e.g. ['victoria','circle','N133']
      */
     getDistruptionsByID(ids: Array<string>) {
-        return this.sendRequest(`/Line/${this.arrayToCSV(ids)}/Disruption`, {}, 'GET');
+        return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(ids)}/Disruption`, {}, 'GET');
     }
     /**
      * Search for lines or routes matching the query string

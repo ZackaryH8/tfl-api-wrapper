@@ -1,4 +1,4 @@
-enum TrackerNetLines {
+const enum TrackerNetLines {
     Bakerloo = 'B',
     Central = 'C',
     District = 'D',
@@ -8,6 +8,6 @@ enum TrackerNetLines {
     Northern = 'N',
     Piccadilly = 'P',
     Victoria = 'V',
-    WaterlooCity = 'W',
+    WaterlooCity = 'W'
 }
-export default TrackerNetLines
+export default TrackerNetLines;

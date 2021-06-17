@@ -1,22 +1,22 @@
 import fetch from 'node-fetch';
 import * as qs from 'querystring';
-import * as xml2js from 'xml2js';
-import Config from './interfaces/config';
-
+import * as xmlparser from 'fast-xml-parser';
+// @ts-ignore
+import { retag } from 'trackernet-xml-retag';
 export default class TfLAPI {
-    public config: Config | any;
+    public appKey: string;
     private readonly host: string = 'api.tfl.gov.uk';
     private readonly port: number = 443;
 
-    constructor(config: Config) {
-        this.config = config;
+    constructor(appKey: string) {
+        this.appKey = appKey;
     }
 
     /**
      * @ignore
      */
-    async sendRequest(uri: string, params: any, method: string) {
-        let FullURL = `https://${this.host}:${this.port}${uri}?${qs.stringify(this.config)}`;
+    protected async sendRequest(uri: string, params: any, method: string) {
+        let FullURL: string = `https://${this.host}:${this.port}${uri}?app_key=${this.appKey}`;
         const options = {
             method,
             headers: {
@@ -28,9 +28,8 @@ export default class TfLAPI {
         // Removed all undefined objects from params
         Object.keys(params).forEach((key) => (params[key] === undefined ? delete params[key] : {}));
 
-        if (params) {
-            FullURL = `${FullURL}&${qs.stringify(params)}`;
-        }
+        // If Parameters are passed then stringify them and update the request URL
+        if (params) FullURL = `${FullURL}&${qs.stringify(params)}`;
 
         const fetchReq = await fetch(FullURL, options);
         return await fetchReq.json();
@@ -39,9 +38,8 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    async sendRequestTrackerNet(uri: string, params: any, method: string) {
+    protected async sendRequestTrackerNet(uri: string, method: string, reTag: boolean) {
         let FullURL = `http://cloud.tfl.gov.uk/TrackerNet${uri}`;
-
         const options = {
             method,
             headers: {
@@ -50,14 +48,23 @@ export default class TfLAPI {
             }
         };
 
-        const fetchReq = await fetch(FullURL, options);
-        return await xml2js.parseStringPromise(await fetchReq.text());
+        // Fetch data and retag the XML if required
+        let xmlData: string = await (await fetch(FullURL, options)).text();
+        if (reTag) xmlData = retag.trackerNetRetag(xmlData);
+
+        // Convert XML to JS / JSON
+        const jsonObj = xmlparser.parse(xmlData, {
+            attributeNamePrefix: '',
+            ignoreAttributes: false
+        });
+
+        return jsonObj;
     }
 
     /**
      * @ignore
      */
-    objectToQuery(params: any): string {
+    static objectToQuery(params: any): string {
         return Object.keys(params)
             .map((key) => key + '=' + params[key])
             .join('&');
@@ -66,14 +73,22 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    arrayToCSV(arr: Array<string | number>) {
+    static arrayToCSV(arr: Array<string | number>) {
         return arr.join(',');
     }
 
     /**
      * @ignore
      */
-    convertDate(oldDate: Date | undefined): string {
+    static convertDate(oldDate: Date | undefined): string {
         return oldDate?.toISOString().split('.')[0] + 'Z';
+    }
+
+    /**
+     * @ignore
+     */
+
+    static incidentsCheck(incidentsOnly: boolean): string {
+        return incidentsOnly ? '/IncidentsOnly' : '';
     }
 }

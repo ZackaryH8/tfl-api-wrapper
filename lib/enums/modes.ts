@@ -15,7 +15,7 @@ const enum modes {
     tflrail = 'tflrail',
     tram = 'tram',
     tube = 'tube',
-    walking = 'walking',
+    walking = 'walking'
 }
 
 export default modes;

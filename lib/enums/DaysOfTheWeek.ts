@@ -7,4 +7,4 @@ enum DaysOfTheWeek {
     Saturday = 'SAT',
     Sunday = 'SUN'
 }
-export default DaysOfTheWeek
+export default DaysOfTheWeek;

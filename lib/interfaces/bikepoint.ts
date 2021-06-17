@@ -1,5 +1,4 @@
 declare module IBikePoint {
-
     export interface AdditionalProperty {
         $type: string;
         category: string;
@@ -23,6 +22,4 @@ declare module IBikePoint {
     }
 }
 
-export {
-    IBikePoint
-}
+export { IBikePoint };
