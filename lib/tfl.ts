@@ -28,9 +28,8 @@ export default class TfLAPI {
         // Removed all undefined objects from params
         Object.keys(params).forEach((key) => (params[key] === undefined ? delete params[key] : {}));
 
-        if (params) {
-            FullURL = `${FullURL}&${qs.stringify(params)}`;
-        }
+        // If Parameters are passed then stringify them and update the request URL
+        if (params) FullURL = `${FullURL}&${qs.stringify(params)}`;
 
         const fetchReq = await fetch(FullURL, options);
         return await fetchReq.json();
