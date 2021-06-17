@@ -1,6 +1,5 @@
 import TfLAPI from './tfl';
 
-
 export default class Line extends TfLAPI {
     constructor(config: string) {
         super(config);

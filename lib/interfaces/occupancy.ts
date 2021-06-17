@@ -1,5 +1,4 @@
 declare module Occupancy {
-
     export interface ChargeConnector {
         $type: string;
         id: number;
@@ -22,7 +21,6 @@ declare module Occupancy {
         name: string;
         carParkDetailsUrl: string;
     }
-
 }
 
 export default Occupancy;

@@ -35,16 +35,11 @@ declare module GetArrivalPredictionsAllStops {
 }
 
 declare module GetActiveServiceTypes {
-
     export interface Root {
         $type: string;
         mode: string;
         serviceType: string;
     }
-
 }
 
-export {
-    GetArrivalPredictionsAllStops,
-    GetActiveServiceTypes
-};
+export { GetArrivalPredictionsAllStops, GetActiveServiceTypes };

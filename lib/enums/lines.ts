@@ -8,6 +8,6 @@ const enum TrackerNetLines {
     Northern = 'N',
     Piccadilly = 'P',
     Victoria = 'V',
-    WaterlooCity = 'W',
+    WaterlooCity = 'W'
 }
-export default TrackerNetLines
+export default TrackerNetLines;
