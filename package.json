@@ -23,6 +23,7 @@
   "author": "zackaryh8",
   "license": "ISC",
   "devDependencies": {
+    "@types/humps": "^2.0.0",
     "@types/node-fetch": "^2.5.7",
     "prettier": "^2.3.0",
     "tsc-watch": "^4.2.9",
@@ -32,8 +33,9 @@
   },
   "dependencies": {
     "fast-xml-parser": "^3.19.0",
+    "humps": "^2.0.1",
     "node-fetch": "^2.6.1",
-    "trackernet-xml-retag": "^1.0.4"
+    "trackernet-xml-retag": "^1.0.7"
   },
   "directories": {
     "lib": "lib"
