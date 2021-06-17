@@ -50,8 +50,17 @@ export default class TfLAPI {
             }
         };
 
-        const fetchReq = await fetch(FullURL, options);
-        return await parseStringPromise(await fetchReq.text());
+        // Fetch data and retag the XML if required
+        let xmlData: string = await (await fetch(FullURL, options)).text();
+        if (reTag) xmlData = retag.trackerNetRetag(xmlData);
+
+        // Convert XML to JS / JSON
+        const jsonObj = xmlparser.parse(xmlData, {
+            attributeNamePrefix: '',
+            ignoreAttributes: false
+        });
+
+        return jsonObj;
     }
 
     /**
