@@ -10,9 +10,8 @@ export default class TrackerNet extends TfLAPI {
     }
 
     async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.getPredictionSummary.Root> {
-        const request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
+        let request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
 
-        //@ts-expect-error
         request = humps.camelizeKeys(request.ROOT, function (key, convert) {
             return /^[A-Z0-9_]+$/.test(key) ? key.toLowerCase() : convert(key);
         });
@@ -29,9 +28,8 @@ export default class TrackerNet extends TfLAPI {
     async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.getPredictionDetailed.Root> {
         if (!line) console.error('You must enter a line code!');
         if (!stationCode) console.error('You must enter a station code!');
-        const request = await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, 'GET', true);
+        let request = await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, 'GET', true);
 
-        //@ts-expect-error
         request = humps.camelizeKeys(request.ROOT, function (key, convert) {
             return /^[A-Z0-9_]+$/.test(key) ? key.toLowerCase() : convert(key);
         });
