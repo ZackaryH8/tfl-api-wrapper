@@ -12,7 +12,7 @@
     "build": "tsc",
     "build-docs": "typedoc --options",
     "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
-    "prettier": "prettier --write ./**/*.ts",
+    "prettier": "prettier --write ./**/*.ts"
   },
   "keywords": [
     "tfl",
