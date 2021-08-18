@@ -23,9 +23,10 @@
   "author": "zackaryh8",
   "license": "ISC",
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.21.1",
     "fast-xml-parser": "^3.19.0",
     "humps": "^2.0.1",
-    "node-fetch": "^2.6.1",
     "trackernet-xml-retag": "^1.0.7"
   },
   "devDependencies": {
