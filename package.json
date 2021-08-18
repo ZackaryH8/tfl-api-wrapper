@@ -23,15 +23,14 @@
   "author": "zackaryh8",
   "license": "ISC",
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "axios": "^0.21.1",
     "fast-xml-parser": "^3.19.0",
     "humps": "^2.0.1",
     "trackernet-xml-retag": "^1.0.7"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/humps": "^2.0.0",
-    "@types/node-fetch": "^2.5.7",
     "prettier": "^2.3.0",
     "tsc-watch": "^4.2.9",
     "typedoc": "^0.20.14",
