@@ -1,8 +1,9 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 import * as qs from 'querystring';
 import * as xmlparser from 'fast-xml-parser';
 // @ts-ignore
 import { retag } from 'trackernet-xml-retag';
+
 export default class TfLAPI {
     public appKey: string;
     private readonly host: string = 'api.tfl.gov.uk';
@@ -17,13 +18,6 @@ export default class TfLAPI {
      */
     protected async sendRequest(uri: string, params: any, method: string) {
         let FullURL: string = `https://${this.host}:${this.port}${uri}?app_key=${this.appKey}`;
-        const options = {
-            method,
-            headers: {
-                Accept: 'application/json',
-                'cache-control': 'no-cache'
-            }
-        };
 
         // Removed all undefined objects from params
         Object.keys(params).forEach((key) => (params[key] === undefined ? delete params[key] : {}));
@@ -31,25 +25,18 @@ export default class TfLAPI {
         // If Parameters are passed then stringify them and update the request URL
         if (params) FullURL = `${FullURL}&${qs.stringify(params)}`;
 
-        const fetchReq = await fetch(FullURL, options);
-        return await fetchReq.json();
+        const fetch = await axios.get(FullURL, { headers: { Accept: 'application/json', 'cache-control': 'no-cache' } });
+        return fetch.data;
     }
 
     /**
      * @ignore
      */
     protected async sendRequestTrackerNet(uri: string, method: string, reTag: boolean) {
-        let FullURL = `http://cloud.tfl.gov.uk/TrackerNet${uri}`;
-        const options = {
-            method,
-            headers: {
-                Accept: 'application/xml',
-                'cache-control': 'no-cache'
-            }
-        };
-
         // Fetch data and retag the XML if required
-        let xmlData: string = await (await fetch(FullURL, options)).text();
+        const fetch = await axios.get(`http://cloud.tfl.gov.uk/TrackerNet${uri}`, { headers: { Accept: 'application/xml', 'cache-control': 'no-cache' } });
+        let xmlData = fetch.data;
+
         if (reTag) xmlData = retag.trackerNetRetag(xmlData);
 
         // Convert XML to JS / JSON
