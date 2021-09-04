@@ -19,7 +19,7 @@ export default class Occupancy extends TfLAPI {
      * @param id Charge Connector ID (Eg. ChargePointESB-UT06NW-1)
      */
     getCarkParkByID(id: string): Promise<Occupancy.CarPark> {
-        return this.sendRequest(`/Occupancy/ChargeConnector/${id}`, {}, 'GET');
+        return this.sendRequest(`/Occupancy/CarPark/${id}`, {}, 'GET');
     }
 
     /**
