@@ -1,6 +1,6 @@
 {
   "name": "tfl-api-wrapper",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A Node JS wrapper for the Transport for London API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,11 +26,13 @@
     "axios": "^0.21.1",
     "fast-xml-parser": "^3.19.0",
     "humps": "^2.0.1",
+    "querystring": "^0.2.1",
     "trackernet-xml-retag": "^1.0.7"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/humps": "^2.0.0",
+    "@types/node": "^16.7.13",
     "prettier": "^2.3.0",
     "tsc-watch": "^4.2.9",
     "typedoc": "^0.20.14",

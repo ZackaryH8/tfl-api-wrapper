@@ -10,8 +10,8 @@ export default class Occupancy extends TfLAPI {
      * Get the occupancy for bike points.
      * @param id Bike Point ID
      */
-    getBikePointByID(id: string): Promise<Occupancy.CarPark> {
-        return this.sendRequest(`/Occupancy/BikePoints/${id}`, {}, 'GET');
+    getBikePointByIDs(ids: string[]): Promise<Occupancy.CarPark> {
+        return this.sendRequest(`/Occupancy/BikePoints/${TfLAPI.arrayToCSV(ids)}`, {}, 'GET');
     }
 
     /**
