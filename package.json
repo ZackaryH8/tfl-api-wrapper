@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "build-docs": "typedoc --options",
+    "build-docs": "typedoc",
     "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
     "prettier": "prettier --write ./**/*.ts"
   },
@@ -35,9 +35,9 @@
     "@types/node": "^16.7.13",
     "prettier": "^2.3.0",
     "tsc-watch": "^4.2.9",
-    "typedoc": "^0.20.14",
+    "typedoc": "^0.21.9",
     "typedoc-theme-dark": "0.0.5",
-    "typescript": "^4.2.0"
+    "typescript": "^4.4.2"
   },
   "directories": {
     "lib": "lib"
