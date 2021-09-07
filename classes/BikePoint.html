@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Crowding | TfL API Wrapper</title>
+	<title>BikePoint | TfL API Wrapper</title>
 	<meta name="description" content="Documentation for TfL API Wrapper">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="crowding.html">Crowding</a>
+					<a href="BikePoint.html">BikePoint</a>
 				</li>
 			</ul>
-			<h1>Class Crowding</h1>
+			<h1>Class BikePoint</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 						<span class="tsd-signature-type">TfLAPI</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Crowding</span>
+								<span class="target">BikePoint</span>
 							</li>
 						</ul>
 					</li>
@@ -86,20 +86,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="crowding.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="BikePoint.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="crowding.html#appkey" class="tsd-kind-icon">app<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="BikePoint.html#appKey" class="tsd-kind-icon">app<wbr>Key</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="crowding.html#getbynaptanday" class="tsd-kind-icon">get<wbr>ByNaptan<wbr>Day</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="crowding.html#getallbynaptan" class="tsd-kind-icon">getall<wbr>ByNaptan</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="BikePoint.html#getAll" class="tsd-kind-icon">get<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="BikePoint.html#getByID" class="tsd-kind-icon">get<wbr>ByID</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="BikePoint.html#getByName" class="tsd-kind-icon">get<wbr>ByName</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,14 +112,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Crowding<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="crowding.html" class="tsd-signature-type">Crowding</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bike<wbr>Point<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="BikePoint.html" class="tsd-signature-type">BikePoint</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides TfLAPI.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/crowding.ts#L5">lib/crowding.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/5b64eed/lib/bikePoint.ts#L5">lib/bikePoint.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -127,7 +128,7 @@
 									<h5>config: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="crowding.html" class="tsd-signature-type">Crowding</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="BikePoint.html" class="tsd-signature-type">BikePoint</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -135,13 +136,13 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="appkey" class="tsd-anchor"></a>
+					<a name="appKey" class="tsd-anchor"></a>
 					<h3>app<wbr>Key</h3>
 					<div class="tsd-signature tsd-kind-icon">app<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from TfLAPI.appKey</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/tfl.ts#L7">lib/tfl.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/5b64eed/lib/tfl.ts#L8">lib/tfl.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,36 +150,39 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getbynaptanday" class="tsd-anchor"></a>
-					<h3>get<wbr>ByNaptan<wbr>Day</h3>
+					<a name="getAll" class="tsd-anchor"></a>
+					<h3>get<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>ByNaptan<wbr>Day<span class="tsd-signature-symbol">(</span>naptanID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dayOfTheWeek<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DaysOfTheWeek</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/crowding.ts#L23">lib/crowding.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/5b64eed/lib/bikePoint.ts#L9">lib/bikePoint.ts:9</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns crowding information for Naptan for a specified day of week</p>
-								</div>
-							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getByID" class="tsd-anchor"></a>
+					<h3>get<wbr>ByID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ByID<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/5b64eed/lib/bikePoint.ts#L13">lib/bikePoint.ts:13</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>naptanID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>ID of the stop (eg. 940GZZLUASL)</p>
-									</div>
-								</li>
-								<li>
-									<h5>dayOfTheWeek: <span class="tsd-signature-type">DaysOfTheWeek</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The day of which you would like data to return (eg. MON, TUE)</p>
-									</div>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -186,30 +190,22 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getallbynaptan" class="tsd-anchor"></a>
-					<h3>getall<wbr>ByNaptan</h3>
+					<a name="getByName" class="tsd-anchor"></a>
+					<h3>get<wbr>ByName</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">getall<wbr>ByNaptan<span class="tsd-signature-symbol">(</span>naptanID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ByName<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/227789d/lib/crowding.ts#L14">lib/crowding.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/ZackaryH8/tfl-api-wrapper/blob/5b64eed/lib/bikePoint.ts#L17">lib/bikePoint.ts:17</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns crowding information for Naptan</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>naptanID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>ID of the stop (eg. 940GZZLUASL)</p>
-									</div>
+									<h5>query: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Root</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -229,61 +225,70 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="../enums/modes.html" class="tsd-kind-icon">Modes</a>
+						<a href="../enums/Modes.html" class="tsd-kind-icon">Modes</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="../enums/trackernetlines.html" class="tsd-kind-icon">Tracker<wbr>Net<wbr>Lines</a>
+						<a href="../enums/TrackerNetLines.html" class="tsd-kind-icon">Tracker<wbr>Net<wbr>Lines</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="../enums/trackernetstations.html" class="tsd-kind-icon">Tracker<wbr>Net<wbr>Stations</a>
+						<a href="../enums/TrackerNetStations.html" class="tsd-kind-icon">Tracker<wbr>Net<wbr>Stations</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/direction.html" class="tsd-kind-icon">direction</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="airquality.html" class="tsd-kind-icon">Air<wbr>Quality</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="bikepoint.html" class="tsd-kind-icon">Bike<wbr>Point</a>
+						<a href="AirQuality.html" class="tsd-kind-icon">Air<wbr>Quality</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="crowding.html" class="tsd-kind-icon">Crowding</a>
+						<a href="BikePoint.html" class="tsd-kind-icon">Bike<wbr>Point</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="crowding.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="BikePoint.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="crowding.html#appkey" class="tsd-kind-icon">app<wbr>Key</a>
+								<a href="BikePoint.html#appKey" class="tsd-kind-icon">app<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="crowding.html#getbynaptanday" class="tsd-kind-icon">get<wbr>ByNaptan<wbr>Day</a>
+								<a href="BikePoint.html#getAll" class="tsd-kind-icon">get<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="crowding.html#getallbynaptan" class="tsd-kind-icon">getall<wbr>ByNaptan</a>
+								<a href="BikePoint.html#getByID" class="tsd-kind-icon">get<wbr>ByID</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="BikePoint.html#getByName" class="tsd-kind-icon">get<wbr>ByName</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="disruptions.html" class="tsd-kind-icon">Disruptions</a>
+						<a href="Crowding.html" class="tsd-kind-icon">Crowding</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="line.html" class="tsd-kind-icon">Line</a>
+						<a href="Disruptions.html" class="tsd-kind-icon">Disruptions</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="mode.html" class="tsd-kind-icon">Mode</a>
+						<a href="Line.html" class="tsd-kind-icon">Line</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="occupancy.html" class="tsd-kind-icon">Occupancy</a>
+						<a href="Mode.html" class="tsd-kind-icon">Mode</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="road.html" class="tsd-kind-icon">Road</a>
+						<a href="Occupancy.html" class="tsd-kind-icon">Occupancy</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="stoppoint.html" class="tsd-kind-icon">Stop<wbr>Point</a>
+						<a href="Road.html" class="tsd-kind-icon">Road</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="trackernet.html" class="tsd-kind-icon">Tracker<wbr>Net</a>
+						<a href="StopPoint.html" class="tsd-kind-icon">Stop<wbr>Point</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="TrackerNet.html" class="tsd-kind-icon">Tracker<wbr>Net</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="TravelTimes.html" class="tsd-kind-icon">Travel<wbr>Times</a>
 					</li>
 				</ul>
 			</nav>
