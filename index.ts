@@ -8,10 +8,12 @@ import Occupancy from './lib/occupancy';
 import Road from './lib/road';
 import StopPoint from './lib/stopPoint';
 import TrackerNet from './lib/trackerNet';
+import TravelTimes from './lib/travelTimes';
 
 import Modes from './lib/enums/modes';
 
+import direction from './lib/enums/direction';
 import TrackerNetLines from './lib/enums/lines';
 import TrackerNetStations from './lib/enums/stationCodes';
 
-export { AirQuality, BikePoint, Crowding, Disruptions, Line, Mode, Occupancy, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations, Modes };
+export { AirQuality, BikePoint, Crowding, direction, Disruptions, Line, Mode, Occupancy, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations, TravelTimes, Modes };
