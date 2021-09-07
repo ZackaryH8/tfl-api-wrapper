@@ -1,4 +1,5 @@
 import TfLAPI from './tfl';
+import direction from './enums/direction';
 
 export default class TravelTimes extends TfLAPI {
     constructor(config: string) {
