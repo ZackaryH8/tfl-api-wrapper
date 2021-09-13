@@ -8,7 +8,7 @@ export default class Crowding extends TfLAPI {
     }
 
     /**
-     * Returns crowding information for Naptan
+     * Get crowding information for Naptan
      * @param naptanID ID of the stop (eg. 940GZZLUASL)
      */
     getallByNaptan(naptanID: string): Promise<Crowding.Root> {
@@ -16,7 +16,7 @@ export default class Crowding extends TfLAPI {
     }
 
     /**
-     * Returns crowding information for Naptan for a specified day of week
+     * Get crowding information for Naptan for a specified day of week
      * @param naptanID ID of the stop (eg. 940GZZLUASL)
      * @param dayOfTheWeek The day of which you would like data to return (eg. MON, TUE)
      */

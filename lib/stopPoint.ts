@@ -5,22 +5,16 @@ export default class StopPoint extends TfLAPI {
         super(config);
     }
 
-    /**
-     * Gets the list of available StopPoint additional information categories
-     */
+    /** Gets the list of available StopPoint additional information categories */
     getCategories() {
         return this.sendRequest(`/StopPoint/Meta/Categories`, {}, 'GET');
     }
-    /**
-     * Gets the list of available StopPoint types
-     */
+    /** Gets the list of available StopPoint types */
     getTypes() {
         return this.sendRequest(`/StopPoint/Meta/StopTypes`, {}, 'GET');
     }
 
-    /**
-     * Gets the list of available StopPoint modes
-     */
+    /** Gets the list of available StopPoint modes */
     getModes() {
         return this.sendRequest(`/StopPoint/Meta/Modes`, {}, 'GET');
     }
@@ -44,9 +38,9 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets the service types for a given Stop Point
-     * @param id
-     * @param lineIds
-     * @param modes
+     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     * @param lineIds A list of line ids (station naptan code e.g. 940GZZLUASL).
+     * @param modes The list of modes to search (e.g. tube, dlr)
      */
     getServiceTypesByID(id: string, lineIds?: Array<string>, modes?: Array<string>) {
         return this.sendRequest(`/StopPoint/ServiceTypes`, { id, lineIds, modes }, 'GET');
@@ -55,10 +49,10 @@ export default class StopPoint extends TfLAPI {
     /**
      * Search StopPoints by their common name. Will not return a valid NaPTAN for HUB
      * @param name Name of station
-     * @param modes Eg. tfl, dlr
+     * @param modes The list of modes to search (e.g. tube, dlr)
      */
     search(name: string, modes: string) {
-        return this.sendRequest(`/StopPoint/Search/${name}`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/Search/${name}`, { modes }, 'GET');
     }
 
     /**
@@ -75,7 +69,7 @@ export default class StopPoint extends TfLAPI {
      * @param lineIds List of line ids e.g. tfl-rail, london-overground, thameslink
      */
     getArrivalDepartures(id: string, lineIds: Array<string>) {
-        return this.sendRequest(`/StopPoint/${id}/ArrivalsDepartures`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/ArrivalsDepartures`, { lineIds: TfLAPI.arrayToCSV(lineIds) }, 'GET');
     }
 
     /**
@@ -133,8 +127,8 @@ export default class StopPoint extends TfLAPI {
      * @param modes The list of modes to search (e.g. tube, dlr)
      * @param categories an optional list of comma separated property categories to return in the StopPoint's property bag. If null or empty, all categories of property are returned. Pass the keyword "none" to return no properties.
      * @param returnLines True to return the lines that each stop point serves as a nested resource.
-     * @param latitude
-     * @param longitude
+     * @param latitude The latitude of where you want to find a stop point
+     * @param longitude The longitude of where you want to find a stop point
      */
     getInRadius(
         stopTypes: Array<string>,
@@ -164,7 +158,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Gets a list of taxi ranks corresponding to the given stop point id
-     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     * @param id A taxi rank id
      */
     getTaxiRanksByID(id: string) {
         return this.sendRequest(`/StopPoint/${id}/TaxiRanks`, {}, 'GET');
@@ -172,7 +166,7 @@ export default class StopPoint extends TfLAPI {
 
     /**
      * Get car parks corresponding to the given stop point id
-     * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
+     * @param id A car park id (e.g. CarParks_800444)
      */
     getCarParksByID(id: string) {
         return this.sendRequest(`/StopPoint/${id}/CarParks`, {}, 'GET');

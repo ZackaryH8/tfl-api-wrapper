@@ -5,9 +5,17 @@ export default class Road extends TfLAPI {
         super(config);
     }
 
-    /**
-     * Get all roads managed by TfL
-     */
+    /** Gets a list of valid RoadDisruption categories */
+    getCategories() {
+        return this.sendRequest('/Road/Meta/Categories', {}, 'GET');
+    }
+
+    /** Gets a list of valid RoadDisruption severity codes */
+    getSeverities() {
+        return this.sendRequest('/Road/Meta/Severities', {}, 'GET');
+    }
+
+    /** Get all roads managed by TfL */
     getAll() {
         return this.sendRequest('/Road', {}, 'GET');
     }
@@ -22,7 +30,7 @@ export default class Road extends TfLAPI {
 
     /**
      * Gets the specified roads with the status aggregated over the date range specified, or now until the end of today if no dates are passed
-     * @param ids
+     * @param ids List of ID(s) of the road(s), (e.g. ["A1"])
      * @param startDate
      * @param endDate
      */
@@ -39,8 +47,8 @@ export default class Road extends TfLAPI {
 
     /**
      * Gets a list of disrupted streets
-     * @param startDate
-     * @param endDate
+     * @param startDate Start date of disruptions
+     * @param endDate End date of disruptions
      */
     getAllStreetDisruption(startDate: Date, endDate: Date) {
         return this.sendRequest(
@@ -55,7 +63,7 @@ export default class Road extends TfLAPI {
 
     /**
      * Gets a list of active disruptions filtered by disruption Ids.
-     * @param ids
+     * @param ids List of ID(s) of the road(s), (e.g. ["A1"])
      * @param stripContent When true, removes every property/node
      *                     except for id, point, severity, severityDescription,
      *                     startDate, endDate, corridor details, location and comments.
@@ -68,19 +76,5 @@ export default class Road extends TfLAPI {
             },
             'GET'
         );
-    }
-
-    /**
-     * Gets a list of valid RoadDisruption categories
-     */
-    getCategories() {
-        return this.sendRequest('/Road/Meta/Categories', {}, 'GET');
-    }
-
-    /**
-     * Gets a list of valid RoadDisruption severity codes
-     */
-    getSeverities() {
-        return this.sendRequest('/Road/Meta/Severities', {}, 'GET');
     }
 }

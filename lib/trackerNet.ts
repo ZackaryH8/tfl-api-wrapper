@@ -9,6 +9,11 @@ export default class TrackerNet extends TfLAPI {
         super(config);
     }
 
+    /**
+     * Get a predicted line summary for a nominated line.
+     * @param line The line for which you want predictions for eg. TrackerNetLines.Central or "C"
+     * @returns Prediction summary for the specified line
+     */
     async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.getPredictionSummary.Root> {
         let request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
 

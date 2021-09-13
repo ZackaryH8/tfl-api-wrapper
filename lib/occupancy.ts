@@ -16,7 +16,7 @@ export default class Occupancy extends TfLAPI {
 
     /**
      * Gets the occupancy for a charge connectors with a given id
-     * @param id Charge Connector ID (Eg. ChargePointESB-UT06NW-1)
+     * @param id Car Park ID
      */
     getCarkParkByID(id: string): Promise<Occupancy.CarPark> {
         return this.sendRequest(`/Occupancy/CarPark/${id}`, {}, 'GET');
@@ -30,16 +30,12 @@ export default class Occupancy extends TfLAPI {
         return this.sendRequest(`/Occupancy/ChargeConnector/${id}`, {}, 'GET');
     }
 
-    /**
-     * Gets the occupancy for all car parks that have occupancy data
-     */
+    /** Gets the occupancy for all car parks that have occupancy data */
     getAllCarParks(): Promise<Occupancy.CarPark> {
         return this.sendRequest(`/Occupancy/CarPark`, {}, 'GET');
     }
 
-    /**
-     * Gets the occupancy for all charge connectors
-     */
+    /** Gets the occupancy for all charge connectors */
     getAllChargeConnectors(): Promise<Occupancy.ChargeConnector[]> {
         return this.sendRequest(`/Occupancy/ChargeConnector`, {}, 'GET');
     }

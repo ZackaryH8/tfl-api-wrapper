@@ -60,17 +60,30 @@ export default class Line extends TfLAPI {
         return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}/Status`, { detail, severityLevel }, 'GET');
     }
 
-    /** Gets the timetable for a specified station on the give line with specified destination */
+    /** 
+     * Gets the timetable for a specified station on the give line with specified destination 
+     * @param line The line for which you want the timetable for 
+     * @param from The origin station code (e.g. 940GZZLUASL)
+     * @param to The destination naptan code (e.g. 940GZZLUASL)
+     */
     getTimetableFromTo(line: string, from: string, to: string) {
         return this.sendRequest(`/Line/${line}/Timetable/${from}/to/${to}`, {}, 'GET');
     }
 
-    /** Gets the inbound timetable for a specified station on the give line */
+    /** 
+     * Gets the inbound timetable for a specified station on the give line
+     * @param line The line for which you want the timetable for
+     * @param NaPTANID The station code (e.g. 940GZZLUASL)
+     */
     getTimetableFromStationIn(line: string, NaPTANID: string) {
         return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, { direction: 'inbound' }, 'GET');
     }
 
-    /** Gets the outbound timetable for a specified station on the give line */
+    /**
+     * Gets the outbound timetable for a specified station on the give line
+     * @param line The line for which you want the timetable for
+     * @param NaPTANID The station code (e.g. 940GZZLUASL)
+     */
     getTimetableFromStationOut(line: string, NaPTANID: string) {
         return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, {}, 'GET');
     }
