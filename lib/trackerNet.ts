@@ -21,9 +21,9 @@ export default class TrackerNet extends TfLAPI {
 
     /**
      * Get detailed train prediction information for a nominated station on a nominated line within 100 minute range.
-     * @param {TrackerNetLines} line
-     * @param {TrackerNetStations} stationCode
-     * @returns {<ITrackerNet.PredictionDetailed>}
+     * @param line The line for which you want predictions for eg. TrackerNetLines.Central or "C"
+     * @param stationCode The station code eg. TrackerNetStations.BakerStreet or "BST"
+     * @returns Detailed prediction for the specified station
      */
     async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.getPredictionDetailed.Root> {
         if (!line) console.error('You must enter a line code!');
@@ -44,7 +44,7 @@ export default class TrackerNet extends TfLAPI {
 
     /**
      * Get the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.
-     * @param {boolean} incidentsOnly An indication of whether only lines that have incidents should be returned. Default: false
+     * @param incidentsOnly An indication of whether only lines that have incidents should be returned. Default: false
      */
     async getAllLinesStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.getAllLinesStatus.Root> {
         const request = await this.sendRequestTrackerNet(`/LineStatus${TrackerNet.incidentsCheck(incidentsOnly)}`, 'GET', false);
@@ -57,7 +57,7 @@ export default class TrackerNet extends TfLAPI {
 
     /**
      * Get the status of all stations on the network indicating any disruptions or closures of stations.
-     * @param {boolean} incidentsOnly Get station status information for stations with incidents only. Default: false
+     * @param incidentsOnly Get station status information for stations with incidents only. Default: false
      */
     async getAllStationStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.getAllStationStatus.Root> {
         const request = await this.sendRequestTrackerNet(`/StationStatus${TrackerNet.incidentsCheck(incidentsOnly)}`, 'GET', false);
