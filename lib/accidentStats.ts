@@ -9,7 +9,7 @@ export default class Line extends TfLAPI {
      * Gets all accident details for accidents occuring in the specified year
      * @param year The year for which to filter the accidents on.
      */
-    getAll(year: number) {
+    getAllByYear(year: number) {
         return this.sendRequest(`/AccidentStats/${year}`, {}, 'GET');
     }
 }
