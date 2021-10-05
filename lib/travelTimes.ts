@@ -8,7 +8,7 @@ export default class TravelTimes extends TfLAPI {
 
     /**
      * Gets the TravelTime overlay
-     * @param z The zoom leve
+     * @param z The zoom level
      * @param pinLat The latitude of the pin
      * @param pinLon The longitude of the pin
      * @param mapCenterLat The map center latitude
@@ -36,6 +36,6 @@ export default class TravelTimes extends TfLAPI {
         direction: direction,
         travelTimeInterval: number
     ) {
-        return this.sendRequest(`/TravelTimes/overlay/${z}/mapcenter/${mapCenterLat}/${mapCenterLon}/pinLocation/${pinLat}/${pinLon}/dimenstions/${width}/${height}`, {}, 'GET');
+        return this.sendRequest(`/TravelTimes/overlay/${z}/mapcenter/${mapCenterLat}/${mapCenterLon}/pinLocation/${pinLat}/${pinLon}/dimensions/${width}/${height}`, {}, 'GET');
     }
 }
