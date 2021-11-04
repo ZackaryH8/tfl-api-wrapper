@@ -23,7 +23,7 @@
   "author": "zackaryh8",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "fast-xml-parser": "^3.19.0",
     "humps": "^2.0.1",
     "querystring": "^0.2.1",
