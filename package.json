@@ -30,7 +30,6 @@
     "trackernet-xml-retag": "^1.0.7"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/humps": "^2.0.0",
     "@types/node": "^16.7.13",
     "prettier": "^2.3.0",
