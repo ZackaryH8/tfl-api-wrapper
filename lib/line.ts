@@ -6,7 +6,7 @@ export default class Line extends TfLAPI {
     }
 
     /** Get all valid modes */
-    getValidModes() {
+    getModes() {
         return this.sendRequest('/Line/Meta/Modes', {}, 'GET');
     }
 
