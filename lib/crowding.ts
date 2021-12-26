@@ -11,7 +11,7 @@ export default class Crowding extends TfLAPI {
      * Returns crowding information for Naptan
      * @param naptanID ID of the stop (eg. 940GZZLUASL)
      */
-    getallByNaptan(naptanID: string): Promise<Crowding.Root> {
+    getAllByNaptan(naptanID: string): Promise<Crowding.Root> {
         return this.sendRequest(`/Crowding/${naptanID}`, {}, 'GET');
     }
 
