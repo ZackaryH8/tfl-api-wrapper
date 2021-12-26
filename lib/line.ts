@@ -30,8 +30,11 @@ export default class Line extends TfLAPI {
         return this.sendRequest(`/Line/${line}/StopPoints`, {}, 'GET');
     }
 
-    /** Gets all lines that serve the given modes. */
-    getAllFromMode(modes: Array<string | number>) {
+    /**
+     * Gets all lines that serve the given modes
+     * @param modes An array of modes e.g. tube, tram
+     */
+    getAllByModes(modes: Array<string | number>) {
         return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}`, {}, 'GET');
     }
 
@@ -54,7 +57,7 @@ export default class Line extends TfLAPI {
      * Gets the line status of for all lines for the given modes
      * @param modes A comma-separated list of modes to filter by. e.g. tube,dlr
      * @param detail Include details of the disruptions that are causing the line status including the affected stops and routes
-     * @param severityLevel If specified, ensures that only those line status(es) are returned within the lines that have disruptions with the matching severity level.
+     * @param severityLevel If specified, ensures that only those line status(es) are returned within the lines that have disruptions with the matching severity level
      */
     getStatusByModes(modes: Array<string>, detail?: boolean, severityLevel?: string) {
         return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}/Status`, { detail, severityLevel }, 'GET');
@@ -65,14 +68,15 @@ export default class Line extends TfLAPI {
         return this.sendRequest(`/Line/${line}/Timetable/${from}/to/${to}`, {}, 'GET');
     }
 
-    /** Gets the inbound timetable for a specified station on the give line */
-    getTimetableFromStationIn(line: string, NaPTANID: string) {
-        return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, { direction: 'inbound' }, 'GET');
-    }
-
-    /** Gets the outbound timetable for a specified station on the give line */
-    getTimetableFromStationOut(line: string, NaPTANID: string) {
-        return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, {}, 'GET');
+    /**
+     * Gets the inbound timetable for a specified station on the give line
+     *
+     * @param line Id of the line e.g. 'victoria'
+     * @param NaptanID Id of the stop (station naptan code e.g. 940GZZLUASL)
+     * @param direction What direction you want the timetable for. Leave blank for outbound or 'inbound'
+     */
+    getTimetableFromStation(line: string, NaPTANID: string, direction?: string) {
+        return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, { direction }, 'GET');
     }
 
     /** Get the list of arrival predictions for given line ids based at the given stop
