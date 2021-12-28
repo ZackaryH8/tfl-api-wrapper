@@ -1,6 +1,6 @@
-import TrackerNetLines from '../enums/lines';
+import TrackerNetLines from '../enums/trackerNet/lines';
 
-export declare module getPredictionSummary {
+export declare module GetPredictionSummary {
     interface Train {
         id: string;
         leadingCarID: string;
@@ -39,15 +39,17 @@ export declare module getPredictionSummary {
         platform: Platform[];
     }
 
-    interface Root {
+    interface Prediction {
         whenCreated: string;
         line: string;
         lineName: string;
         station: Station;
     }
+
+    export interface Root extends Array<Prediction> {}
 }
 
-export declare module getPredictionDetailed {
+export declare module GetPredictionDetailed {
     /* An object representing a train in the prediction list */
     interface Train {
         id: string;
@@ -117,15 +119,17 @@ export declare module getPredictionDetailed {
         platform: Platform[];
     }
 
-    interface Root {
+    interface Prediction {
         whenCreated: string;
         line: string;
         lineName: string;
         station: Station;
     }
+
+    export interface Root extends Array<Prediction> {}
 }
 
-export declare module getAllLinesStatus {
+export declare module GetAllLinesStatus {
     interface Line {
         id: string;
         name: string;
@@ -141,16 +145,18 @@ export declare module getAllLinesStatus {
         statusType: StatusType[];
     }
 
-    interface Root {
+    interface LineStatus {
         id: string;
         statusDetails: string;
         branchDisruptions: string;
         line: Line;
         status: Status;
     }
+
+    export interface Root extends Array<LineStatus> {}
 }
 
-export declare module getAllStationStatus {
+export declare module GetAllStationStatus {
     interface Station {
         id: string;
         name: string;
@@ -169,10 +175,12 @@ export declare module getAllStationStatus {
         statusType: StatusType[];
     }
 
-    interface Root {
+    interface StationStatus {
         id: string;
         statusDetails: string;
         station: Station;
         status: Status;
     }
+
+    export interface Root extends Array<StationStatus> {}
 }

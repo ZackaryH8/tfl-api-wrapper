@@ -1,8 +1,8 @@
 import TfLAPI from './tfl';
 import * as humps from 'humps';
-import * as ITrackerNet from './interfaces/trackerNet';
-import TrackerNetLines from './enums/lines';
-import TrackerNetStations from './enums/stationCodes';
+import * as ITrackerNet from './interfaces/ITrackerNet';
+import TrackerNetLines from './enums/trackerNet/lines';
+import TrackerNetStations from './enums/trackerNet/stationCodes';
 
 export default class TrackerNet extends TfLAPI {
     constructor(config: string) {
@@ -13,7 +13,7 @@ export default class TrackerNet extends TfLAPI {
      * This will return train prediction information for a nominated line within 100 minute range
      * @param line A line to get predictions from e.g. "C"
      */
-    async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.getPredictionSummary.Root> {
+    async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.GetPredictionSummary.Root> {
         let request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
 
         request = humps.camelizeKeys(request.ROOT, function (key, convert) {
@@ -28,7 +28,7 @@ export default class TrackerNet extends TfLAPI {
      * @param line A line to get predictions from e.g. "C"
      * @param stationCode A line to get predictions from e.g. "BNK"
      */
-    async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.getPredictionDetailed.Root> {
+    async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.GetPredictionDetailed.Root> {
         if (!line) console.error('You must enter a line code!');
         if (!stationCode) console.error('You must enter a station code!');
         let request = await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, 'GET', true);
@@ -49,7 +49,7 @@ export default class TrackerNet extends TfLAPI {
      * Get the status of all lines on the network indicating any delays, disruptions or suspensions on the lines.
      * @param incidentsOnly An indication of whether only lines that have incidents should be returned. Default: false
      */
-    async getAllLinesStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.getAllLinesStatus.Root> {
+    async getAllLinesStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.GetAllLinesStatus.Root> {
         const request = await this.sendRequestTrackerNet(`/LineStatus${TrackerNet.incidentsCheck(incidentsOnly)}`, 'GET', false);
 
         //@ts-expect-error
@@ -62,7 +62,7 @@ export default class TrackerNet extends TfLAPI {
      * Get the status of all stations on the network indicating any disruptions or closures of stations.
      * @param incidentsOnly Get station status information for stations with incidents only. Default: false
      */
-    async getAllStationStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.getAllStationStatus.Root> {
+    async getAllStationStatus(incidentsOnly: boolean = false): Promise<ITrackerNet.GetAllStationStatus.Root> {
         const request = await this.sendRequestTrackerNet(`/StationStatus${TrackerNet.incidentsCheck(incidentsOnly)}`, 'GET', false);
 
         //@ts-expect-error
