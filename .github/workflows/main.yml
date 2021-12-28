@@ -14,9 +14,9 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
             - name: Install
-              run: npm i
+              run: yarn install
             - name: Build Documentation
-              run: npm run build-docs
+              run: yarn run build-docs
             - name: Commit files
               run: |
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
