@@ -1,5 +1,5 @@
 import TfLAPI from './tfl';
-import Crowding from './interfaces/crowding';
+import Crowding from './interfaces/ICrowding';
 import DaysOfTheWeek from './enums/DaysOfTheWeek';
 
 export default class Crowding extends TfLAPI {
