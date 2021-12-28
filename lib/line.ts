@@ -1,4 +1,6 @@
 import TfLAPI from './tfl';
+import * as ILine from './interfaces/ILine';
+import { DisruptionCategories, ServiceTypeName } from './enums/line';
 
 export default class Line extends TfLAPI {
     constructor(config: string) {
@@ -6,27 +8,27 @@ export default class Line extends TfLAPI {
     }
 
     /** Get all valid modes */
-    getModes() {
+    getModes(): Promise<ILine.GetModes.Root> {
         return this.sendRequest('/Line/Meta/Modes', {}, 'GET');
     }
 
     /** Gets a list of all severity codes */
-    getSeverityCodes() {
+    getSeverityCodes(): Promise<ILine.GetSeverityCodes.Root> {
         return this.sendRequest('/Line/Meta/Severity', {}, 'GET');
     }
 
     /** Gets a list of all disruption types */
-    getDisruptionCategories() {
+    getDisruptionCategories(): Promise<Array<DisruptionCategories>> {
         return this.sendRequest('/Line/Meta/DisruptionCategories', {}, 'GET');
     }
 
     /** Gets a list of all service types */
-    getServiceTypes() {
+    getServiceTypes(): Promise<Array<ServiceTypeName>> {
         return this.sendRequest('/Line/Meta/ServiceTypes', {}, 'GET');
     }
 
     /** Gets a list of the stations that serve the given line id */
-    getAllStopPoints(line: string) {
+    getAllStopPoints(line: string): Promise<ILine.GetAllStopPoints.Root> {
         return this.sendRequest(`/Line/${line}/StopPoints`, {}, 'GET');
     }
 
@@ -34,7 +36,7 @@ export default class Line extends TfLAPI {
      * Gets all lines that serve the given modes
      * @param modes An array of modes e.g. tube, tram
      */
-    getAllByModes(modes: Array<string | number>) {
+    getAllByModes(modes: Array<string | number>): Promise<ILine.GetAllByModes.Root> {
         return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}`, {}, 'GET');
     }
 
@@ -45,7 +47,7 @@ export default class Line extends TfLAPI {
      * @param startDate
      * @param endDate
      */
-    getStatusByLine(lines: Array<string>, detail: boolean = false, startDate?: Date, endDate?: Date) {
+    getStatusByLine(lines: Array<string>, detail: boolean = false, startDate?: Date, endDate?: Date): Promise<ILine.GetStatusByLine.Root> {
         if (!startDate || !endDate) {
             return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(lines)}/Status`, { detail }, 'GET');
         } else {
@@ -59,12 +61,12 @@ export default class Line extends TfLAPI {
      * @param detail Include details of the disruptions that are causing the line status including the affected stops and routes
      * @param severityLevel If specified, ensures that only those line status(es) are returned within the lines that have disruptions with the matching severity level
      */
-    getStatusByModes(modes: Array<string>, detail?: boolean, severityLevel?: string) {
+    getStatusByModes(modes: Array<string>, detail?: boolean, severityLevel?: string): Promise<ILine.GetStatusByModes.Root> {
         return this.sendRequest(`/Line/Mode/${TfLAPI.arrayToCSV(modes)}/Status`, { detail, severityLevel }, 'GET');
     }
 
     /** Gets the timetable for a specified station on the give line with specified destination */
-    getTimetableFromTo(line: string, from: string, to: string) {
+    getTimetableFromTo(line: string, from: string, to: string): Promise<ILine.GetTimetableFromTo.Root> {
         return this.sendRequest(`/Line/${line}/Timetable/${from}/to/${to}`, {}, 'GET');
     }
 
@@ -75,7 +77,7 @@ export default class Line extends TfLAPI {
      * @param NaptanID Id of the stop (station naptan code e.g. 940GZZLUASL)
      * @param direction What direction you want the timetable for. Leave blank for outbound or 'inbound'
      */
-    getTimetableFromStation(line: string, NaPTANID: string, direction?: string) {
+    getTimetableByStation(line: string, NaPTANID: string, direction: string = 'outbound'): Promise<ILine.GetTimetableByStation.Root> {
         return this.sendRequest(`/Line/${line}/Timetable/${NaPTANID}`, { direction }, 'GET');
     }
 
@@ -85,7 +87,7 @@ export default class Line extends TfLAPI {
      * @param direction Optional. The direction of travel. Can be inbound or outbound or all. Default: all
      * @param destinationStationId Optional. Id of destination stop
      */
-    getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string) {
+    getArrivalsByNaptan(ids: Array<string>, NaptanID: string, direction: string = 'all', destinationStationId?: string): Promise<ILine.GetArrivalsByNaptan.Root> {
         return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(ids)}/Arrivals/${NaptanID}`, { direction, destinationStationId }, 'GET');
     }
 
@@ -93,16 +95,17 @@ export default class Line extends TfLAPI {
      * Get disruptions for the given line ids
      * @param ids list of line ids e.g. ['victoria','circle','N133']
      */
-    getDistruptionsByID(ids: Array<string>) {
+    getDisruptionsByID(ids: Array<string>): Promise<ILine.GetDisruptionsByID.Root | Array<null>> {
         return this.sendRequest(`/Line/${TfLAPI.arrayToCSV(ids)}/Disruption`, {}, 'GET');
     }
+
     /**
      * Search for lines or routes matching the query string
      * @param query Search term e.g victoria
      * @param modes Optionally filter by the specified modes
      * @param serviceTypes A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
      */
-    searchByString(query: string, modes?: Array<string>, serviceTypes?: boolean) {
+    searchByString(query: string, modes?: Array<string>, serviceTypes?: boolean): Promise<ILine.GetDisruptionsByID.Root | Array<null>> {
         return this.sendRequest(`/Line/${query}/Disruption`, { modes, serviceTypes }, 'GET');
     }
 
@@ -110,7 +113,7 @@ export default class Line extends TfLAPI {
      * Get all valid routes for all lines, including the name and id of the originating and terminating stops for each route.
      * @param serviceTypes A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
      */
-    getAllValidRoutes(serviceTypes?: string) {
+    getAllValidRoutes(serviceTypes?: string): Promise<ILine.GetAllValidRoutes.Root> {
         return this.sendRequest(`/Line/Route`, { serviceTypes }, 'GET');
     }
 }
