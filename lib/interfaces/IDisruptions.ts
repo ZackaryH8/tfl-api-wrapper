@@ -1,5 +1,5 @@
-declare module getAllLifts {
-    export interface Root {
+export declare module GetAllLifts {
+    interface Disruption {
         icsCode: string;
         naptanCode: string;
         stopPointName: string;
@@ -7,4 +7,6 @@ declare module getAllLifts {
         outageEndArea: string;
         message: string;
     }
+
+    export interface Root extends Array<Disruption> {}
 }
