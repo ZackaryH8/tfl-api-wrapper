@@ -1,3 +1,5 @@
+/* Classes */
+import AccidentStats from './lib/accidentStats';
 import AirQuality from './lib/airQuality';
 import BikePoint from './lib/bikePoint';
 import Crowding from './lib/crowding';
@@ -14,4 +16,4 @@ import Modes from './lib/enums/modes';
 import TrackerNetLines from './lib/enums/lines';
 import TrackerNetStations from './lib/enums/stationCodes';
 
-export { AirQuality, BikePoint, Crowding, Disruptions, Line, Mode, Occupancy, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations, Modes };
+export { AccidentStats, AirQuality, BikePoint, Crowding, Disruptions, Line, Mode, Occupancy, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations, Modes };
