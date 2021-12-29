@@ -74,7 +74,6 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-
     static incidentsCheck(incidentsOnly: boolean): string {
         return incidentsOnly ? '/IncidentsOnly' : '';
     }
