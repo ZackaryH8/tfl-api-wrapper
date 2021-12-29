@@ -1,29 +1,23 @@
 import TfLAPI from './tfl';
-import { IBikePoint } from './interfaces/bikepoint';
+import TfL from './interfaces/tfl';
 
 export default class BikePoint extends TfLAPI {
     constructor(config: string) {
         super(config);
     }
 
-    /* Get all Bikepoints */
-    getAll(): Promise<IBikePoint.Root[]> {
+    /* Gets all bike point locations */
+    getAll(): Promise<Array<TfL['Place']>> {
         return this.sendRequest(`/BikePoint/`, {}, 'GET');
     }
 
-    /** 
-     * Get bikepoint by ID
-     * @param id ID of the bikepoint
-     */
-    getByID(id: string): Promise<IBikePoint.Root> {
+    /* Gets the bike point by the given id */
+    getByID(id: string): Promise<TfL['Place']> {
         return this.sendRequest(`/BikePoint/${id}`, {}, 'GET');
     }
 
-    /** 
-     * Get bikepoint by common name 
-     * @param query Common name of the bikepoint
-     */
-    getByName(query: string): Promise<IBikePoint.Root> {
+    /* Search for bike points by their name */
+    getByName(query: string): Promise<Array<TfL['Place']>> {
         return this.sendRequest(`/BikePoint/Search`, { query }, 'GET');
     }
 }

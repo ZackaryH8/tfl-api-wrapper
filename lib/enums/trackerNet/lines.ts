@@ -10,4 +10,5 @@ const enum TrackerNetLines {
     Victoria = 'V',
     WaterlooCity = 'W'
 }
+
 export default TrackerNetLines;

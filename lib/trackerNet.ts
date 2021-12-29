@@ -1,8 +1,8 @@
 import TfLAPI from './tfl';
 import * as humps from 'humps';
 import * as ITrackerNet from './interfaces/trackerNet';
-import TrackerNetLines from './enums/lines';
-import TrackerNetStations from './enums/stationCodes';
+import TrackerNetLines from './enums/trackerNet/lines';
+import TrackerNetStations from './enums/trackerNet/stations';
 
 export default class TrackerNet extends TfLAPI {
     constructor(config: string) {
@@ -10,9 +10,8 @@ export default class TrackerNet extends TfLAPI {
     }
 
     /**
-     * Get a predicted line summary for a nominated line.
-     * @param line The line for which you want predictions for eg. TrackerNetLines.Central or "C"
-     * @returns Prediction summary for the specified line
+     * This will return train prediction information for a nominated line within 100 minute range
+     * @param line A line to get predictions from e.g. "C"
      */
     async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.getPredictionSummary.Root> {
         let request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
@@ -26,9 +25,8 @@ export default class TrackerNet extends TfLAPI {
 
     /**
      * Get detailed train prediction information for a nominated station on a nominated line within 100 minute range.
-     * @param line The line for which you want predictions for eg. TrackerNetLines.Central or "C"
-     * @param stationCode The station code eg. TrackerNetStations.BakerStreet or "BST"
-     * @returns Detailed prediction for the specified station
+     * @param line A line to get predictions from e.g. "C"
+     * @param stationCode A line to get predictions from e.g. "BNK"
      */
     async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.getPredictionDetailed.Root> {
         if (!line) console.error('You must enter a line code!');

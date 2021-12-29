@@ -1,4 +1,5 @@
 import TfLAPI from './tfl';
+import TfL from './interfaces/tfl';
 
 export default class Line extends TfLAPI {
     constructor(config: string) {
@@ -9,7 +10,7 @@ export default class Line extends TfLAPI {
      * Gets all accident details for accidents occuring in the specified year
      * @param year The year for which to filter the accidents on.
      */
-    getAllByYear(year: number) {
+    getAll(year: number): Promise<Array<TfL['AccidentStats.AccidentDetail']>> {
         return this.sendRequest(`/AccidentStats/${year}`, {}, 'GET');
     }
 }

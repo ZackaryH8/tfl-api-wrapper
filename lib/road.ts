@@ -1,3 +1,4 @@
+import TfL from './interfaces/tfl';
 import TfLAPI from './tfl';
 
 export default class Road extends TfLAPI {
@@ -5,18 +6,10 @@ export default class Road extends TfLAPI {
         super(config);
     }
 
-    /** Gets a list of valid RoadDisruption categories */
-    getCategories() {
-        return this.sendRequest('/Road/Meta/Categories', {}, 'GET');
-    }
-
-    /** Gets a list of valid RoadDisruption severity codes */
-    getSeverities() {
-        return this.sendRequest('/Road/Meta/Severities', {}, 'GET');
-    }
-
-    /** Get all roads managed by TfL */
-    getAll() {
+    /**
+     * Get all roads managed by TfL
+     */
+    getAll(): Promise<Array<TfL['RoadCorridor']>> {
         return this.sendRequest('/Road', {}, 'GET');
     }
 
@@ -24,17 +17,17 @@ export default class Road extends TfLAPI {
      * Get the road with the specified ID (Eg. A1)
      * @param ids ID(s) of the road(s)
      */
-    getByID(ids: Array<string>) {
+    getByID(ids: Array<string>): Promise<Array<TfL['RoadCorridor']>> {
         return this.sendRequest(`/Road/${TfLAPI.arrayToCSV(ids)}`, {}, 'GET');
     }
 
     /**
      * Gets the specified roads with the status aggregated over the date range specified, or now until the end of today if no dates are passed
-     * @param ids List of ID(s) of the road(s), (e.g. ["A1"])
+     * @param ids
      * @param startDate
      * @param endDate
      */
-    getStatusByID(ids: Array<string>, startDate?: Date, endDate?: Date) {
+    getStatusByID(ids: Array<string>, startDate?: Date, endDate?: Date): Promise<Array<TfL['RoadCorridor']>> {
         return this.sendRequest(
             `/Road/${TfLAPI.arrayToCSV(ids)}/Status`,
             {
@@ -47,10 +40,10 @@ export default class Road extends TfLAPI {
 
     /**
      * Gets a list of disrupted streets
-     * @param startDate Start date of disruptions
-     * @param endDate End date of disruptions
+     * @param startDate
+     * @param endDate
      */
-    getAllStreetDisruption(startDate: Date, endDate: Date) {
+    getAllStreetDisruption(startDate: Date, endDate: Date): Promise<Array<TfL['RoadDisruption']>> {
         return this.sendRequest(
             `/Road/all/Street/Disruption`,
             {
@@ -63,12 +56,12 @@ export default class Road extends TfLAPI {
 
     /**
      * Gets a list of active disruptions filtered by disruption Ids.
-     * @param ids List of ID(s) of the road(s), (e.g. ["A1"])
+     * @param ids
      * @param stripContent When true, removes every property/node
      *                     except for id, point, severity, severityDescription,
      *                     startDate, endDate, corridor details, location and comments.
      */
-    getAllDisruptionsByID(ids: Array<string>, stripContent?: boolean) {
+    getAllDisruptionsByID(ids: Array<string>, stripContent?: boolean): Promise<Array<TfL['RoadDisruption']>> {
         return this.sendRequest(
             `/Road/all/Disruption/${TfLAPI.arrayToCSV(ids)}`,
             {
@@ -76,5 +69,19 @@ export default class Road extends TfLAPI {
             },
             'GET'
         );
+    }
+
+    /**
+     * Gets a list of valid RoadDisruption categories
+     */
+    getCategories(): Promise<Array<string>> {
+        return this.sendRequest('/Road/Meta/Categories', {}, 'GET');
+    }
+
+    /**
+     * Gets a list of valid RoadDisruption severity codes
+     */
+    getSeverities(): Promise<Array<TfL['StatusSeverity']>> {
+        return this.sendRequest('/Road/Meta/Severities', {}, 'GET');
     }
 }

@@ -1,4 +1,5 @@
 import TfLAPI from './tfl';
+import { LondonAirForecast } from './interfaces/airQuality';
 
 export default class AirQuality extends TfLAPI {
     constructor(config: string) {
@@ -6,7 +7,7 @@ export default class AirQuality extends TfLAPI {
     }
 
     /** Get all current and future air quality forecast */
-    getAirQuality() {
+    getAirQuality(): Promise<LondonAirForecast> {
         return this.sendRequest('/AirQuality', {}, 'GET');
     }
 }
