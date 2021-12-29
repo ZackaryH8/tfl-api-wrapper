@@ -46,7 +46,7 @@ import { StopPoint } from 'tfl-api-wrapper';
 const config = {
     app_key: 'API KEY HERE',
 };
-const line = new StopPoint(config)
+const stopPoint = new StopPoint(config)
 ```
 
 ## Disclaimer
