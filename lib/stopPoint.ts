@@ -146,7 +146,7 @@ export default class StopPoint extends TfLAPI {
         returnLines: boolean,
         latitude: number,
         longitude: number
-    ) {
+    ): Promise<Array<TfL['StopPointsResponse']>> {
         return this.sendRequest(
             `/StopPoint`,
             { stopTypes: TfLAPI.arrayToCSV(stopTypes), radius, useStopPointHierarchy, modes: TfLAPI.arrayToCSV(modes), categories: TfLAPI.arrayToCSV(categories), returnLines, latitude, longitude },
