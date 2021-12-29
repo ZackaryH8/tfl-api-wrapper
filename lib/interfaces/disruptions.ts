@@ -1,4 +1,4 @@
-declare module getAllLifts {
+declare module Disruptions {
     export interface Root {
         icsCode: string;
         naptanCode: string;
@@ -8,3 +8,5 @@ declare module getAllLifts {
         message: string;
     }
 }
+
+export default Disruptions;

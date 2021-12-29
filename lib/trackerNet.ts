@@ -1,8 +1,8 @@
 import TfLAPI from './tfl';
 import * as humps from 'humps';
 import * as ITrackerNet from './interfaces/trackerNet';
-import TrackerNetLines from './enums/lines';
-import TrackerNetStations from './enums/stationCodes';
+import TrackerNetLines from './enums/trackerNet/lines';
+import TrackerNetStations from './enums/trackerNet/stations';
 
 export default class TrackerNet extends TfLAPI {
     constructor(config: string) {

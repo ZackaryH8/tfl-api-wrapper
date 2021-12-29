@@ -1,4 +1,5 @@
 import TfLAPI from './tfl';
+import IDisruption from './interfaces/disruptions';
 
 export default class Disruptions extends TfLAPI {
     constructor(config: string) {
@@ -6,7 +7,7 @@ export default class Disruptions extends TfLAPI {
     }
 
     /* List of all currently disrupted lift routes, refreshed every 1 minute */
-    getAllLifts(): Promise<getAllLifts.Root[]> {
+    getAllLifts(): Promise<IDisruption.Root[]> {
         return this.sendRequest(`/Disruptions/Lifts`, {}, 'GET');
     }
 }

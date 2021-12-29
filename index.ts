@@ -9,9 +9,9 @@ import Road from './lib/road';
 import StopPoint from './lib/stopPoint';
 import TrackerNet from './lib/trackerNet';
 
+/* Enums */
+import TrackerNetLines from './lib/enums/trackerNet/lines';
+import TrackerNetStations from './lib/enums/trackerNet/stations';
 import Modes from './lib/enums/modes';
-
-import TrackerNetLines from './lib/enums/lines';
-import TrackerNetStations from './lib/enums/stationCodes';
 
 export { AirQuality, BikePoint, Crowding, Disruptions, Line, Mode, Occupancy, Road, StopPoint, TrackerNet, TrackerNetLines, TrackerNetStations, Modes };
