@@ -1,4 +1,4 @@
-import TrackerNetLines from '../enums/lines';
+import TrackerNetLines from '../enums/trackerNet/lines';
 
 export declare module getPredictionSummary {
     interface Train {
