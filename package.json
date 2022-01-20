@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "build-docs": "typedoc",
+    "build-docs": "typedoc --plugin ./typedoc/returnType.js",
     "watch": "tsc-watch --onSuccess \"node dist/index.js\"",
     "prettier": "prettier --write ./**/*.ts"
   },
