@@ -4,6 +4,5 @@
     "./index.ts"
   ],
   "out": "docs",
-  "theme": "./node_modules/typedoc-theme-dark/dist/dark/",
   "readme": "none"
 }
