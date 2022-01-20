@@ -28,25 +28,29 @@ There are many ways to contribute to this repo.
 
 ## Example Usage
 
-### Line
-```js
-import { Line } from 'tfl-api-wrapper';
-
-const config = {
-    app_key: 'API KEY HERE',
-};
-const line = new Line(config)
-```
-
-### StopPoint
+### Async... await
 
 ```js
 import { StopPoint } from 'tfl-api-wrapper';
 
-const config = {
-    app_key: 'API KEY HERE',
-};
-const stopPoint = new StopPoint(config)
+const app_key = 'API KEY HERE'; // Use an environment file
+const stopPoint = new StopPoint(app_key)
+
+const arrivals = await stopPoint.getStationArrivals('940GZZLUKSX');
+console.log(arrivals);
+```
+
+### Callback
+
+```js
+import { StopPoint } from 'tfl-api-wrapper';
+
+const app_key = 'API KEY HERE'; // Use an environment file
+const stopPoint = new StopPoint(app_key)
+
+stopPoint.getStationArrivals('940GZZLUKSX').then((arrivals) => {
+    console.log(arrivals)
+});
 ```
 
 ## Disclaimer
