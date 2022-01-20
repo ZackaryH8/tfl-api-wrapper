@@ -11,6 +11,13 @@ declare module Crowding {
         timeBands: TimeBand[];
     }
 
+    export interface Live {
+        dataAvailable: boolean;
+        percentageOfBaseline: number;
+        timeUtc: Date;
+        timeLocal: Date;
+    }
+
     export interface Root {
         naptan: string;
         daysOfWeek?: DaysOfWeek[];
