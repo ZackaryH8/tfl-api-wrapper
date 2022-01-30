@@ -26,7 +26,7 @@ jobs:
               uses: ad-m/github-push-action@v0.6.0
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  branch: ${{ github.ref }}
+                  branch: gh-pages
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
               with:
