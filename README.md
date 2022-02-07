@@ -54,4 +54,4 @@ stopPoint.getStationArrivals('940GZZLUKSX').then((arrivals) => {
 ```
 
 ## Disclaimer
-This repository is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Transport for London (TfL) or it's parent organisation Greater London Authority (GLA)
+This repository is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Transport for London (TfL) or its parent organisation Greater London Authority (GLA)
