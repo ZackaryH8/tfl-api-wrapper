@@ -12,7 +12,7 @@ export default class Crowding extends TfLAPI {
      * @param naptanID ID of the stop (eg. 940GZZLUASL)
      */
     getAllByNaptan(naptanID: string): Promise<ICrowding.Root> {
-        return this.sendRequest(`/Crowding/${naptanID}`, {}, 'GET');
+        return this.sendRequest(`/Crowding/${naptanID}`, {});
     }
 
     /**
@@ -21,7 +21,7 @@ export default class Crowding extends TfLAPI {
      * @param dayOfTheWeek The day of which you would like data to return (eg. MON, TUE)
      */
     getByNaptanDay(naptanID: string, dayOfTheWeek: DaysOfTheWeek): Promise<ICrowding.Root> {
-        return this.sendRequest(`/Crowding/${naptanID}/${dayOfTheWeek}`, {}, 'GET');
+        return this.sendRequest(`/Crowding/${naptanID}/${dayOfTheWeek}`, {});
     }
 
     /**
@@ -29,6 +29,6 @@ export default class Crowding extends TfLAPI {
      * @param naptanID ID of the stop (eg. 940GZZLUASL)
      */
     getLiveByNaptan(naptan: string): Promise<ICrowding.Live> {
-        return this.sendRequest(`/Crowding/${naptan}/Live`, {}, 'GET');
+        return this.sendRequest(`/Crowding/${naptan}/Live`, {});
     }
 }

@@ -16,7 +16,7 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    protected async sendRequest(uri: string, params: any, method: string) {
+    protected async sendRequest(uri: string, params: any, method: string = 'GET') {
         let FullURL: string = `https://${this.host}:${this.port}${uri}?app_key=${this.appKey}`;
 
         // Removed all undefined objects from params

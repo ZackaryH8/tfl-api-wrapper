@@ -36,6 +36,6 @@ export default class TravelTimes extends TfLAPI {
         direction: direction,
         travelTimeInterval: number
     ) {
-        return this.sendRequest(`/TravelTimes/overlay/${z}/mapcenter/${mapCenterLat}/${mapCenterLon}/pinLocation/${pinLat}/${pinLon}/dimensions/${width}/${height}`, {}, 'GET');
+        return this.sendRequest(`/TravelTimes/overlay/${z}/mapcenter/${mapCenterLat}/${mapCenterLon}/pinLocation/${pinLat}/${pinLon}/dimensions/${width}/${height}`, {});
     }
 }
