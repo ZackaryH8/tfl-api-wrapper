@@ -10,7 +10,7 @@ export default class Mode extends TfLAPI {
      * Returns the service type active for a mode. Currently only supports tube
      */
     getActiveServiceTypes(): Promise<Array<TfL['ActiveServiceType']>> {
-        return this.sendRequest(`/Mode/ActiveServiceTypes`, {}, 'GET');
+        return this.sendRequest(`/Mode/ActiveServiceTypes`, {});
     }
 
     /**
@@ -19,6 +19,6 @@ export default class Mode extends TfLAPI {
      * @param count Number of arrivals to return for each stop, -1 to return all available (default).
      */
     getAllArrivalPredictions(mode: string, count: number = -1): Promise<Array<TfL['Prediction']>> {
-        return this.sendRequest(`/Mode/${mode}/Arrivals`, { count }, 'GET');
+        return this.sendRequest(`/Mode/${mode}/Arrivals`, { count });
     }
 }

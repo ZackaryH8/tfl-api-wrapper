@@ -8,6 +8,6 @@ export default class AirQuality extends TfLAPI {
 
     /** Get all current and future air quality forecast */
     getAirQuality(): Promise<LondonAirForecast> {
-        return this.sendRequest('/AirQuality', {}, 'GET');
+        return this.sendRequest('/AirQuality', {});
     }
 }
