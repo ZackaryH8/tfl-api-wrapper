@@ -70,8 +70,8 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    static arrayToCSV(arr: Array<string | number>) {
-        return arr.join(',');
+    static arrayToCSV(arr: Array<string | number> | undefined): string | undefined {
+        return arr?.join(',');
     }
 
     /**
