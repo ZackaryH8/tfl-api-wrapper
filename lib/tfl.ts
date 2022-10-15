@@ -1,8 +1,7 @@
 import axios from 'axios';
 import * as qs from 'querystring';
 import * as xmlparser from 'fast-xml-parser';
-// @ts-ignore
-import { retag } from 'trackernet-xml-retag';
+import { trackerNetRetag } from './utilities/trackerNetRetag';
 
 export default class TfLAPI {
     public appKey: string;
@@ -45,7 +44,7 @@ export default class TfLAPI {
         const fetch = await axios.get(`http://cloud.tfl.gov.uk/TrackerNet${uri}`, { headers: { Accept: 'application/xml', 'cache-control': 'no-cache' } });
         let xmlData = fetch.data;
 
-        if (reTag) xmlData = retag.trackerNetRetag(xmlData);
+        if (reTag) xmlData = trackerNetRetag(xmlData);
 
         // Convert XML to JS / JSON
         const jsonObj = xmlparser.parse(xmlData, {
