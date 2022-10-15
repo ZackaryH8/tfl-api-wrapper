@@ -10,7 +10,7 @@ export default class Road extends TfLAPI {
      * Get all roads managed by TfL
      */
     getAll(): Promise<Array<TfL['RoadCorridor']>> {
-        return this.sendRequest('/Road', {}, 'GET');
+        return this.sendRequest('/Road', {});
     }
 
     /**
@@ -18,7 +18,7 @@ export default class Road extends TfLAPI {
      * @param ids ID(s) of the road(s)
      */
     getByID(ids: Array<string>): Promise<Array<TfL['RoadCorridor']>> {
-        return this.sendRequest(`/Road/${TfLAPI.arrayToCSV(ids)}`, {}, 'GET');
+        return this.sendRequest(`/Road/${TfLAPI.arrayToCSV(ids)}`, {});
     }
 
     /**
@@ -75,13 +75,13 @@ export default class Road extends TfLAPI {
      * Gets a list of valid RoadDisruption categories
      */
     getCategories(): Promise<Array<string>> {
-        return this.sendRequest('/Road/Meta/Categories', {}, 'GET');
+        return this.sendRequest('/Road/Meta/Categories', {});
     }
 
     /**
      * Gets a list of valid RoadDisruption severity codes
      */
     getSeverities(): Promise<Array<TfL['StatusSeverity']>> {
-        return this.sendRequest('/Road/Meta/Severities', {}, 'GET');
+        return this.sendRequest('/Road/Meta/Severities', {});
     }
 }

@@ -8,6 +8,6 @@ export default class Disruptions extends TfLAPI {
 
     /* List of all currently disrupted lift routes, refreshed every 1 minute */
     getAllLifts(): Promise<IDisruption.Root[]> {
-        return this.sendRequest(`/Disruptions/Lifts`, {}, 'GET');
+        return this.sendRequest(`/Disruptions/Lifts`, {});
     }
 }

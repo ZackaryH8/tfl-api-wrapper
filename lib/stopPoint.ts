@@ -1,5 +1,6 @@
 import TfLAPI from './tfl';
 import TfL from './interfaces/tfl';
+// import * as IStopPoint from './interfaces/stopPoint';
 
 export default class StopPoint extends TfLAPI {
     constructor(config: string) {
@@ -9,21 +10,21 @@ export default class StopPoint extends TfLAPI {
     /**
      * Gets the list of available StopPoint additional information categories
      */
-    getCategories(): Promise<Array<TfL['StopPointCategory']>> {
-        return this.sendRequest(`/StopPoint/Meta/Categories`, {}, 'GET');
+    getCategories(): Promise<Array<any>> {
+        return this.sendRequest(`/StopPoint/Meta/Categories`, {});
     }
     /**
      * Gets the list of available StopPoint types
      */
     getTypes(): Promise<Array<string>> {
-        return this.sendRequest(`/StopPoint/Meta/StopTypes`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/Meta/StopTypes`, {});
     }
 
     /**
      * Gets the list of available StopPoint modes
      */
-    getModes(): Promise<Array<TfL['Mode']>> {
-        return this.sendRequest(`/StopPoint/Meta/Modes`, {}, 'GET');
+    getModes(): Promise<Array<any>> {
+        return this.sendRequest(`/StopPoint/Meta/Modes`, {});
     }
 
     /**
@@ -32,7 +33,7 @@ export default class StopPoint extends TfLAPI {
      * @param includeCrowdingData Include the crowding data (static). To Filter further use: /StopPoint/{ids}/Crowding/{line}
      */
     getByIDs(ids: Array<string>, includeCrowdingData: boolean): Promise<Array<TfL['StopPoint']>> {
-        return this.sendRequest(`/StopPoint/${TfLAPI.arrayToCSV(ids)}`, { includeCrowdingData }, 'GET');
+        return this.sendRequest(`/StopPoint/${TfLAPI.arrayToCSV(ids)}`, { includeCrowdingData });
     }
 
     /**
@@ -40,7 +41,7 @@ export default class StopPoint extends TfLAPI {
      * @param types A list of valid stop types can be obtained from the StopPoint/meta/stoptypes endpoint
      */
     getAllByStopType(types: Array<string>): Promise<Array<TfL['StopPoint']>> {
-        return this.sendRequest(`/StopPoint/Type/${TfLAPI.arrayToCSV(types)}`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/Type/${TfLAPI.arrayToCSV(types)}`, {});
     }
 
     /**
@@ -50,7 +51,7 @@ export default class StopPoint extends TfLAPI {
      * @param modes
      */
     getServiceTypesByID(id: string, lineIds?: Array<string>, modes?: Array<string>): Promise<Array<TfL['LineServiceType']>> {
-        return this.sendRequest(`/StopPoint/ServiceTypes`, { id, lineIds, modes }, 'GET');
+        return this.sendRequest(`/StopPoint/ServiceTypes`, { id, lineIds, modes });
     }
 
     /**
@@ -59,7 +60,7 @@ export default class StopPoint extends TfLAPI {
      * @param modes Eg. tfl, dlr
      */
     search(name: string, modes: string): Promise<TfL['SearchResponse']> {
-        return this.sendRequest(`/StopPoint/Search/${name}`, { modes }, 'GET');
+        return this.sendRequest(`/StopPoint/Search/${name}`, { modes });
     }
 
     /**
@@ -67,7 +68,7 @@ export default class StopPoint extends TfLAPI {
      * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      */
     getStationArrivals(id: string): Promise<Array<TfL['Prediction']>> {
-        return this.sendRequest(`/StopPoint/${id}/Arrivals`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/Arrivals`, {});
     }
 
     /**
@@ -104,7 +105,7 @@ export default class StopPoint extends TfLAPI {
      * @param includeRouteBlockedStops
      */
     getDisruptionsByMode(modes: Array<string>, includeRouteBlockedStops: boolean): Promise<Array<TfL['DisruptedPoint']>> {
-        return this.sendRequest(`/StopPoint/Mode/${TfLAPI.arrayToCSV(modes)}/Disruption`, { includeRouteBlockedStops }, 'GET');
+        return this.sendRequest(`/StopPoint/Mode/${TfLAPI.arrayToCSV(modes)}/Disruption`, { includeRouteBlockedStops });
     }
 
     /**
@@ -114,7 +115,7 @@ export default class StopPoint extends TfLAPI {
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getReachableStationsByID(id: string, lineID: string, serviceTypes: Array<string> = ['Regular']): Promise<Array<TfL['Identifier']>> {
-        return this.sendRequest(`/StopPoint/${id}/CanReachOnLine/${lineID}`, { serviceTypes: TfLAPI.arrayToCSV(serviceTypes) }, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/CanReachOnLine/${lineID}`, { serviceTypes: TfLAPI.arrayToCSV(serviceTypes) });
     }
 
     /**
@@ -123,7 +124,7 @@ export default class StopPoint extends TfLAPI {
      * @param serviceTypes List of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular'.
      */
     getRouteSectionByID(id: string, serviceTypes: Array<string> = ['Regular']): Promise<Array<TfL['StopPointRouteSection']>> {
-        return this.sendRequest(`/StopPoint/${id}/  `, { serviceTypes: TfLAPI.arrayToCSV(serviceTypes) }, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/  `, { serviceTypes: TfLAPI.arrayToCSV(serviceTypes) });
     }
 
     /**
@@ -147,11 +148,16 @@ export default class StopPoint extends TfLAPI {
         latitude: number,
         longitude: number
     ): Promise<TfL['StopPointsResponse']> {
-        return this.sendRequest(
-            `/StopPoint`,
-            { stopTypes: TfLAPI.arrayToCSV(stopTypes), radius, useStopPointHierarchy, modes: TfLAPI.arrayToCSV(modes), categories: TfLAPI.arrayToCSV(categories), returnLines, lat: latitude, lon: longitude },
-            'GET'
-        );
+        return this.sendRequest(`/StopPoint`, {
+            stopTypes: TfLAPI.arrayToCSV(stopTypes),
+            radius,
+            useStopPointHierarchy,
+            modes: TfLAPI.arrayToCSV(modes),
+            categories: TfLAPI.arrayToCSV(categories),
+            returnLines,
+            lat: latitude,
+            lon: longitude
+        });
     }
 
     /**
@@ -160,7 +166,7 @@ export default class StopPoint extends TfLAPI {
      * @param output If set to "web", a 302 redirect to relevant website bus stop page is returned. All other values are ignored.
      */
     getBySMSCode(smsID: number, output?: string): Promise<TfL['StopPoint']> {
-        return this.sendRequest(`/StopPoint/Sms/${smsID}`, { output }, 'GET');
+        return this.sendRequest(`/StopPoint/Sms/${smsID}`, { output });
     }
 
     /**
@@ -168,7 +174,7 @@ export default class StopPoint extends TfLAPI {
      * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      */
     getTaxiRanksByID(id: string): Promise<Array<TfL['Place']>> {
-        return this.sendRequest(`/StopPoint/${id}/TaxiRanks`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/TaxiRanks`, {});
     }
 
     /**
@@ -176,6 +182,6 @@ export default class StopPoint extends TfLAPI {
      * @param id A StopPoint id (station naptan code e.g. 940GZZLUAS)
      */
     getCarParksByID(id: string): Promise<Array<TfL['Place']>> {
-        return this.sendRequest(`/StopPoint/${id}/CarParks`, {}, 'GET');
+        return this.sendRequest(`/StopPoint/${id}/CarParks`, {});
     }
 }

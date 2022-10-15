@@ -11,7 +11,7 @@ export default class Occupancy extends TfLAPI {
      * @param id Bike Point ID
      */
     getBikePointByIDs(ids: string[]): Promise<Array<TfL['BikePointOccupancy']>> {
-        return this.sendRequest(`/Occupancy/BikePoints/${TfLAPI.arrayToCSV(ids)}`, {}, 'GET');
+        return this.sendRequest(`/Occupancy/BikePoints/${TfLAPI.arrayToCSV(ids)}`, {});
     }
 
     /**
@@ -19,7 +19,7 @@ export default class Occupancy extends TfLAPI {
      * @param id Charge Connector ID (Eg. ChargePointESB-UT06NW-1)
      */
     getCarkParkByID(id: string): Promise<TfL['CarParkOccupancy']> {
-        return this.sendRequest(`/Occupancy/CarPark/${id}`, {}, 'GET');
+        return this.sendRequest(`/Occupancy/CarPark/${id}`, {});
     }
 
     /**
@@ -27,20 +27,20 @@ export default class Occupancy extends TfLAPI {
      * @param id Charge Connector ID (Eg. ChargePointCM-24119-49940)
      */
     getChargeConnectorByID(id: string): Promise<TfL['ChargeConnectorOccupancy']> {
-        return this.sendRequest(`/Occupancy/ChargeConnector/${id}`, {}, 'GET');
+        return this.sendRequest(`/Occupancy/ChargeConnector/${id}`, {});
     }
 
     /**
      * Gets the occupancy for all car parks that have occupancy data
      */
     getAllCarParks(): Promise<Array<TfL['CarParkOccupancy']>> {
-        return this.sendRequest(`/Occupancy/CarPark`, {}, 'GET');
+        return this.sendRequest(`/Occupancy/CarPark`, {});
     }
 
     /**
      * Gets the occupancy for all charge connectors
      */
     getAllChargeConnectors(): Promise<Array<TfL['ChargeConnectorOccupancy']>> {
-        return this.sendRequest(`/Occupancy/ChargeConnector`, {}, 'GET');
+        return this.sendRequest(`/Occupancy/ChargeConnector`, {});
     }
 }

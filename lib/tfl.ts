@@ -14,9 +14,13 @@ export default class TfLAPI {
     }
 
     /**
+     * Send a request to the TfL Unified API
+     * @param uri URI to send request to
+     * @param params Parameters to send
+     * @param method Method to use (GET, POST, PUT, DELETE) (Default: GET)
      * @ignore
      */
-    protected async sendRequest(uri: string, params: any, method: string) {
+    protected async sendRequest(uri: string, params: any, method: string = 'GET') {
         let FullURL: string = `https://${this.host}:${this.port}${uri}?app_key=${this.appKey}`;
 
         // Removed all undefined objects from params
@@ -30,6 +34,10 @@ export default class TfLAPI {
     }
 
     /**
+     * Send a request to the TrackerNet API
+     * @param uri URI to send request to
+     * @param method Method to use (GET, POST, PUT, DELETE) (Default: GET)
+     * @param reTag Boolean to check if the XML should be re-tagged
      * @ignore
      */
     protected async sendRequestTrackerNet(uri: string, method: string, reTag: boolean) {
@@ -49,6 +57,8 @@ export default class TfLAPI {
     }
 
     /**
+     * Convert object to query string
+     * @param params Object to convert
      * @ignore
      */
     static objectToQuery(params: any): string {
@@ -60,18 +70,22 @@ export default class TfLAPI {
     /**
      * @ignore
      */
-    static arrayToCSV(arr: Array<string | number>) {
-        return arr.join(',');
+    static arrayToCSV(arr: Array<string | number> | undefined): string | undefined {
+        return arr?.join(',');
     }
 
     /**
+     * Convert Date to ISO 8601 format
+     * @param date Date to convert
      * @ignore
      */
-    static convertDate(oldDate: Date | undefined): string {
-        return oldDate?.toISOString().split('.')[0] + 'Z';
+    static convertDate(date: Date | undefined): string {
+        return date?.toISOString().split('.')[0] + 'Z';
     }
 
     /**
+     * Checl for incidents only
+     * @param incidentsOnly Boolean to check
      * @ignore
      */
     static incidentsCheck(incidentsOnly: boolean): string {
