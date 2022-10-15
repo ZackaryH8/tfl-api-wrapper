@@ -1,6 +1,6 @@
 import TfLAPI from './tfl';
 import TfL from './interfaces/tfl';
-import * as IStopPoint from './interfaces/stopPoint';
+// import * as IStopPoint from './interfaces/stopPoint';
 
 export default class StopPoint extends TfLAPI {
     constructor(config: string) {
@@ -10,7 +10,7 @@ export default class StopPoint extends TfLAPI {
     /**
      * Gets the list of available StopPoint additional information categories
      */
-    getCategories(): Promise<Array<IStopPoint.GetCategories>> {
+    getCategories(): Promise<Array<any>> {
         return this.sendRequest(`/StopPoint/Meta/Categories`, {});
     }
     /**
@@ -23,7 +23,7 @@ export default class StopPoint extends TfLAPI {
     /**
      * Gets the list of available StopPoint modes
      */
-    getModes(): Promise<Array<IStopPoint.GetModes>> {
+    getModes(): Promise<Array<any>> {
         return this.sendRequest(`/StopPoint/Meta/Modes`, {});
     }
 
