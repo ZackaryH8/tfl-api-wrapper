@@ -1,6 +1,6 @@
 {
   "name": "tfl-api-wrapper",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "A Node JS wrapper for the Transport for London API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
