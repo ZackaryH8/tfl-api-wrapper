@@ -4,6 +4,8 @@ import * as ITrackerNet from './interfaces/trackerNet';
 import TrackerNetLines from './enums/trackerNet/lines';
 import TrackerNetStations from './enums/trackerNet/stations';
 
+type ValueOf<T> = T[keyof T];
+
 export default class TrackerNet extends TfLAPI {
     constructor(config: string) {
         super(config);
@@ -13,7 +15,7 @@ export default class TrackerNet extends TfLAPI {
      * This will return train prediction information for a nominated line within 100 minute range
      * @param line A line to get predictions from e.g. "C"
      */
-    async getPredictionSummary(line: TrackerNetLines): Promise<ITrackerNet.getPredictionSummary.Root> {
+    async getPredictionSummary(line: TrackerNetLines | ValueOf<TrackerNetLines>): Promise<ITrackerNet.getPredictionSummary.Root> {
         let request = await this.sendRequestTrackerNet(`/PredictionSummary/${line}`, 'GET', true);
 
         request = humps.camelizeKeys(request.ROOT, function (key, convert) {
@@ -28,7 +30,7 @@ export default class TrackerNet extends TfLAPI {
      * @param line A line to get predictions from e.g. "C"
      * @param stationCode A line to get predictions from e.g. "BNK"
      */
-    async getPredictionDetailed(line: TrackerNetLines, stationCode: TrackerNetStations): Promise<ITrackerNet.getPredictionDetailed.Root> {
+    async getPredictionDetailed(line: TrackerNetLines | ValueOf<TrackerNetLines>, stationCode: TrackerNetStations | ValueOf<TrackerNetStations>): Promise<ITrackerNet.getPredictionDetailed.Root> {
         if (!line) console.error('You must enter a line code!');
         if (!stationCode) console.error('You must enter a station code!');
         let request = await this.sendRequestTrackerNet(`/PredictionDetailed/${line}/${stationCode}`, 'GET', true);
