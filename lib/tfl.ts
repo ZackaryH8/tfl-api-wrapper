@@ -83,7 +83,7 @@ export default class TfLAPI {
     }
 
     /**
-     * Checl for incidents only
+     * Check for incidents only
      * @param incidentsOnly Boolean to check
      * @ignore
      */
