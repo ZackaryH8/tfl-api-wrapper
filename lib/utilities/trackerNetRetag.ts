@@ -21,9 +21,7 @@ export function trackerNetRetag(xml: string): string {
 
     // Replace xml tags
     for (const tag in tagsToReplace) {
-        console.log(tag + '    ' + tagsToReplace[tag]);
         xml = xml.replace(new RegExp(tag, 'g'), tagsToReplace[tag]);
-        console.log(xml);
     }
     return xml;
 }

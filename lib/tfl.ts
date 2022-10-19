@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as qs from 'querystring';
+import { URLSearchParams } from 'url';
 import * as xmlparser from 'fast-xml-parser';
 import { trackerNetRetag } from './utilities/trackerNetRetag';
 
@@ -26,7 +26,7 @@ export default class TfLAPI {
         Object.keys(params).forEach((key) => (params[key] === undefined ? delete params[key] : {}));
 
         // If Parameters are passed then stringify them and update the request URL
-        if (params) FullURL = `${FullURL}&${qs.stringify(params)}`;
+        if (params) FullURL = `${FullURL}&${new URLSearchParams(params).toString()}`;
 
         const fetch = await axios.get(FullURL, { headers: { Accept: 'application/json', 'cache-control': 'no-cache' } });
         return fetch.data;
@@ -83,7 +83,7 @@ export default class TfLAPI {
     }
 
     /**
-     * Checl for incidents only
+     * Check for incidents only
      * @param incidentsOnly Boolean to check
      * @ignore
      */
