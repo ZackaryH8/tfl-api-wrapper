@@ -7,8 +7,7 @@
     <p align="center">Read the <a href="https://zackaryh8.github.io/tfl-api-wrapper/">Documentation</a></p>
 </p>
 
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ZackaryH8/tfl-api-wrapper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ZackaryH8/tfl-api-wrapper/context:javascript)
-![CI](https://img.shields.io/github/workflow/status/zackaryh8/tfl-api-wrapper/CI/master?label=tfldoc)
+![CI](https://img.shields.io/github/actions/workflow/status/zackaryh8/tfl-api-wrapper/main.yml?branch=master)
 [![NPM Version](https://img.shields.io/npm/v/tfl-api-wrapper)](https://www.npmjs.com/package/tfl-api-wrapper)
 [![Issues](https://img.shields.io/github/issues/ZackaryH8/tfl-api-wrapper)](https://github.com/ZackaryH8/tfl-api-wrapper/issues)
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ZackaryH8/tfl-api-wrapper)
