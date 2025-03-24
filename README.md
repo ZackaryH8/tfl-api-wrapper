@@ -33,10 +33,16 @@ There are many ways to contribute to this repo.
 import { StopPoint } from 'tfl-api-wrapper';
 
 const app_key = 'API KEY HERE'; // Use an environment file
+const app_key_trackernet = 'API KEY HERE'; // Optional: Only required if using Trackernet, Use an environment file
+
 const stopPoint = new StopPoint(app_key)
+const trackerNet = new TrackerNet(_, app_key_trackernet)
 
 const arrivals = await stopPoint.getStationArrivals('940GZZLUKSX');
+const predicitionSummary = await trackerNet.getPredictionSummary(TrackerNetLines.Bakerloo)
+
 console.log(arrivals);
+console.log(predicitionSummary);
 ```
 
 ### Callback
@@ -45,10 +51,17 @@ console.log(arrivals);
 import { StopPoint } from 'tfl-api-wrapper';
 
 const app_key = 'API KEY HERE'; // Use an environment file
+const app_key_trackernet = 'API KEY HERE'; // Optional: Only required if using Trackernet, Use an environment file
+
 const stopPoint = new StopPoint(app_key)
+const trackerNet = new TrackerNet(_, app_key_trackernet)
 
 stopPoint.getStationArrivals('940GZZLUKSX').then((arrivals) => {
-    console.log(arrivals)
+    console.log(arrivals);
+});
+
+const predicitionSummary = trackerNet.getPredictionSummary(TrackerNetLines.Bakerloo).then((summary) => {
+    console.log(summary);
 });
 ```
 
