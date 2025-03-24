@@ -5,7 +5,7 @@ import { trackerNetRetag } from './utilities/trackerNetRetag';
 
 export default class TfLAPI {
     public appKey: string;
-    public appKeyTrackerNet: string;
+    public appKeyTrackerNet?: string;
     private readonly host: string = 'api.tfl.gov.uk';
     private readonly port: number = 443;
 
