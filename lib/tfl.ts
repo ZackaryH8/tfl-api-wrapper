@@ -5,11 +5,13 @@ import { trackerNetRetag } from './utilities/trackerNetRetag';
 
 export default class TfLAPI {
     public appKey: string;
+    public appKeyTrackerNet: string;
     private readonly host: string = 'api.tfl.gov.uk';
     private readonly port: number = 443;
 
-    constructor(appKey: string) {
+    constructor(appKey: string, appKeyTrackerNet?: string) {
         this.appKey = appKey;
+        this.appKeyTrackerNet = appKeyTrackerNet;
     }
 
     /**
@@ -41,7 +43,7 @@ export default class TfLAPI {
      */
     protected async sendRequestTrackerNet(uri: string, method: string, reTag: boolean) {
         // Fetch data and retag the XML if required
-        const fetch = await axios.get(`http://cloud.tfl.gov.uk/TrackerNet${uri}`, { headers: { Accept: 'application/xml', 'cache-control': 'no-cache' } });
+        const fetch = await axios.get(`{this.host}:${this.port}/trackernet${uri}?app_key=${this.appKeyTrackerNet}`, { headers: { Accept: 'application/xml', 'cache-control': 'no-cache' } });
         let xmlData = fetch.data;
 
         if (reTag) xmlData = trackerNetRetag(xmlData);
