@@ -8,7 +8,7 @@ type ValueOf<T> = T[keyof T];
 
 export default class TrackerNet extends TfLAPI {
     constructor(config: string) {
-        super(config);
+        super('', config);
     }
 
     /**
