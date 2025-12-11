@@ -23,7 +23,7 @@
   "author": "zackaryh8",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.2",
+    "axios": "^0.30.2",
     "fast-xml-parser": "^3.19.0",
     "humps": "^2.0.1",
     "trackernet-xml-retag": "^1.0.7"
